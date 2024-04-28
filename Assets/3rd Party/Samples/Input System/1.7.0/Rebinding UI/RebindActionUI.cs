@@ -238,7 +238,6 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         {
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
                 return;
-
             // If the binding is a composite, we need to rebind each part in turn.
             if (action.bindings[bindingIndex].isComposite)
             {
@@ -250,6 +249,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             {
                 PerformInteractiveRebind(action, bindingIndex);
             }
+            action.actionMap.Enable();
         }
 
         private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
@@ -262,13 +262,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation = null;
             }
             // Disable Actions before rebinding
-            action.Disable();
+           // action.Disable();
+            action.actionMap.Disable();
 
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 //  excludes from being binded
                 .WithControlsExcluding("<Pointer>/position")
                 .WithControlsExcluding("<Mouse>/press")
+                .OnMatchWaitForAnother(0.1f)
                 // cancels this action
                 .WithCancelingThrough("<Keyboard>/escape")
                 .OnCancel(
