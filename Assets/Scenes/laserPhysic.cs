@@ -22,25 +22,28 @@ public class LightPhysic : MonoBehaviour
 
         CastLaser(pos, dir);
 
-        Destroy(laserObject, 0.05f);
+        //Destroy(laserObject, 0.05f);
     }
 
-    private void CastLaser(Vector3 pos, Vector3 dir) {
-        laserIndices.Add(pos);
+    private void CastLaser(Vector2 pos, Vector2 dir) {
+        RaycastHit2D hit = Physics2D.Raycast(pos, dir);
+        Debug.DrawLine(transform.position, hit.point);
 
-        Ray2D ray = new Ray2D(pos, dir);
-        RaycastHit2D hit;
+        //laserIndices.Add(pos);
 
-        if (Physics2D.Raycast(ray, out hit, 100, 1)) {
+        /*Ray ray = new Ray(pos, dir);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100, 1)) {
             CheckHit(hit, dir);
         }
         else {
             laserIndices.Add(ray.GetPoint(100));
             UpdateLaser();
-        }
+        }*/
     }
 
-    private void CheckHit(RaycastHit2D hit, Vector3 direction) {
+    private void CheckHit(RaycastHit hit, Vector2 direction) {
         if (hit.collider.tag.Equals("Mirror"))
         {
             Vector3 pos = hit.point;

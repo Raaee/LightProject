@@ -35,6 +35,7 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - FMODUnity
     - FMODUnityResonance
+    - Unity.InputSystem.RebindingUI
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
