@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class laserBeam : MonoBehaviour
 {
+    private LineRenderer lineRenderer;
+    public  Transform laserHit;
     private Vector2 pos;
     private Vector2 dir;
     [SerializeField] private int maxStrength = 10;
@@ -15,6 +17,8 @@ public class laserBeam : MonoBehaviour
 
     private void Start()
     {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = true;
         pos = transform.position;
         dir = Vector2.up;
         //var LightPhysicsInstase = new LightPhysic(new Vector2(0, 0), Vector2.up, 0.5f, 0.5f, Color.red, Color.red);
@@ -28,8 +32,12 @@ public class laserBeam : MonoBehaviour
 
     private void CastLaser()
     {
+        //LineCast also works test!!!
         RaycastHit2D hit = Physics2D.Raycast(pos, dir);
         Debug.DrawLine(pos, dir, Color.red);
+        laserHit.position = hit.point;
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, laserHit.position);
         if (hit) {
             CheckHit(hit);
         }
