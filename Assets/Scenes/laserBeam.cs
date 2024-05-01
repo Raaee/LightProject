@@ -5,20 +5,24 @@ using UnityEngine;
 
 public class laserBeam : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
-    public  Transform laserHit;
+    private LineRenderer laserLineRenderer;
+    //private List<Vector2> laserIndices = new List<Vector2>();
+    private int reflections;
     private Vector2 pos;
     private Vector2 dir;
-    [SerializeField] private int maxStrength = 10;
-    private int currentStrength;
+    [SerializeField] private float maxStrength = 100; 
+    private float currentStrength;
     [SerializeField] private LaserDirection laserDirection = LaserDirection.NORTH;
     private Vector2 v2LaserDirection;
+    Ray2D ray;
 
 
     private void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = true;
+        laserLineRenderer = GetComponent<LineRenderer>();
+        laserLineRenderer.enabled = true;
+        Physics2D.queriesStartInColliders = false;
+        //laserLineRenderer.useWorldSpace = fl;
         pos = transform.position;
         dir = Vector2.up;
         //var LightPhysicsInstase = new LightPhysic(new Vector2(0, 0), Vector2.up, 0.5f, 0.5f, Color.red, Color.red);
@@ -33,13 +37,30 @@ public class laserBeam : MonoBehaviour
     private void CastLaser()
     {
         //LineCast also works test!!!
-        RaycastHit2D hit = Physics2D.Raycast(pos, dir);
+
+        laserLineRenderer.positionCount = 1;
+        laserLineRenderer.SetPosition(0, pos);
+
+        RaycastHit2D hit = Physics2D.Raycast(pos, dir, maxStrength);
+        //Ray2D ray = new Ray2D(pos, dir);
+        currentStrength = maxStrength;
+        Debug.Log(pos);
+        Debug.Log(dir);
         Debug.DrawLine(pos, dir, Color.red);
-        laserHit.position = hit.point;
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, laserHit.position);
-        if (hit) {
-            CheckHit(hit);
+        //laserHit.position = dir;
+        /*laserLineRenderer.SetPosition(0, pos);
+        laserLineRenderer.SetPosition(1, dir);*/
+        for (int i = 0; i < reflections; i++) {
+            laserLineRenderer.positionCount += 1;
+
+            if (hit)
+            {
+                CheckHit(hit);
+            }
+            else {
+                laserLineRenderer.SetPosition(laserLineRenderer.positionCount - 1, transform.position + transform.right * currentStrength);
+                break;
+            }
         }
     }
 
@@ -49,6 +70,7 @@ public class laserBeam : MonoBehaviour
         {
             pos = hit.collider.gameObject.transform.position;
             dir = v2LaserDirection * maxStrength;
+
 
             switch (laserDirection)
             {
@@ -64,13 +86,13 @@ public class laserBeam : MonoBehaviour
                 case LaserDirection.SOUTH_WEST:
                     dir.y = pos.y - maxStrength; break;
             }
-            Debug.Log(dir.y);
-            Debug.Log(dir);
+
+            laserLineRenderer.SetPosition(laserLineRenderer.positionCount - 1, dir);
             Debug.Log("Hit Mirror");
         }
     }
 
-    public void SetLaserDirection(LaserDirection laserDirection) {
+    private void SetLaserDirection(LaserDirection laserDirection) {
         switch (laserDirection)
         {
             case LaserDirection.NORTH:
