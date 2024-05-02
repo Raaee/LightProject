@@ -66,7 +66,7 @@ public class LaserBeam : MonoBehaviour
 
     private void CheckHit(RaycastHit2D hit)
     {
-        if (hit.collider.tag.Equals("Mirror"))
+        if (hit.collider.GetComponent<Pillar>())
         {
             laserPosition = hit.collider.gameObject.transform.position;
             direction = v2LaserDirection * maxStrength;
@@ -92,7 +92,7 @@ public class LaserBeam : MonoBehaviour
         }
     }
 
-    private void SetLaserDirection(LaserDirection laserDirection) {
+    public void SetLaserDirection(LaserDirection laserDirection) {
         switch (laserDirection)
         {
             case LaserDirection.NORTH:
@@ -118,15 +118,4 @@ public class LaserBeam : MonoBehaviour
     public void Test() {
         SetLaserDirection(laserDirection);
     }
-}
-
-public enum LaserDirection {
-    NORTH,
-    NORTH_EAST,
-    NORTH_WEST,
-    EAST,
-    SOUTH,
-    SOUTH_EAST,
-    SOUTH_WEST,
-    WEST
 }

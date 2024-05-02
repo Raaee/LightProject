@@ -1,20 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public string promptMessage; // Message that displays when in range of an interactable
-    
-    [Header("Debug")]
-    // this is so the interaction does not get called a million times per click
-    [SerializeField] protected bool interacted = false; 
+    [SerializeField] private TextMeshProUGUI interactMessageText;
+    public string promptMessage = "E/M2 To Interact"; // Message that displays when in range of an interactable
+    [SerializeField] protected bool oneTimeUse = true;
+    [SerializeField] protected float timeToResetInteractedState = 0.75f;
 
-    // this will be called by player
+    [field: Header("Debug")]
+    [field: SerializeField] public bool Interacted { get; protected set; }
+    // this ^ is so the interaction does not get called a million times per click
+
+    private void Start() {
+        if (oneTimeUse) timeToResetInteractedState = 0f;
+        DisablePromptMessage();
+    }
+
+    // this will be called by interaction system
     public void BaseInteract() {
-        if (interacted) return;
+        if (oneTimeUse && Interacted) return;
+        if (Interacted) return;
         Interact();
-        interacted = true;
+        DisableInteraction();
+        if (!oneTimeUse) {
+            StartCoroutine(ResetInteractionState());
+        }
+    }
+    public void DisableInteraction() {
+        Interacted = true;
+        DisablePromptMessage();
+    }
+    public void EnableInteraction() {
+        Interacted = false;
+    }
+    public void EnablePromptMessage() {
+        interactMessageText.text = promptMessage;
+    }
+    public void DisablePromptMessage() {
+        interactMessageText.text = " ";
+    }
+    public IEnumerator ResetInteractionState() {
+        yield return new WaitForSeconds(timeToResetInteractedState);
+        EnableInteraction();
     }
     protected virtual void Interact() {
         // this will be overridden
