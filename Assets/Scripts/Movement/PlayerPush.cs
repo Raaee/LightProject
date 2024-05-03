@@ -31,7 +31,9 @@ public class PlayerPush : MonoBehaviour
             return;
 
         }
-
+        return;
+        box.transform.position = new Vector2(box.transform.position.x, 0);
+        
         // Physics2D.queriesStartInColliders = false;
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 1f, boxMask);
         if (box.transform.position.x <= lowestPoint.position.x)
@@ -66,6 +68,7 @@ public class PlayerPush : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Box")
+
             {
                 box = collision.gameObject.GetComponent<Rigidbody2D>();
             }
