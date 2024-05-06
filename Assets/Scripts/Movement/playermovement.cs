@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float speed;
     private InputControls playerInput;
-    [SerializeField] private float speed = 10f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
-
     private Vector2 smoothedMovementInput;
     private Vector2 movementInputSmoothVelocity;
     // Start is called before the first frame update
@@ -26,8 +25,4 @@ public class playermovement : MonoBehaviour
         rb.velocity = smoothedMovementInput * speed;
     }
 
-    public Vector2 GetMoveInput()
-    {
-        return moveInput;
-    }
 }
