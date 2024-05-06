@@ -39,9 +39,14 @@ public class PlayerPush : MonoBehaviour
             box.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         // Does not allow the box to go below the lowest point 
-        if (box.transform.position.y > lowestPoint.position.y || box.transform.position.y < highestPoint.position.y)
+        if (box.transform.position.y > lowestPoint.position.y)
         {
             box.transform.position = new Vector2(box.position.x, lowestPoint.position.y);
+            Debug.Log("y");
+        }
+        if (box.transform.position.y < highestPoint.position.y)
+        {
+            box.transform.position = new Vector2(box.position.x, highestPoint.position.y);
             Debug.Log("y");
         }
 
