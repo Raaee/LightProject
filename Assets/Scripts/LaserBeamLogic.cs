@@ -57,10 +57,9 @@ public class LaserBeamLogic : MonoBehaviour
                  laserBeam.DEBUG_ToggleLaserBeam();
              }
             */
-            Debug.Log("doing a hit");
-
+     
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
-            laserDetect?.DetectingTheLaser();
+            laserDetect?.OnLaserDetected();
 
             lineRenderer.SetPosition(1, hit.point);
         }
@@ -85,12 +84,14 @@ public class LaserBeamLogic : MonoBehaviour
         transform.rotation = rotation;
     }
 
-    private void EnableLaser()
+    public void EnableLaser()
     {
         lineRenderer.enabled = true;
+        IsActive = true;
     }
-    private void DisableLaser()
+    public void DisableLaser()
     {
         lineRenderer.enabled = false;
+        IsActive = false;
     }
 }
