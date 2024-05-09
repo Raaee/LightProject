@@ -43,24 +43,11 @@ public class LaserBeamLogic : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, detectingLayerMask);
 
         if(hit)
-        {
-            /*
-             LaserBeamLogic laserBeam = hit.collider.gameObject.GetComponent<LaserBeamLogic>();
-             if (laserBeam == null)
-             {
-                 Debug.Log("laser was null");
-                 return;
-             }
-             if (laserBeam == this) return;
-             if(laserBeam.IsActive == false)
-             {
-                 laserBeam.DEBUG_ToggleLaserBeam();
-             }
-            */
-     
+        {    
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
             laserDetect?.OnLaserDetected();
-
+          //  laserDetect.laserBeam = this;
+            Debug.Log(hit.collider.gameObject.name);
             lineRenderer.SetPosition(1, hit.point);
         }
     }

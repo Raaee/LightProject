@@ -123,38 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &11861725
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 11861726}
-  m_Layer: 0
-  m_Name: Parent Detectir
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &11861726
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11861725}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0800004, y: -0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1542325253}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &291305408
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +216,7 @@ GameObject:
   - component: {fileID: 470955726}
   - component: {fileID: 470955727}
   m_Layer: 0
-  m_Name: Light Beam
+  m_Name: Light Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 470955725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7, y: -2.33, z: 0}
+  m_LocalPosition: {x: -4.84, y: -2.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -287,7 +255,7 @@ MonoBehaviour:
   <IsActive>k__BackingField: 0
   lineRenderer: {fileID: 2006900982}
   firePoint: {fileID: 661804386}
-  laserBeamCardinalDirection: 3
+  laserBeamCardinalDirection: 1
   detectingLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -333,7 +301,7 @@ GameObject:
   - component: {fileID: 572126463}
   - component: {fileID: 572126462}
   m_Layer: 0
-  m_Name: Light Beam (1)
+  m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,10 +335,11 @@ Transform:
   m_GameObject: {fileID: 572126461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5100002, y: -0.07, z: 0}
+  m_LocalPosition: {x: -3.05, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1542325253}
   - {fileID: 1065687411}
   - {fileID: 472575288}
   - {fileID: 1389797834}
@@ -787,7 +756,7 @@ GameObject:
   - component: {fileID: 1542325255}
   - component: {fileID: 1542325256}
   m_Layer: 6
-  m_Name: RandomBlocking Object
+  m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,11 +771,11 @@ Transform:
   m_GameObject: {fileID: 1542325252}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.0299995, y: -0.46999997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 11861726}
+  m_Father: {fileID: 572126463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1542325254
 SpriteRenderer:
@@ -1193,4 +1162,3 @@ SceneRoots:
   - {fileID: 470955726}
   - {fileID: 572126463}
   - {fileID: 1259164143}
-  - {fileID: 11861726}

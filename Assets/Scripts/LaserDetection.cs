@@ -12,6 +12,7 @@ public class LaserDetection : MonoBehaviour
     public LaserBeamLogic laserBeam; 
     private void Start()
     {
+        Physics2D.queriesStartInColliders = false;
         if(!GetComponent<Collider2D>())
         { 
             Debug.LogError("This obj should have a Collider2D");
