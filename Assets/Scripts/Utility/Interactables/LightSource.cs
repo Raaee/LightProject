@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSource : Interactable
+public class LightSource : IInteractable
 {
+    [SerializeField] private LaserBeamLogic laserBeamLogic;
     private bool isOn = false;
-    protected override void Interact() {
+    public override void Interact() {
         laserBeamLogic.ToggleLaserBeam();
         isOn = !isOn;
         Debug.LogWarning("Light Source On: " + isOn);

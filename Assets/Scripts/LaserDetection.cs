@@ -30,7 +30,7 @@ public class LaserDetection : MonoBehaviour
         }
         else
         {
-            Debug.Log("currently activated :) i am seen");
+           
             timer = 0;                                            
         }
     }

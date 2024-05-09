@@ -154,13 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserDetection: {fileID: 0}
+  laserBeamLogic: {fileID: 0}
   interactMessageText: {fileID: 1671267250}
   promptMessage: Rotate
   oneTimeUse: 0
   timeToResetInteractedState: 0.5
   <Interacted>k__BackingField: 0
   cardinalDirection: 0
-  laserDetection: {fileID: 0}
 --- !u!212 &320689095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -957,6 +958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa07a86d9bacf43499ae78ad38984f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserDetection: {fileID: 0}
+  laserBeamLogic: {fileID: 0}
   interactMessageText: {fileID: 1247030797}
   promptMessage: Turn On
   oneTimeUse: 1

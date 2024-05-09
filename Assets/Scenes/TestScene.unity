@@ -671,13 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa07a86d9bacf43499ae78ad38984f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserDetection: {fileID: 0}
-  laserBeamLogic: {fileID: 0}
-  interactMessageText: {fileID: 118867323}
-  promptMessage: Turn On
-  oneTimeUse: 0
-  timeToResetInteractedState: 0.75
-  <Interacted>k__BackingField: 0
+  laserBeamLogic: {fileID: 470955727}
 --- !u!61 &470955729
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -955,14 +949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardinalDirection: 0
   laserDetection: {fileID: 1542325256}
   laserBeamLogic: {fileID: 572126462}
-  interactMessageText: {fileID: 564381886}
-  promptMessage: E/M2 To Interact
-  oneTimeUse: 0
-  timeToResetInteractedState: 0.75
-  <Interacted>k__BackingField: 0
-  cardinalDirection: 0
 --- !u!61 &572126465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1122,14 +1111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardinalDirection: 0
   laserDetection: {fileID: 612298592}
   laserBeamLogic: {fileID: 911819014}
-  interactMessageText: {fileID: 1686184763}
-  promptMessage: E/M2 To Interact
-  oneTimeUse: 0
-  timeToResetInteractedState: 0.75
-  <Interacted>k__BackingField: 0
-  cardinalDirection: 0
 --- !u!1 &661804385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123334519}
   - component: {fileID: 1123334520}
+  - component: {fileID: 1123334521}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -1666,6 +1651,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1123334521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123334518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee4f6945ede047688ac65776d261759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactMessageText: {fileID: 118867323}
+  promptMessage: E/M2 To Interact
 --- !u!1 &1186882238
 GameObject:
   m_ObjectHideFlags: 0

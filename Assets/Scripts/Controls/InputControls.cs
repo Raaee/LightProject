@@ -33,7 +33,6 @@ public class InputControls : MonoBehaviour
         interact.Enable();        
     }
     public void Interact(InputAction.CallbackContext context) {
-        Debug.Log("Input Interact");
         OnInteract.Invoke();
     }
     // this is only for debugging
