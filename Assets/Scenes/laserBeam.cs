@@ -3,20 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class laserBeam : MonoBehaviour
+public class LaserBeam : MonoBehaviour
 {
-    private Vector2 pos;
-    private Vector2 dir;
-    [SerializeField] private int maxStrength = 10;
-    private int currentStrength;
+    private LineRenderer laserLineRenderer;
+    //private List<Vector2> laserIndices = new List<Vector2>();
+    private int reflections;
+    private Vector2 laserPosition;
+    private Vector2 direction;
+    [SerializeField] private float maxStrength = 100; 
+    private float currentStrength;
     [SerializeField] private LaserDirection laserDirection = LaserDirection.NORTH;
     private Vector2 v2LaserDirection;
+    Ray2D ray;
 
 
     private void Start()
     {
-        pos = transform.position;
-        dir = Vector2.up;
+        laserLineRenderer = GetComponent<LineRenderer>();
+        laserLineRenderer.enabled = true;
+        Physics2D.queriesStartInColliders = false;
+        //laserLineRenderer.useWorldSpace = fl;
+        laserPosition = transform.position;
+        direction = Vector2.up;
         //var LightPhysicsInstase = new LightPhysic(new Vector2(0, 0), Vector2.up, 0.5f, 0.5f, Color.red, Color.red);
     }
 
@@ -28,36 +36,58 @@ public class laserBeam : MonoBehaviour
 
     private void CastLaser()
     {
-        RaycastHit2D hit = Physics2D.Raycast(pos, dir);
-        Debug.DrawLine(pos, dir, Color.red);
-        if (hit) {
-            CheckHit(hit);
+        //LineCast also works test!!!
+
+        laserLineRenderer.positionCount = 1;
+        laserLineRenderer.SetPosition(0, laserPosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(laserPosition, direction, maxStrength);
+        //Ray2D ray = new Ray2D(pos, dir);
+        currentStrength = maxStrength;
+        Debug.Log(laserPosition);
+        Debug.Log(direction);
+        Debug.DrawLine(laserPosition, direction, Color.red);
+        //laserHit.position = dir;
+        /*laserLineRenderer.SetPosition(0, pos);
+        laserLineRenderer.SetPosition(1, dir);*/
+        for (int i = 0; i < reflections; i++) {
+            laserLineRenderer.positionCount += 1;
+
+            if (hit)
+            {
+                CheckHit(hit);
+            }
+            else {
+                laserLineRenderer.SetPosition(laserLineRenderer.positionCount - 1, transform.position + transform.right * currentStrength);
+                break;
+            }
         }
     }
 
     private void CheckHit(RaycastHit2D hit)
     {
-        if (hit.collider.tag.Equals("Mirror"))
+        if (hit.collider.GetComponent<Pillar>())
         {
-            pos = hit.collider.gameObject.transform.position;
-            dir = v2LaserDirection * maxStrength;
+            laserPosition = hit.collider.gameObject.transform.position;
+            direction = v2LaserDirection * maxStrength;
+
 
             switch (laserDirection)
             {
                 case LaserDirection.NORTH:
                 case LaserDirection.NORTH_EAST:
                 case LaserDirection.NORTH_WEST:
-                    dir.y = pos.y + maxStrength; break;
+                    direction.y = laserPosition.y + maxStrength; break;
                 case LaserDirection.WEST:
                 case LaserDirection.EAST:
-                    dir.y = pos.y; break;
+                    direction.y = laserPosition.y; break;
                 case LaserDirection.SOUTH:
                 case LaserDirection.SOUTH_EAST:
                 case LaserDirection.SOUTH_WEST:
-                    dir.y = pos.y - maxStrength; break;
+                    direction.y = laserPosition.y - maxStrength; break;
             }
-            Debug.Log(dir.y);
-            Debug.Log(dir);
+
+            laserLineRenderer.SetPosition(laserLineRenderer.positionCount - 1, direction);
             Debug.Log("Hit Mirror");
         }
     }
@@ -88,15 +118,4 @@ public class laserBeam : MonoBehaviour
     public void Test() {
         SetLaserDirection(laserDirection);
     }
-}
-
-public enum LaserDirection {
-    NORTH,
-    NORTH_EAST,
-    NORTH_WEST,
-    EAST,
-    SOUTH,
-    SOUTH_EAST,
-    SOUTH_WEST,
-    WEST
 }
