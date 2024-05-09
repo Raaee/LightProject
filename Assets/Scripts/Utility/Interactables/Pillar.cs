@@ -1,32 +1,34 @@
+using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pillar : Interactable
 {
-    [SerializeField] private LaserDirection laserDirection;
-    [SerializeField] private LaserBeam laserBeam;
+    [SerializeField] private CardinalDirection cardinalDirection;
 
+    private void Start() {
+        laserDetection.OnLaserActive.AddListener(ReflectLaser);
+        laserDetection.OnLaserInactive.AddListener(DisableLaser);
+    }
+    [ProButton]
     protected override void Interact() {
         RotateDirection();
+        Debug.Log("Rotating");
     }
     public void RotateDirection() {
-        int index = (int)laserDirection;
+        int index = (int)cardinalDirection;
         index++;
-        if (index >= System.Enum.GetNames(typeof(LaserDirection)).Length) {
+        if (index >= System.Enum.GetNames(typeof(CardinalDirection)).Length) {
             index = 0;
         }
-        laserDirection = (LaserDirection)index;
-      //  laserBeam.SetLaserDirection(laserDirection);
+        cardinalDirection = (CardinalDirection)index;
+        laserBeamLogic.SetCardinalDirection(cardinalDirection);
     }
-}
-public enum LaserDirection {
-    NORTH,
-    NORTH_EAST,
-    EAST,
-    SOUTH_EAST,
-    SOUTH,
-    SOUTH_WEST,
-    WEST,
-    NORTH_WEST
+    public void ReflectLaser() {
+        laserBeamLogic.EnableLaser();
+    }
+    public void DisableLaser() {
+        laserBeamLogic.DisableLaser();
+    }
 }

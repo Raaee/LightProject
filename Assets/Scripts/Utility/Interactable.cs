@@ -5,9 +5,11 @@ using TMPro;
 
 public abstract class Interactable : MonoBehaviour
 {
+    [SerializeField] protected LaserDetection laserDetection;
+    [SerializeField] protected LaserBeamLogic laserBeamLogic;
     [SerializeField] private TextMeshProUGUI interactMessageText;
     public string promptMessage = "E/M2 To Interact"; // Message that displays when in range of an interactable
-    [SerializeField] protected bool oneTimeUse = true;
+    [SerializeField] protected bool oneTimeUse = false;
     [SerializeField] protected float timeToResetInteractedState = 0.75f;
 
     [field: Header("Debug")]
@@ -17,6 +19,7 @@ public abstract class Interactable : MonoBehaviour
     private void Start() {
         if (oneTimeUse) timeToResetInteractedState = 0f;
         DisablePromptMessage();
+        laserBeamLogic = GetComponent<LaserBeamLogic>();
     }
 
     // this will be called by interaction system

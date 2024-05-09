@@ -21,12 +21,12 @@ public class LaserBeamLogic : MonoBehaviour
 
     private void Update()
     {
-     
-        if (!IsActive) return;
+        if (!IsActive) {
+            DisableLaser();
+            return;
+        }
         UpdateLaser();
-    }
-
-    
+    }   
 
     private void UpdateLaser()
     {
@@ -46,14 +46,12 @@ public class LaserBeamLogic : MonoBehaviour
         {    
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
             laserDetect?.OnLaserDetected();
-          //  laserDetect.laserBeam = this;
-            Debug.Log(hit.collider.gameObject.name);
             lineRenderer.SetPosition(1, hit.point);
         }
     }
 
     [ProButton]
-    public void DEBUG_ToggleLaserBeam()
+    public void ToggleLaserBeam()
     {
         IsActive = !IsActive;
         if (IsActive)
@@ -62,7 +60,9 @@ public class LaserBeamLogic : MonoBehaviour
             DisableLaser();
     }
 
-    
+    public void SetCardinalDirection(CardinalDirection dir) {
+        laserBeamCardinalDirection = dir;
+    }
     private void RotateObject()
     {
         Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);

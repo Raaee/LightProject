@@ -22,6 +22,7 @@ public class InteractionSystem : MonoBehaviour
             if (potentialInteractable == null) return;
            
             lastInteractable = potentialInteractable;
+            Debug.Log(potentialInteractable);
             if (!potentialInteractable.Interacted) {
                 potentialInteractable.EnablePromptMessage();
             }

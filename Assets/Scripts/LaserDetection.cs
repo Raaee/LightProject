@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LaserDetection : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class LaserDetection : MonoBehaviour
     float unDetectedTime = 0.25f;
 
     //Debugging
-    public LaserBeamLogic laserBeam; 
+    public LaserBeamLogic laserBeam;
+    public UnityEvent OnLaserActive;
+    public UnityEvent OnLaserInactive;
     private void Start()
     {
         Physics2D.queriesStartInColliders = false;
@@ -53,11 +56,13 @@ public class LaserDetection : MonoBehaviour
     private void OnLaserDeactivated()
     {
         Debug.Log("Laser deactivated");
-        laserBeam?.DisableLaser();
+        // laserBeam?.DisableLaser();
+        OnLaserInactive.Invoke();
     }
     private void OnLaserStartActivated()
     { 
         Debug.Log("Laser activated");
-        laserBeam?.EnableLaser();
+        // laserBeam?.EnableLaser();
+        OnLaserActive.Invoke();
     }
 }
