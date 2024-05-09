@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pillar : Interactable
+public class Pillar : IInteractable
 {
     [SerializeField] private CardinalDirection cardinalDirection;
+    [SerializeField] private LaserDetection laserDetection;
+    [SerializeField] private LaserBeamLogic laserBeamLogic;
 
     private void Start() {
         laserDetection.OnLaserActive.AddListener(ReflectLaser);
         laserDetection.OnLaserInactive.AddListener(DisableLaser);
     }
     [ProButton]
-    protected override void Interact() {
+    public override void Interact() {
         RotateDirection();
         Debug.Log("Rotating");
     }
