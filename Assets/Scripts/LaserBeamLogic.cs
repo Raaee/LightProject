@@ -11,7 +11,8 @@ public class LaserBeamLogic : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.EAST;
     private Quaternion rotation;
-    [SerializeField]private LayerMask detectingLayerMask;
+    [SerializeField] private LayerMask detectingLayerMask;
+    [SerializeField] public LaserKeys laserKey = LaserKeys.RedLaser;
 
     private void Start()
     {
@@ -58,6 +59,10 @@ public class LaserBeamLogic : MonoBehaviour
             EnableLaser();
         else
             DisableLaser();
+    }
+
+    public LaserKeys GetLaserKey() {
+        return laserKey;
     }
 
     public void SetCardinalDirection(CardinalDirection dir) {

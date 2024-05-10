@@ -13,6 +13,8 @@ public class LaserDetection : MonoBehaviour
     public LaserBeamLogic laserBeam;
     public UnityEvent OnLaserActive;
     public UnityEvent OnLaserInactive;
+    public UnityEvent OnLock;
+    public UnityEvent OnUnlock;
     private void Start()
     {
         Physics2D.queriesStartInColliders = false;
@@ -55,14 +57,19 @@ public class LaserDetection : MonoBehaviour
  
     private void OnLaserDeactivated()
     {
-        Debug.Log("Laser deactivated");
+        //Debug.Log("Laser deactivated");
         // laserBeam?.DisableLaser();
         OnLaserInactive.Invoke();
+        
+        OnLock.Invoke();
     }
     private void OnLaserStartActivated()
     { 
-        Debug.Log("Laser activated");
+        //Debug.Log("Laser activated");
         // laserBeam?.EnableLaser();
         OnLaserActive.Invoke();
+
+        OnUnlock.Invoke();
+        
     }
 }
