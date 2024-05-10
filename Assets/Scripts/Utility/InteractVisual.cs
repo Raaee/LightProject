@@ -6,7 +6,7 @@ using TMPro;
 public class InteractVisual : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI interactMessageText;
-    private const string PROMPT_MESSAGE = "E/M2 To Interact"; // Message that displays when in range of an interactable
+    [SerializeField] private string PROMPT_MESSAGE = "E/M2 To Interact"; // Message that displays when in range of an interactable
     private float playerRangeDistance = 1.625f;
     private Transform playerTransform; 
 
