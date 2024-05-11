@@ -4,19 +4,44 @@ using UnityEngine;
 
 public class DoorLogic : MonoBehaviour
 {
-    [SerializeField] private LaserLock laserLockRed;
-    [SerializeField] private LaserLock laserLockBlue;
+    [SerializeField]private List<ILock> locks;
 
-    private void Update()
+    [SerializeField] private bool isLocked;
+
+    private void Start()
     {
-        if (!laserLockRed.lockStatus && !laserLockBlue.lockStatus)
+        Init();
+    }
+
+    private void Init()
+    {
+        isLocked = true;
+        foreach (ILock alock in locks)
         {
-            Debug.Log("Door Open");
-        }
-        else
-        {
-            Debug.Log("Door Close");
+            alock.lockStatus = true;
+            alock.OnlaserDetected.AddListener(CheckLockStatus);
         }
     }
+
     // In DoorLogic it can cheack the lock status of multiple lock[red, blue, yellow, green] 
+    public void CheckLockStatus() {
+        foreach (ILock alock in locks)
+        {
+            if (alock.lockStatus) {
+                Debug.Log("Door Lock");
+                LockDoor();
+                return;
+            }
+        }
+        UnlockDoor();
+    }
+
+    public void UnlockDoor() {
+        isLocked = false;
+        Debug.Log("Door Unlock");
+    }
+
+    public void LockDoor() {
+        isLocked = true;
+    }
 }
