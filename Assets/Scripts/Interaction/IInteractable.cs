@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public abstract class IInteractable : MonoBehaviour
+
+public interface IInteractable
 {
    public abstract void Interact();
 }

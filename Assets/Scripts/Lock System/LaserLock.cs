@@ -6,18 +6,16 @@ using UnityEngine.Events;
 public class LaserLock : ILock
 {
 
+  
     [SerializeField] private LaserKeys laserKey;
     [SerializeField] private LaserDetection laserDetection;
     [SerializeField] private LaserBeamLogic laserBeam;
-    //public bool lockStatus;
-
-    public UnityEvent OnlaserNotDetected;
+    public bool IsLocked { get; set; }
 
     private void Start()
     {
-        lockStatus = true; //The lock will always be on statusLock. False is unlock
-        laserDetection.OnUnlock.AddListener(Unlock);
-        laserDetection.OnLock.AddListener(Lock);
+        laserDetection.OnLaserActive.AddListener(Unlock);
+        laserDetection.OnLaserInactive.AddListener(Lock);
 
     }
 
@@ -25,15 +23,14 @@ public class LaserLock : ILock
     {
         if (laserBeam.GetLaserKey().Equals(laserKey))
         {
-            lockStatus = false;
+            IsLocked = false;
         }
         OnlaserDetected.Invoke();
     }
 
     public override void Lock()
     {
-        Debug.Log("locking");
-        lockStatus = true;
+        IsLocked = true;
         OnlaserDetected.Invoke();
     }
 }
