@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pillar : IInteractable
+public class Pillar : MonoBehaviour, IInteractable
 {
     [SerializeField] private CardinalDirection cardinalDirection;
     [SerializeField] private LaserDetection laserDetection;
@@ -14,17 +14,16 @@ public class Pillar : IInteractable
         laserDetection.OnLaserInactive.AddListener(DisableLaser);
     }
     [ProButton]
-    public override void Interact() {
+    public void Interact() {
         RotateDirection();
-        Debug.Log("Rotating");
     }
     public void RotateDirection() {
-        int index = (int)cardinalDirection;
-        index++;
-        if (index >= System.Enum.GetNames(typeof(CardinalDirection)).Length) {
-            index = 0;
+        int cardinalDirIndex = (int)cardinalDirection;
+        cardinalDirIndex++;
+        if (cardinalDirIndex >= System.Enum.GetNames(typeof(CardinalDirection)).Length) {
+            cardinalDirIndex = 0;
         }
-        cardinalDirection = (CardinalDirection)index;
+        cardinalDirection = (CardinalDirection)cardinalDirIndex;
         laserBeamLogic.SetCardinalDirection(cardinalDirection);
     }
     public void ReflectLaser() {

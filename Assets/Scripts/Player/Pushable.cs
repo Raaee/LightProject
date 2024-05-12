@@ -7,14 +7,14 @@ using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 using Vector2 = UnityEngine.Vector2;
 
-public class PlayerPush : MonoBehaviour
+public class Pushable : MonoBehaviour
 {
     private Rigidbody2D box;
-    [SerializeField] private bool isHorizontal = true;
+    [SerializeField] private PushDirection pushDirection = PushDirection.HORIZONTAL;
     [SerializeField] private float pushableRange = 2f;
-    public Transform initialPosition;
-    public Vector2 lowestPoint; // left OR bottom
-    public Vector2 highestPoint; // right OR top
+    private Transform initialPosition;
+    private Vector2 lowestPoint; // left OR bottom
+    private Vector2 highestPoint; // right OR top
 
     private void Awake()
     {
@@ -24,13 +24,20 @@ public class PlayerPush : MonoBehaviour
         initialPosition = transform;
         SetPoints();        
     }
-    //Movement of the box when the player is pushing it
     void Update()
     {
-        if (isHorizontal == true)
-            DoHorizontal();
-        else
-            DoVertical();
+        switch (pushDirection)
+        {
+            case PushDirection.HORIZONTAL:
+                DoHorizontal();
+                break;
+            case PushDirection.VERTICAL:
+                DoVertical();
+                break;
+            default:
+                Debug.LogError("Not supposed to be here!");
+                break;
+        }
     }
 
     private void DoHorizontal()
@@ -67,13 +74,18 @@ public class PlayerPush : MonoBehaviour
         }
     }
     private void SetPoints() {
-        if (isHorizontal == true) {
-            lowestPoint = new Vector2(initialPosition.position.x - pushableRange, initialPosition.position.y);
-            highestPoint = new Vector2(initialPosition.position.x + pushableRange, initialPosition.position.y);
-        }
-        else {
-            lowestPoint = new Vector2(initialPosition.position.x, initialPosition.position.y - pushableRange);
-            highestPoint = new Vector2(initialPosition.position.x, initialPosition.position.y + pushableRange);
+        switch (pushDirection)
+        {
+            case PushDirection.HORIZONTAL:
+                lowestPoint = new Vector2(initialPosition.position.x - pushableRange, initialPosition.position.y);
+                highestPoint = new Vector2(initialPosition.position.x + pushableRange, initialPosition.position.y);
+                break;
+            case PushDirection.VERTICAL:
+                lowestPoint = new Vector2(initialPosition.position.x, initialPosition.position.y - pushableRange);
+                highestPoint = new Vector2(initialPosition.position.x, initialPosition.position.y + pushableRange);
+                break;
+            default:
+                break;
         }
     }
 
@@ -88,6 +100,12 @@ public class PlayerPush : MonoBehaviour
         Gizmos.DrawLine(lowestPoint, highestPoint);
     }
 
+}
+
+public enum PushDirection
+{
+    HORIZONTAL,
+    VERTICAL
 }
 
 

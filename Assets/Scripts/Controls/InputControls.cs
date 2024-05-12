@@ -16,7 +16,6 @@ public class InputControls : MonoBehaviour
     }
     private void Update() {
         interact.performed += Interact;
-        //movement.performed += Move;
     }
     public void OnEnable() {
         movement = playerControls.Player.Move;
@@ -34,10 +33,5 @@ public class InputControls : MonoBehaviour
     }
     public void Interact(InputAction.CallbackContext context) {
         OnInteract.Invoke();
-    }
-    // this is only for debugging
-    public void Move(InputAction.CallbackContext context) {
-        // Debug.Log(context.control.displayName);
-       // Debug.Log("Moving");
     }
 }

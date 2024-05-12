@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField][Range(1f, 20f)] private float speed = 10f;
     private InputControls playerInput;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Vector2 smoothedMovementInput;
     private Vector2 movementInputSmoothVelocity;
+    private const float SMOOTH_TIME = 0.1f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         moveInput = playerInput.movement.ReadValue<Vector2>();
-        smoothedMovementInput = Vector2.SmoothDamp(smoothedMovementInput, moveInput, ref movementInputSmoothVelocity, 0.1f);
+        smoothedMovementInput = Vector2.SmoothDamp(smoothedMovementInput, moveInput, ref movementInputSmoothVelocity, SMOOTH_TIME);
         rb.velocity = smoothedMovementInput * speed;
     }
 
