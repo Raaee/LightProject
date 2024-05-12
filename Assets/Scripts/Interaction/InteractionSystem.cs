@@ -21,7 +21,7 @@ public class InteractionSystem : MonoBehaviour
         foreach (Collider2D col in collidersInRange) {
             IInteractable potentialInteractable = col.gameObject.GetComponent<IInteractable>();
             if (potentialInteractable == null) {
-                Debug.Log("no IIinteractable on " + col.gameObject.name + " brody");
+              
                 continue;
             }
             potentialInteractable.Interact();

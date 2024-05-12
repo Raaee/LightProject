@@ -12,7 +12,7 @@ public class LaserBeamLogic : MonoBehaviour
     [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.EAST;
     private Quaternion rotation;
     [SerializeField] private LayerMask detectingLayerMask;
-    [SerializeField] public LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
+    [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
 
     private void Start()
     {

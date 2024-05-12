@@ -549,17 +549,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  laserBeam: {fileID: 911819014}
   OnLaserActive:
     m_PersistentCalls:
       m_Calls: []
   OnLaserInactive:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLock:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnlock:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &612298593
@@ -1000,7 +993,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locks:
   - {fileID: 443847171}
-  - {fileID: 0}
   isLocked: 0
 --- !u!212 &1401678337
 SpriteRenderer:
