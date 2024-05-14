@@ -38,11 +38,11 @@ public class DoorLogic : MonoBehaviour
 
     public void UnlockDoor() {
         isLocked = false;
-        Debug.Log("Door Unlocked? " + isLocked);
+        Debug.Log("Door locked? " + isLocked);
     }
 
     public void LockDoor() {
         isLocked = true;
-        Debug.Log("Door Unlocked? " + isLocked);
+        Debug.Log("Door locked? " + isLocked);
     }
 }
