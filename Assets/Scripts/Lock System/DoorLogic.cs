@@ -16,16 +16,15 @@ public class DoorLogic : MonoBehaviour
     private void Init()
     {
         isLocked = true;
-        foreach (LaserLock alock in locks)
-        {
-            alock.IsLocked = true;
-            alock.OnlaserDetected.AddListener(CheckLockStatus);
+        foreach (ILock alock in locks)
+        {        
+            alock.OnInputDetection.AddListener(CheckLockStatus);
         }
     }
 
     // In DoorLogic it can cheack the lock status of multiple lock[red, blue, yellow, green] 
     public void CheckLockStatus() {
-        foreach (LaserLock alock in locks)
+        foreach (ILock alock in locks)
         {
             if (alock.IsLocked) {
                 Debug.Log("Door Lock");
