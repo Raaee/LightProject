@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23340177906957218}
   - component: {fileID: 5228791203847564121}
   m_Layer: 0
-  m_Name: Square Light Source
+  m_Name: Circle Light Source
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   detectingLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  laserKey: 2
+  laserKey: 1
 --- !u!114 &5228791203847564121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +489,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -524064182, guid: 926adc2c240a2104e85a39c336353415, type: 3}
+  m_Sprite: {fileID: 1241197141, guid: 6f127f59a4a4ba14794c186e15f33a94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -513,6 +513,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactMessageText: {fileID: 6735285571725159843}
+  PROMPT_MESSAGE: E/M2 To Interact
+  playerRangeDistance: 1.625
 --- !u!1 &6575141163561231941
 GameObject:
   m_ObjectHideFlags: 0
