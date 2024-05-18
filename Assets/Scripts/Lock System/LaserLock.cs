@@ -16,7 +16,13 @@ public class LaserLock : ILock
     }
     public override void Unlock() //This only send it unlock information to the DoorLogic
     {
-        if (laserBeam.GetLaserKey().Equals(laserKey))
+        if (laserBeam.GetLaserType() == LaserKeys.NONE || laserKey == LaserKeys.NONE)
+        {
+            Debug.LogError("The incoming laserbeam type or the LaserLock type hasnt been set in the inspector ", this.gameObject);
+            return;
+        }
+
+        if (laserBeam.GetLaserType().Equals(laserKey))
         {
             IsLocked = false;
         }

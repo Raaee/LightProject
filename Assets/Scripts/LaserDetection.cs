@@ -12,7 +12,9 @@ public class LaserDetection : MonoBehaviour
     
     [HideInInspector] public UnityEvent OnLaserActive;
     [HideInInspector] public UnityEvent OnLaserInactive;
-    
+    private LaserKeys laserType = LaserKeys.NONE;
+
+
     private void Start()
     {
         Physics2D.queriesStartInColliders = false;
@@ -21,7 +23,7 @@ public class LaserDetection : MonoBehaviour
             Debug.LogError("This obj should have a Collider2D");
         }
     }
-    public void OnLaserDetected() 
+    public void OnLaserDetected(LaserKeys laserType) 
     {
         if (isActivated == false)
         {
@@ -32,6 +34,7 @@ public class LaserDetection : MonoBehaviour
         {          
             timer = 0;                                            
         }
+        this.laserType = laserType;
     }
 
     private void Update()

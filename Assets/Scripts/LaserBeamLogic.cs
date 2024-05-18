@@ -46,7 +46,7 @@ public class LaserBeamLogic : MonoBehaviour
         if(hit)
         {    
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
-            laserDetect?.OnLaserDetected();
+            laserDetect?.OnLaserDetected(laserKey);
             lineRenderer.SetPosition(1, hit.point);
         }
     }
@@ -61,7 +61,7 @@ public class LaserBeamLogic : MonoBehaviour
             DisableLaser();
     }
 
-    public LaserKeys GetLaserKey() {
+    public LaserKeys GetLaserType() {
         return laserKey;
     }
 
