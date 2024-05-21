@@ -2,6 +2,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class LaserBeamLogic : MonoBehaviour
@@ -16,6 +17,7 @@ public class LaserBeamLogic : MonoBehaviour
 
     private void Start()
     {
+        LaserStrength = 10f;
         IsActive = false;
         DisableLaser();
     }
@@ -32,9 +34,8 @@ public class LaserBeamLogic : MonoBehaviour
     private void UpdateLaser()
     {
         RotateObject();
-        //invisible point far away is what we are setting the second point to
-        float offsetDistance = 15f;
-        Vector2 offsetPosition = Utility.GetOffsetPosition(transform.position, offsetDistance, laserBeamCardinalDirection);
+        // laserStrength would be an invisible point far away is what we are setting the second point to        
+        Vector2 offsetPosition = Utility.GetOffsetPosition(transform.position, LaserStrength, laserBeamCardinalDirection); UnityEngine.Debug.Log(offsetPosition);
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, offsetPosition);
@@ -48,6 +49,7 @@ public class LaserBeamLogic : MonoBehaviour
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
             laserDetect?.OnLaserDetected(laserKey);
             lineRenderer.SetPosition(1, hit.point);
+            UnityEngine.Debug.Log("Hit " + hit.point);
         }
     }
 
