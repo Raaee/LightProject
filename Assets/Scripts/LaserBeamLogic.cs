@@ -7,18 +7,23 @@ using UnityEngine;
 
 public class LaserBeamLogic : MonoBehaviour
 {
-   [field: SerializeField] public bool IsActive { get; set; }
+    [SerializeField] private LayerMask detectingLayerMask;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform rotateObj;
+    [field: SerializeField] public bool IsActive { get; set; }
+    [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
     [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.EAST;
     private Quaternion rotation;
-    [SerializeField] private LayerMask detectingLayerMask;
-    [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
 
     private void Start()
     {
         LaserStrength = 10f;
         IsActive = false;
+        Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rotation.eulerAngles = new Vector3(0, 0, angle);
+        rotateObj.transform.rotation = rotation;
         DisableLaser();
     }
 
@@ -75,7 +80,7 @@ public class LaserBeamLogic : MonoBehaviour
         Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotation.eulerAngles = new Vector3(0, 0, angle);
-        transform.rotation = rotation;
+        rotateObj.transform.rotation = rotation;
     }
 
     public void EnableLaser()
