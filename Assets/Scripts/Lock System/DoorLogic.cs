@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DoorLogic : MonoBehaviour
 {
-    [SerializeField]private List<ILock> locks;
+    [SerializeField] private Door door;
+    [SerializeField] private List<ILock> locks;
 
     [SerializeField] private bool isLocked;
 
@@ -37,11 +38,13 @@ public class DoorLogic : MonoBehaviour
 
     public void UnlockDoor() {
         isLocked = false;
+        door.Visual.PlayOpen();
         Debug.Log("Door locked? " + isLocked);
     }
 
     public void LockDoor() {
         isLocked = true;
+        door.Visual.PlayClose();
         Debug.Log("Door locked? " + isLocked);
     }
 }

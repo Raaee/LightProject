@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2470124917436087880}
   - component: {fileID: 6679785817430664122}
   - component: {fileID: 5247071101382560817}
+  - component: {fileID: 2053766522639191097}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -99,8 +100,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1bd76bcb5452a479c8cbafea345e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 0}
   locks: []
   isLocked: 0
+--- !u!114 &2053766522639191097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356737313196847115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74efcadba1acd1d4783c99219399fc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Visual>k__BackingField: {fileID: 7222770255006732621}
+  isPortal: 0
 --- !u!1 &1665323178352345107
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +228,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2895930942362207411}
+  - component: {fileID: 7182739985924143861}
+  - component: {fileID: 7222770255006732621}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -234,6 +252,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2470124917436087880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7182739985924143861
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852950148921007696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 160adeae294d30b41bc78f2d584e216f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7222770255006732621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852950148921007696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403123e39d3fefd4389889f94ea17a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: {fileID: 7400000, guid: fcc601fa992b2ec48aaa4edf70db8626, type: 2}
+  close: {fileID: 7400000, guid: 879072ab3a9a36b47af4ef7bab59329f, type: 2}
 --- !u!1 &8217282728210121660
 GameObject:
   m_ObjectHideFlags: 0
