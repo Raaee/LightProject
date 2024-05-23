@@ -6,8 +6,8 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     [SerializeField] private int inventorySpace = 1;
+    [SerializeField] private float itemHoldOffset = -0.5f;
     [field:SerializeField] public GameObject inventory { get; private set; }
-    [SerializeField] private float itemHoldOffset = 1.5f;
     private InputControls inputControls;
 
     void Awake() {

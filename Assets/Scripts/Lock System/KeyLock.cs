@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class KeyLock : ILock,IInteractable
+public class KeyLock : ILock, IInteractable
 {
     void Start()
     {

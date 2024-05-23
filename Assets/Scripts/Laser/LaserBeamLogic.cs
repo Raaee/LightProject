@@ -1,8 +1,4 @@
 using com.cyborgAssets.inspectorButtonPro;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class LaserBeamLogic : MonoBehaviour
@@ -53,7 +49,10 @@ public class LaserBeamLogic : MonoBehaviour
         if(hit)
         {    
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
+            LaserBeamLogic beam = hit.collider.gameObject.GetComponentInChildren<LaserBeamLogic>();
             laserDetect?.OnLaserDetected(laserKey);
+            laserKey = laserDetect.GetLaserType();
+            if (beam) beam.laserKey = laserKey;
             lineRenderer.SetPosition(1, hit.point);
         }
     }

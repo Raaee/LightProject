@@ -349,7 +349,7 @@ MonoBehaviour:
   firePoint: {fileID: 867955036057958250}
   rotateObj: {fileID: 153542518293433394}
   <IsActive>k__BackingField: 0
-  laserKey: 1
+  laserKey: 0
   laserBeamCardinalDirection: 3
   <LaserStrength>k__BackingField: 0
 --- !u!61 &6131741460046590488
@@ -526,8 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee4f6945ede047688ac65776d261759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactMessageText: {fileID: 0}
-  PROMPT_MESSAGE: Rotate
   playerRangeDistance: 1.625
 --- !u!114 &1589300913993879778
 MonoBehaviour:

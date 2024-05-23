@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200017be8bbc5b64ea20ea20cb897e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 6
 --- !u!114 &2303505215579598258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,4 +309,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySpace: 1
+  itemHoldOffset: -0.5
   <inventory>k__BackingField: {fileID: 0}

@@ -16,18 +16,13 @@ public class LaserLock : ILock
     }
     public override void Unlock() //This only send it unlock information to the DoorLogic
     {
-        if (laserBeam.GetLaserType() == LaserKeys.NONE || laserKey == LaserKeys.NONE)
-        {
-            Debug.LogError("The incoming laserbeam type or the LaserLock type hasnt been set in the inspector ", this.gameObject);
-            return;
-        }
-
-        if (laserBeam.GetLaserType() == laserKey)
+        if (laserDetection.GetLaserType() == laserKey)
         {
             IsLocked = false;
-            Debug.Log("beam: " + laserBeam.GetLaserType());
-            Debug.Log("key: " + laserKey);
             visual.UnlockSprite();
+        }
+        if (laserDetection.GetLaserType() == LaserKeys.NONE || laserKey == LaserKeys.NONE) {
+            Debug.LogError("The incoming laserbeam type or the LaserLock type hasnt been set in the inspector ", this.gameObject);
         }
         OnInputDetection.Invoke();
     }
@@ -36,9 +31,6 @@ public class LaserLock : ILock
         IsLocked = true;
         visual.LockSprite();
         OnInputDetection.Invoke();
-    }
-    public void SetLaserBeam(LaserBeamLogic beam) {
-        laserBeam = beam;
     }
 }
 

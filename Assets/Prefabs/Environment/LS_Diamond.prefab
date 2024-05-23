@@ -69,7 +69,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0031689703, y: -0.21444428}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -80,7 +80,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.742161, y: 1.2179639}
   m_EdgeRadius: 0
 --- !u!114 &23340177906957218
 MonoBehaviour:
@@ -245,8 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee4f6945ede047688ac65776d261759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactMessageText: {fileID: 0}
-  PROMPT_MESSAGE: E/M2 To Interact
   playerRangeDistance: 1.625
 --- !u!1 &6575141163561231941
 GameObject:
