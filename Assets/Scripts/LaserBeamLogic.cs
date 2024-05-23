@@ -13,10 +13,14 @@ public class LaserBeamLogic : MonoBehaviour
     private Quaternion rotation;
     [SerializeField] private LayerMask detectingLayerMask;
     [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
+    [SerializeField] private Transform rotateObj;
 
     private void Start()
     {
-        IsActive = false;
+        Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rotation.eulerAngles = new Vector3(0, 0, angle);
+        rotateObj.transform.rotation = rotation;
         DisableLaser();
     }
 
@@ -73,7 +77,7 @@ public class LaserBeamLogic : MonoBehaviour
         Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotation.eulerAngles = new Vector3(0, 0, angle);
-        transform.rotation = rotation;
+        rotateObj.transform.rotation = rotation;
     }
 
     public void EnableLaser()
