@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class LaserBeamLogic : MonoBehaviour
 {
-   [field: SerializeField] public bool IsActive { get; set; }
+    [SerializeField] private LayerMask detectingLayerMask;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform rotateObj;
+    [field: SerializeField] public bool IsActive { get; set; }
+    [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
     [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.EAST;
     private Quaternion rotation;
-    [SerializeField] private LayerMask detectingLayerMask;
-    [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
-    [SerializeField] private Transform rotateObj;
 
     private void Start()
     {
