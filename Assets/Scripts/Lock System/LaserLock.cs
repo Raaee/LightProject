@@ -22,16 +22,23 @@ public class LaserLock : ILock
             return;
         }
 
-        if (laserBeam.GetLaserType().Equals(laserKey))
+        if (laserBeam.GetLaserType() == laserKey)
         {
             IsLocked = false;
+            Debug.Log("beam: " + laserBeam.GetLaserType());
+            Debug.Log("key: " + laserKey);
+            visual.UnlockSprite();
         }
         OnInputDetection.Invoke();
     }
     public override void Lock()
     {
         IsLocked = true;
+        visual.LockSprite();
         OnInputDetection.Invoke();
+    }
+    public void SetLaserBeam(LaserBeamLogic beam) {
+        laserBeam = beam;
     }
 }
 

@@ -13,12 +13,13 @@ public class LaserBeamLogic : MonoBehaviour
     [SerializeField] private Transform rotateObj;
     [field: SerializeField] public bool IsActive { get; set; }
     [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
-    [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.EAST;
+    [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.SOUTH;
+    [field: SerializeField] public float LaserStrength { get; set; }
     private Quaternion rotation;
 
     private void Start()
     {
-        LaserStrength = 10f;
+        LaserStrength = 7f;
         IsActive = false;
         Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -40,7 +41,7 @@ public class LaserBeamLogic : MonoBehaviour
     {
         RotateObject();
         // laserStrength would be an invisible point far away is what we are setting the second point to        
-        Vector2 offsetPosition = Utility.GetOffsetPosition(transform.position, LaserStrength, laserBeamCardinalDirection); UnityEngine.Debug.Log(offsetPosition);
+        Vector2 offsetPosition = Utility.GetOffsetPosition(transform.position, LaserStrength, laserBeamCardinalDirection);
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, offsetPosition);
@@ -54,7 +55,6 @@ public class LaserBeamLogic : MonoBehaviour
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
             laserDetect?.OnLaserDetected(laserKey);
             lineRenderer.SetPosition(1, hit.point);
-            UnityEngine.Debug.Log("Hit " + hit.point);
         }
     }
 

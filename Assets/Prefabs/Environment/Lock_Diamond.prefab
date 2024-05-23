@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156074854111215170}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -67,7 +67,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000023841858, y: 0.4569453}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -78,7 +78,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7592149, y: 0.43634295}
   m_EdgeRadius: 0
 --- !u!114 &2089317157671770450
 MonoBehaviour:
@@ -230,8 +230,9 @@ MonoBehaviour:
   OnInputDetection:
     m_PersistentCalls:
       m_Calls: []
+  visual: {fileID: 5344357899454250213}
   <IsLocked>k__BackingField: 0
-  laserKey: 0
+  laserKey: 4
   laserDetection: {fileID: 2089317157671770450}
   laserBeam: {fileID: 0}
 --- !u!1 &8757631509701078464
@@ -244,6 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 678971640296452536}
   - component: {fileID: 4255498348081468863}
+  - component: {fileID: 5344357899454250213}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -319,3 +321,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5344357899454250213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757631509701078464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debe661db789119499682e5ca851f1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  symbol_SR: {fileID: 3181600876782435491}
+  lockedSprite: {fileID: 1044816407, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedSprite: {fileID: -2113928166, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  symbolLockedSprite: {fileID: -2050024559, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  symbolUnlockedSprite: {fileID: -103024939, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}

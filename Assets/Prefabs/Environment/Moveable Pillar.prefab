@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f75077fe0223da548a25a0458fc268f7, type: 2}
+  - {fileID: 2100000, guid: 0da0f3f00b36f3e448cf2ce57f93f918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,7 +205,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0018548965, y: -0.06492913}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.4699955, y: 0.87014174}
   m_EdgeRadius: 0
 --- !u!50 &693142070370978636
 Rigidbody2D:
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af661967cd62e1438f4ef52c1f87887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushDirection: 0
+  pushDirection: 1
   pushableRange: 5
 --- !u!1 &5754010746689047130
 GameObject:
@@ -329,6 +329,7 @@ MonoBehaviour:
   cardinalDirection: 0
   laserDetection: {fileID: 5633904253041462524}
   laserBeamLogic: {fileID: 6925727396905303351}
+  visual: {fileID: 1589300913993879778}
 --- !u!114 &6925727396905303351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,15 +342,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a5c3fd5f7c6db4a9e17eccde8b2359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsActive>k__BackingField: 0
-  lineRenderer: {fileID: 9012548016006800684}
-  firePoint: {fileID: 867955036057958250}
-  laserBeamCardinalDirection: 3
   detectingLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  laserKey: 1
+  lineRenderer: {fileID: 9012548016006800684}
+  firePoint: {fileID: 867955036057958250}
   rotateObj: {fileID: 153542518293433394}
+  <IsActive>k__BackingField: 0
+  laserKey: 1
+  laserBeamCardinalDirection: 3
+  <LaserStrength>k__BackingField: 0
 --- !u!61 &6131741460046590488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -382,7 +384,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0010230541, y: -0.4683311}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -393,7 +395,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.67943335, y: 0.55023694}
   m_EdgeRadius: 0
 --- !u!1 &6127831241264116511
 GameObject:
@@ -437,6 +439,7 @@ GameObject:
   - component: {fileID: 3144904430976154868}
   - component: {fileID: 4937099338489645165}
   - component: {fileID: 7318807095911916874}
+  - component: {fileID: 1589300913993879778}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -526,3 +529,24 @@ MonoBehaviour:
   interactMessageText: {fileID: 0}
   PROMPT_MESSAGE: Rotate
   playerRangeDistance: 1.625
+--- !u!114 &1589300913993879778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809380132609189754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4acd0158894be024ca8807f8242c556c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillarRotationSprites:
+  - {fileID: -1594139935, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 374077335, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: -2045604602, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 931923882, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: -1903980554, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: -1393763337, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 123867870, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 1688660167, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}

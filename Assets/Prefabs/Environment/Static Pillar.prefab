@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f75077fe0223da548a25a0458fc268f7, type: 2}
+  - {fileID: 2100000, guid: 0da0f3f00b36f3e448cf2ce57f93f918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +203,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003312111, y: 0.030635789}
+  m_Offset: {x: 0.0016762018, y: -0.0667842}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -214,7 +214,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.576067, y: 0.6837063}
+  m_Size: {x: 0.44861817, y: 0.8664316}
   m_EdgeRadius: 0
 --- !u!114 &5633904253041462524
 MonoBehaviour:
@@ -244,9 +244,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6522212500192106539}
+  - component: {fileID: 6131741460046590488}
   - component: {fileID: 7639526096038655746}
   - component: {fileID: 6925727396905303351}
-  - component: {fileID: 6131741460046590488}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -271,42 +271,6 @@ Transform:
   - {fileID: 153542518293433394}
   m_Father: {fileID: 4484804502834691750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7639526096038655746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5754010746689047130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardinalDirection: 0
-  laserDetection: {fileID: 5633904253041462524}
-  laserBeamLogic: {fileID: 6925727396905303351}
---- !u!114 &6925727396905303351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5754010746689047130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a5c3fd5f7c6db4a9e17eccde8b2359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <IsActive>k__BackingField: 0
-  lineRenderer: {fileID: 9012548016006800684}
-  firePoint: {fileID: 867955036057958250}
-  laserBeamCardinalDirection: 3
-  detectingLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  laserKey: 1
-  rotateObj: {fileID: 153542518293433394}
 --- !u!61 &6131741460046590488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -339,7 +303,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0008280277, y: 0.026495844}
+  m_Offset: {x: 0.003951907, y: -0.4683311}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -350,8 +314,46 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5578513, y: 0.6853624}
+  m_Size: {x: 0.68698525, y: 0.55023694}
   m_EdgeRadius: 0
+--- !u!114 &7639526096038655746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754010746689047130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardinalDirection: 0
+  laserDetection: {fileID: 5633904253041462524}
+  laserBeamLogic: {fileID: 6925727396905303351}
+  visual: {fileID: 5543903175626692658}
+--- !u!114 &6925727396905303351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754010746689047130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a5c3fd5f7c6db4a9e17eccde8b2359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectingLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  lineRenderer: {fileID: 9012548016006800684}
+  firePoint: {fileID: 867955036057958250}
+  rotateObj: {fileID: 153542518293433394}
+  <IsActive>k__BackingField: 0
+  laserKey: 1
+  laserBeamCardinalDirection: 3
+  <LaserStrength>k__BackingField: 0
 --- !u!1 &6127831241264116511
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 6127831241264116511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.044, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,6 +396,7 @@ GameObject:
   - component: {fileID: 3144904430976154868}
   - component: {fileID: 4937099338489645165}
   - component: {fileID: 1119341187811408496}
+  - component: {fileID: 5543903175626692658}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -483,3 +486,24 @@ MonoBehaviour:
   interactMessageText: {fileID: 0}
   PROMPT_MESSAGE: Rotate
   playerRangeDistance: 1.625
+--- !u!114 &5543903175626692658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809380132609189754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4acd0158894be024ca8807f8242c556c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillarRotationSprites:
+  - {fileID: -2112976587, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: -991450749, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 1760583979, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 1527849646, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: -1658926347, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 798187017, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 602747405, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  - {fileID: 1185946616, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}

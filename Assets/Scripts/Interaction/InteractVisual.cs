@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class InteractVisual : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI interactMessageText;
-    [SerializeField] private string PROMPT_MESSAGE = "E/M2 To Interact"; // Message that displays when in range of an interactable
+   // [SerializeField] private TextMeshProUGUI interactMessageText;
+  //  [SerializeField] private string PROMPT_MESSAGE = "E/M2 To Interact"; // Message that displays when in range of an interactable
     [SerializeField] [Range(1.0f, 2.0f)] private float playerRangeDistance = 1.625f;
     private Transform playerTransform; 
 
@@ -28,11 +28,11 @@ public class InteractVisual : MonoBehaviour
     }
     private void EnablePromptMessage()
     {
-        interactMessageText.text = PROMPT_MESSAGE;
+       // interactMessageText.text = PROMPT_MESSAGE;
     }
 
     private void DisablePromptMessage()
     {
-        interactMessageText.text = " ";
+      //  interactMessageText.text = " ";
     }
 }

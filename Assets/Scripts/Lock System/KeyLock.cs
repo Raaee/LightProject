@@ -22,10 +22,12 @@ public class KeyLock : ILock,IInteractable
     public override void Unlock()
     {
         IsLocked = false;
+        visual.UnlockSprite();
     }
     public override void Lock()
     {
         IsLocked = true;
+        visual.LockSprite();
     }
 
 }
