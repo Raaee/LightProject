@@ -93,17 +93,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  laserBeam: {fileID: 0}
   OnLaserActive:
     m_PersistentCalls:
       m_Calls: []
   OnLaserInactive:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLock:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnlock:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2373104992293721450
@@ -117,7 +110,7 @@ GameObject:
   - component: {fileID: 4600020025573938629}
   - component: {fileID: 4003244912179299671}
   m_Layer: 6
-  m_Name: LaserLockSquare
+  m_Name: LaserLockCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,16 +143,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3689e4744c547184b997f58b230551b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockStatus: 0
-  OnlaserDetected:
+  OnInputDetection:
     m_PersistentCalls:
       m_Calls: []
+  <IsLocked>k__BackingField: 0
   laserKey: 1
   laserDetection: {fileID: 2089317157671770450}
   laserBeam: {fileID: 0}
-  OnlaserNotDetected:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4410374117834600576
 GameObject:
   m_ObjectHideFlags: 0
