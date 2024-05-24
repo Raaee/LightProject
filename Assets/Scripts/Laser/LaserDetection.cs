@@ -12,7 +12,8 @@ public class LaserDetection : MonoBehaviour
     
     [HideInInspector] public UnityEvent OnLaserActive;
     [HideInInspector] public UnityEvent OnLaserInactive;
-    private LaserKeys laserType = LaserKeys.NONE;
+    [Header("Debug")]
+    [SerializeField] private LaserKeys laserType = LaserKeys.NONE;
 
 
     private void Start()
@@ -60,7 +61,17 @@ public class LaserDetection : MonoBehaviour
         OnLaserInactive.Invoke();     
     }
     private void OnLaserStartActivated()
-    { 
-        OnLaserActive.Invoke();     
+    {
+        StartCoroutine(DelayLaserActiveInvoke());
+    }
+    public IEnumerator DelayLaserActiveInvoke() {
+        yield return new WaitForEndOfFrame();
+        OnLaserActive.Invoke();
+    }
+    public LaserKeys GetLaserType() {
+        return laserType;
+    }
+    public void SetLaserType(LaserKeys key) {
+        laserType = key;
     }
 }

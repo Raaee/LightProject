@@ -8,10 +8,13 @@ public class Pillar : MonoBehaviour, IInteractable
     [SerializeField] private CardinalDirection cardinalDirection;
     [SerializeField] private LaserDetection laserDetection;
     [SerializeField] private LaserBeamLogic laserBeamLogic;
+    [SerializeField] private PillarVisual visual;
 
     private void Start() {
         laserDetection.OnLaserActive.AddListener(ReflectLaser);
         laserDetection.OnLaserInactive.AddListener(DisableLaser);
+        cardinalDirection = CardinalDirection.SOUTH;
+        laserBeamLogic.SetCardinalDirection(cardinalDirection);
     }
     [ProButton]
     public void Interact() {
@@ -25,6 +28,7 @@ public class Pillar : MonoBehaviour, IInteractable
         }
         cardinalDirection = (CardinalDirection)cardinalDirIndex;
         laserBeamLogic.SetCardinalDirection(cardinalDirection);
+        visual.ChangeSpriteRotation(cardinalDirIndex);
     }
     public void ReflectLaser() {
         laserBeamLogic.EnableLaser();

@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public abstract class ILock : MonoBehaviour
 {
     
-    public UnityEvent OnInputDetection;
+    [HideInInspector] public UnityEvent OnInputDetection;
+    [SerializeField] protected LockVisual visual;
     [field:SerializeField] public bool IsLocked { get; protected set; }
     public abstract void Unlock();
     public abstract void Lock();

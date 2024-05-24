@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Environment/Lock_Key.prefab.meta
 guid: d86c2eea51097d649ba97a0d9b37efd6
+========
+guid: 842671655238550438e4400d513a69f7
+>>>>>>>> lineRendererGradient:Assets/Prefabs/Environment/Laser Beam.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

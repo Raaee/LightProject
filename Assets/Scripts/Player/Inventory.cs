@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
     public static Inventory instance;
     [SerializeField] private int inventorySpace = 1;
+    [SerializeField] private float itemHoldOffset = -0.5f;
     [field:SerializeField] public GameObject inventory { get; private set; }
-    private float keyPositionOffset = 1.5f;
     private InputControls inputControls;
 
+    void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this);
+        }
+        else {
+            instance = this;
+        }
+    }
     private void Start()
     {
         inputControls = GetComponent<InputControls>();
         inputControls.OnInteract.AddListener(DropInventory);
-    }
-    void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-
-            Destroy(this);
-        }else
-        instance = this;
-    }
+    }    
 
     public void AddItem(GameObject item)
     {
@@ -32,8 +30,7 @@ public class Inventory : MonoBehaviour
         {
             inventory = item;
             inventory.transform.SetParent(transform);
-            inventory.transform.position = new Vector3(transform.position.x + keyPositionOffset, transform.position.y, 0);
-            
+            inventory.transform.position = new Vector3(transform.position.x + itemHoldOffset, transform.position.y, 0);
         }
         else
         {
@@ -57,7 +54,7 @@ public class Inventory : MonoBehaviour
     {
         if(inventory)
         {
-            inventory.transform.position = new Vector3(transform.position.x + keyPositionOffset, transform.position.y, 0);
+            inventory.transform.position = new Vector3(transform.position.x + itemHoldOffset, transform.position.y, 0);
             inventory.transform.SetParent(null);
             inventory = null;
         }

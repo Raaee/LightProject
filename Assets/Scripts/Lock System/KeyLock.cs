@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class KeyLock : ILock,IInteractable
+public class KeyLock : ILock, IInteractable
 {
     void Start()
     {
@@ -22,10 +22,12 @@ public class KeyLock : ILock,IInteractable
     public override void Unlock()
     {
         IsLocked = false;
+        visual.UnlockSprite();
     }
     public override void Lock()
     {
         IsLocked = true;
+        visual.LockSprite();
     }
 
 }
