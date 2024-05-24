@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Environment.meta
 guid: e70cda43d8678824d8f3525f55869d16
+========
+guid: bd7f719cf8dbfc646a491a4f5cc20a4c
+>>>>>>>> main:Assets/Art/Player.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
