@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1bd76bcb5452a479c8cbafea345e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  door: {fileID: 3635196151053594819}
   locks: []
   isLocked: 0
 --- !u!114 &3635196151053594819
