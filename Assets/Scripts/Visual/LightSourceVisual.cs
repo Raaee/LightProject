@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IInteractable
+public class LightSourceVisual : LightVisual
 {
-    public abstract void Interact();
+    
 }

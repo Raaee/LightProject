@@ -6,8 +6,10 @@ using UnityEngine.Events;
 public class LaserLock : ILock
 {
     [SerializeField] private LaserKeys laserKey;
-    [SerializeField] private LaserDetection laserDetection;
-    [SerializeField] private LaserBeamLogic laserBeam;
+    private LaserDetection laserDetection;
+    private void Awake() {
+        laserDetection = GetComponentInParent<LaserDetection>();
+    }
     private void Start()
     {
         laserDetection.OnLaserActive.AddListener(Unlock);

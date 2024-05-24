@@ -8,16 +8,33 @@ using UnityEngine;
 /// </summary>
 public class InteractionSystem : MonoBehaviour
 {
+    [SerializeField] private InteractVisual interactVisual;
     [SerializeField] [Range(0.01f, 4f)] private float interactRadius = 1.5f;
     private InputControls input;
+    private Collider2D[] collidersInRange;
     private void Start() {
         input = GetComponent<InputControls>();
         input.OnInteract.AddListener(HandleInteract);
     }
+    private void Update() {
+        collidersInRange = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+        foreach (Collider2D col in collidersInRange) {
+            InteractVisual potentialInteractVisual = col.gameObject.GetComponentInChildren<InteractVisual>();
+            if (!potentialInteractVisual) {
+
+                continue;
+            }
+            float distance = Vector2.Distance(transform.position, col.transform.position);
+            if (distance <= interactRadius) {
+                potentialInteractVisual.HighlightSprite();
+            }
+            else {
+                potentialInteractVisual.NormalSprite();
+            }
+        }
+    }
     private void HandleInteract()
     {
-        Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, interactRadius);
-
         foreach (Collider2D col in collidersInRange) {
             IInteractable potentialInteractable = col.gameObject.GetComponent<IInteractable>();
             if (potentialInteractable == null) {

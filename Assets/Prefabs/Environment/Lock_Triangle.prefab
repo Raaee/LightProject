@@ -99,6 +99,7 @@ MonoBehaviour:
   OnLaserInactive:
     m_PersistentCalls:
       m_Calls: []
+  laserType: 0
 --- !u!1 &2373104992293721450
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,8 +150,6 @@ MonoBehaviour:
   visual: {fileID: 3781758821721004543}
   <IsLocked>k__BackingField: 0
   laserKey: 1
-  laserDetection: {fileID: 2089317157671770450}
-  laserBeam: {fileID: 0}
 --- !u!1 &4918493647989122028
 GameObject:
   m_ObjectHideFlags: 0

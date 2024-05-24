@@ -7,29 +7,34 @@ public class LaserBeamLogic : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Transform rotateObj;
-    [field: SerializeField] public bool IsActive { get; set; }
+    [SerializeField] private LaserBeamVisual visual;
+
+    [Header(" ")]
     [SerializeField] private LaserKeys laserKey = LaserKeys.TRIANGLE_LASER;
     [SerializeField] private CardinalDirection laserBeamCardinalDirection = CardinalDirection.SOUTH;
+    
+    [field: Tooltip("Length of the laser. This is initialized on Start")]
     [field: SerializeField] public float LaserStrength { get; set; }
+    [field: SerializeField] public bool IsActive { get; set; }
     private Quaternion rotation;
 
     private void Start()
     {
         LaserStrength = 7f;
         IsActive = false;
-        Vector2 direction = Utility.GetUnitVector(laserBeamCardinalDirection);
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rotation.eulerAngles = new Vector3(0, 0, angle);
-        rotateObj.transform.rotation = rotation;
+        rotateObj.transform.rotation = Utility.GetRotationFromDirection(laserBeamCardinalDirection);
+        visual.RotateLight(laserBeamCardinalDirection);
         DisableLaser();
     }
 
     private void Update()
     {
         if (!IsActive) {
+            visual.DeactivateLight();
             DisableLaser();
             return;
         }
+        visual.ActivateLight();
         UpdateLaser();
     }   
 
@@ -80,6 +85,7 @@ public class LaserBeamLogic : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rotation.eulerAngles = new Vector3(0, 0, angle);
         rotateObj.transform.rotation = rotation;
+        visual.RotateLight(laserBeamCardinalDirection);
     }
 
     public void EnableLaser()

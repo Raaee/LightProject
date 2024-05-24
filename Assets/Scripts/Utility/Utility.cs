@@ -52,4 +52,11 @@ public class Utility : MonoBehaviour
             return new Vector2(0, 0); // Or throw an exception
         }
     }
+    public static Quaternion GetRotationFromDirection(CardinalDirection dir) {
+        Quaternion rotation = Quaternion.identity;
+        Vector2 direction = GetUnitVector(dir);
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        rotation.eulerAngles = new Vector3(0, 0, -angle);
+        return rotation;
+    }
 }
