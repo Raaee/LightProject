@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class LaserLock : ILock
 {
-    [SerializeField] private LaserKeys laserKey;
     private LaserDetection laserDetection;
     private void Awake() {
         laserDetection = GetComponentInParent<LaserDetection>();

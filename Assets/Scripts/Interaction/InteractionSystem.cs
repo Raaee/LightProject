@@ -8,7 +8,6 @@ using UnityEngine;
 /// </summary>
 public class InteractionSystem : MonoBehaviour
 {
-    [SerializeField] private InteractVisual interactVisual;
     [SerializeField] [Range(0.01f, 4f)] private float interactRadius = 1.5f;
     private InputControls input;
     private Collider2D[] collidersInRange;
@@ -37,6 +36,9 @@ public class InteractionSystem : MonoBehaviour
     {
         foreach (Collider2D col in collidersInRange) {
             IInteractable potentialInteractable = col.gameObject.GetComponent<IInteractable>();
+            if (col.gameObject.GetComponentInChildren<KeyLock>()) { // bc keylock is special
+                potentialInteractable = col.gameObject.GetComponentInChildren<IInteractable>();
+            }
             if (potentialInteractable == null) {
               
                 continue;

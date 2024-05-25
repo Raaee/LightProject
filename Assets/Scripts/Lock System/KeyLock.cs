@@ -7,11 +7,12 @@ public class KeyLock : ILock, IInteractable
 {
     void Start()
     {
+        laserKey = LaserKeys.KEY;
         Lock();
     }
     public void Interact()
     {
-        if (Inventory.instance.inventory.GetComponent<Key>())
+        if (IsLocked && Inventory.instance.inventory && Inventory.instance.inventory.GetComponent<Key>())
         {
             Debug.Log("unlocking key lock");
             Inventory.instance.RemoveItem();
