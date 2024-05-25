@@ -366,7 +366,7 @@ MonoBehaviour:
   translucentPresetId: 0
   color: {r: 0.23553754, g: 0.4284155, b: 0.6320754, a: 1}
   size: 5.5
-  spotAngleInner: 0
+  spotAngleInner: 360
   spotAngleOuter: 360
   coreSize: 0.5
   falloff: 0
