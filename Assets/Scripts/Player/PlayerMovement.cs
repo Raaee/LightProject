@@ -26,4 +26,10 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = smoothedMovementInput * speed;
     }
 
+
+    public bool IsPlayerMoving()
+    {
+        return moveInput != Vector2.zero;
+    }
+
 }
