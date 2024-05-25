@@ -10,8 +10,9 @@ using Vector2 = UnityEngine.Vector2;
 public class Pushable : MonoBehaviour
 {
     private Rigidbody2D box;
+    [SerializeField] private ChainVisual chain;
     [SerializeField] private PushDirection pushDirection = PushDirection.HORIZONTAL;
-    [SerializeField] private float pushableRange = 2f;
+    [SerializeField] private float pushableRange = 3f;
     private Transform initialPosition;
     private Vector2 lowestPoint; // left OR bottom
     private Vector2 highestPoint; // right OR top
@@ -30,9 +31,11 @@ public class Pushable : MonoBehaviour
         {
             case PushDirection.HORIZONTAL:
                 DoHorizontal();
+                chain.HorizontalSprite();
                 break;
             case PushDirection.VERTICAL:
                 DoVertical();
+                chain.VerticalSprite();
                 break;
             default:
                 Debug.LogError("Not supposed to be here!");
