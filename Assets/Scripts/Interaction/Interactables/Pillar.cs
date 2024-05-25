@@ -18,7 +18,6 @@ public class Pillar : MonoBehaviour, IInteractable
     }
     [ProButton]
     public void Interact() {
-        Debug.Log("interacting");
         RotateDirection();
     }
     public void RotateDirection() {
