@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorLogic : MonoBehaviour
 {
     [SerializeField] private Door door;
-    [SerializeField] private List<ILock> locks;
+    [SerializeField] public List<ILock> locks;
 
     [SerializeField] private bool isLocked;
 

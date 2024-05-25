@@ -103,7 +103,7 @@ MonoBehaviour:
   rotateObj: {fileID: 6501781096135124176}
   visual: {fileID: 5196763098258835455}
   laserKey: 1
-  laserBeamCardinalDirection: 4
+  laserBeamCardinalDirection: 6
   <LaserStrength>k__BackingField: 0
   <IsActive>k__BackingField: 0
 --- !u!114 &5228791203847564121
