@@ -39,12 +39,10 @@ public class DoorLogic : MonoBehaviour
     public void UnlockDoor() {
         isLocked = false;
         door.Visual.PlayOpen();
-        Debug.Log("Door locked? " + isLocked);
     }
 
     public void LockDoor() {
         isLocked = true;
         door.Visual.PlayClose();
-        Debug.Log("Door locked? " + isLocked);
     }
 }

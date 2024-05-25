@@ -80,7 +80,7 @@ MonoBehaviour:
   m_StartCorner: 2
   m_StartAxis: 0
   m_CellSize: {x: 16, y: 16}
-  m_Spacing: {x: 5, y: 2}
+  m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &9031369798770264836
@@ -97,14 +97,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorLogic: {fileID: 5247071101382560817}
   SymbolPrefab: {fileID: 1736228758139045336}
-  lockCircleSprite: {fileID: 816520082, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  lockTriangleSprite: {fileID: 1479652588, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  lockSquareSprite: {fileID: 2081772924, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  lockDiamondSprite: {fileID: -2050024559, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  UnlockCircleSprite: {fileID: -1668500417, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  UnlockTriangleSprite: {fileID: -1474037771, guid: 76aa0dc078a42f54aa0df42ee485ba4e, type: 3}
-  UnlockSquareSprite: {fileID: -709139523, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  UnlockDiamondSprite: {fileID: -103024939, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedCircleSprite: {fileID: 816520082, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedCircleSprite: {fileID: -1668500417, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedTriangleSprite: {fileID: 1479652588, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedTriangleSprite: {fileID: -1474037771, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedSquareSprite: {fileID: 2081772924, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedSquareSprite: {fileID: -709139523, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedDiamondSprite: {fileID: -2050024559, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedDiamondSprite: {fileID: -103024939, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedKeySprite: {fileID: 1313319793, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedKeySprite: {fileID: -1463784401, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
 --- !u!1 &1356737313196847115
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0031, y: 0.7662}
+  m_AnchoredPosition: {x: 0.0031, y: 0.818}
   m_SizeDelta: {x: 76.5249, y: 36.0555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7257758412448555817

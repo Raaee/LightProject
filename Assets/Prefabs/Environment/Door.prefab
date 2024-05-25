@@ -97,14 +97,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorLogic: {fileID: 5247071101382560817}
   SymbolPrefab: {fileID: 1736228758139045336}
-  lockCircleSprite: {fileID: 816520082, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  lockTriangleSprite: {fileID: 1479652588, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  lockSquareSprite: {fileID: 2081772924, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  lockDiamondSprite: {fileID: -2050024559, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  UnlockCircleSprite: {fileID: -1668500417, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  UnlockTriangleSprite: {fileID: -1474037771, guid: 76aa0dc078a42f54aa0df42ee485ba4e, type: 3}
-  UnlockSquareSprite: {fileID: -709139523, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  UnlockDiamondSprite: {fileID: -103024939, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedCircleSprite: {fileID: 816520082, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedCircleSprite: {fileID: -1668500417, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedTriangleSprite: {fileID: 1479652588, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedTriangleSprite: {fileID: -1474037771, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedSquareSprite: {fileID: 2081772924, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedSquareSprite: {fileID: -709139523, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedDiamondSprite: {fileID: -2050024559, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedDiamondSprite: {fileID: -103024939, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  lockedKeySprite: {fileID: 1313319793, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  unlockedKeySprite: {fileID: -1463784401, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
 --- !u!1 &1356737313196847115
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,20 +7,29 @@ using UnityEngine.UI;
 public class DoorSymbols : MonoBehaviour
 {
     [SerializeField] private DoorLogic doorLogic;
-    //public List<ILock> locks;
     [SerializeField] private GameObject SymbolPrefab;
-    [SerializeField] private Sprite lockCircleSprite;
-    [SerializeField] private Sprite lockTriangleSprite;
-    [SerializeField] private Sprite lockSquareSprite;
-    [SerializeField] private Sprite lockDiamondSprite;
-    [SerializeField] private Sprite UnlockCircleSprite;
-    [SerializeField] private Sprite UnlockTriangleSprite;
-    [SerializeField] private Sprite UnlockSquareSprite;
-    [SerializeField] private Sprite UnlockDiamondSprite;
-
-    //Add Keys sprite
-
     public Dictionary<GameObject, GameObject> locks = new Dictionary<GameObject, GameObject>();
+
+    [Header("Circle")]
+    [SerializeField] private Sprite lockedCircleSprite;
+    [SerializeField] private Sprite unlockedCircleSprite;
+
+    [Header("Triangle")]
+    [SerializeField] private Sprite lockedTriangleSprite;
+    [SerializeField] private Sprite unlockedTriangleSprite;
+
+    [Header("Square")]
+    [SerializeField] private Sprite lockedSquareSprite;
+    [SerializeField] private Sprite unlockedSquareSprite;
+
+    [Header("Diamond")]
+    [SerializeField] private Sprite lockedDiamondSprite;
+    [SerializeField] private Sprite unlockedDiamondSprite;
+
+    [Header("Key")]
+    [SerializeField] private Sprite lockedKeySprite;
+    [SerializeField] private Sprite unlockedKeySprite;
+
 
     private void Start()
     {
@@ -38,65 +47,58 @@ public class DoorSymbols : MonoBehaviour
     }
 
     public void DisplayPortalSymbolUI(){
-
-        foreach (ILock door in doorLogic.locks) {
-            LaserLock laserlock = door.gameObject.GetComponentInChildren<LaserLock>();
-            if (laserlock == null) {
-                return;
+        foreach (ILock aLock in doorLogic.locks) {
+            ILock ilock = aLock.gameObject.GetComponentInChildren<ILock>();
+            if (ilock == null) {
+                continue;
             }
-            GameObject Geo = Instantiate(SymbolPrefab);
-            Geo.gameObject.transform.parent = this.transform;
-
-            locks.Add(door.gameObject, Geo);
-            Image imageGeo = Geo.GetComponent<Image>();
-            imageGeo.sprite = GetLockSpriteBaseOnType(laserlock.GetLaserKeys());
+            GameObject go = Instantiate(SymbolPrefab);
+            go.gameObject.transform.SetParent(this.transform);
+            Image image = go.GetComponent<Image>();
+            if (aLock.gameObject.GetComponentInChildren<KeyLock>()) {
+                image.transform.localScale = new Vector3(1.5f,1.5f,0);
+            }
+            go.name = image.name + ilock.GetLaserKey();
+            image.preserveAspect = true;
+            image.sprite = GetLockedSpriteBaseOnType(ilock.GetLaserKey());
+            locks.Add(aLock.gameObject, go);
         }
     }
 
-    private Sprite GetLockSpriteBaseOnType(LaserKeys keys) {
-        switch (keys) {
-            case LaserKeys.TRIANGLE_LASER:
-                return lockTriangleSprite;
-            case LaserKeys.CIRCLE_LASER:
-                return lockCircleSprite;
-            case LaserKeys.SQUARE_LASER:
-                return lockSquareSprite;
-            case LaserKeys.DIAMOND_LASER:
-                return lockDiamondSprite;
-            default:
-                return null;
-        }
+    private Sprite GetLockedSpriteBaseOnType(LaserKeys keys) {
+        return keys switch {
+            LaserKeys.TRIANGLE_LASER => lockedTriangleSprite,
+            LaserKeys.CIRCLE_LASER => lockedCircleSprite,
+            LaserKeys.SQUARE_LASER => lockedSquareSprite,
+            LaserKeys.DIAMOND_LASER => lockedDiamondSprite,
+            LaserKeys.KEY => lockedKeySprite,
+            _ => null,
+        };
     }
 
-    private  Sprite GetUnlockSpriteBaseOnType(LaserKeys keys)
+    private  Sprite GetUnlockedSpriteBaseOnType(LaserKeys keys)
     {
-        switch (keys)
-        {
-            case LaserKeys.TRIANGLE_LASER:
-                return UnlockTriangleSprite;
-            case LaserKeys.CIRCLE_LASER:
-                return UnlockCircleSprite;
-            case LaserKeys.SQUARE_LASER:
-                return UnlockSquareSprite;
-            case LaserKeys.DIAMOND_LASER:
-                return UnlockDiamondSprite;
-            default:
-                return null;
-        }
+        return keys switch {
+            LaserKeys.TRIANGLE_LASER => unlockedTriangleSprite,
+            LaserKeys.CIRCLE_LASER => unlockedCircleSprite,
+            LaserKeys.SQUARE_LASER => unlockedSquareSprite,
+            LaserKeys.DIAMOND_LASER => unlockedDiamondSprite,
+            LaserKeys.KEY => unlockedKeySprite,
+            _ => null,
+        };
     }
-
 
     public void UpdateSymbols() {
-        foreach (KeyValuePair<GameObject, GameObject> a_look in locks)
+        foreach (KeyValuePair<GameObject, GameObject> aLock in locks)
         {
-            Image geo = a_look.Value.GetComponent<Image>();
-            LaserLock laserlock = a_look.Key.GetComponentInChildren<LaserLock>();
-            if (!a_look.Key.GetComponent<ILock>().IsLocked)
+            Image image = aLock.Value.GetComponent<Image>();
+            ILock ilock = aLock.Key.GetComponentInChildren<ILock>();
+            if (!aLock.Key.GetComponent<ILock>().IsLocked)
             {
-                geo.sprite = GetUnlockSpriteBaseOnType(laserlock.GetLaserKeys());
+                image.sprite = GetUnlockedSpriteBaseOnType(ilock.GetLaserKey());
             }
             else {
-                geo.sprite = GetLockSpriteBaseOnType(laserlock.GetLaserKeys());
+                image.sprite = GetLockedSpriteBaseOnType(ilock.GetLaserKey());
             }
         }
     }
