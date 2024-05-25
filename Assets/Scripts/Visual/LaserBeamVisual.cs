@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LaserBeamVisual : LightVisual
 {
+    [ProButton]
     public void RotateLight(CardinalDirection dir) {
         sourceLight.transform.rotation = Utility.GetRotationFromDirection(dir);
     }

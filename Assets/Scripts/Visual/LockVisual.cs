@@ -5,6 +5,9 @@ using UnityEngine;
 public class LockVisual : MonoBehaviour
 {
     private SpriteRenderer sr;
+    [SerializeField] private GameObject lockLight;
+
+    [Header("Sprites")]
     [SerializeField] private SpriteRenderer symbol_SR;
     [SerializeField] private Sprite lockedSprite;
     [SerializeField] private Sprite unlockedSprite;
@@ -19,9 +22,11 @@ public class LockVisual : MonoBehaviour
     public void LockSprite() {
         sr.sprite = lockedSprite;
         symbol_SR.sprite = symbolLockedSprite;
+        lockLight.SetActive(false);
     }
     public void UnlockSprite() {
         sr.sprite = unlockedSprite;
         symbol_SR.sprite = symbolUnlockedSprite;
+        lockLight.SetActive(true);
     }
 }

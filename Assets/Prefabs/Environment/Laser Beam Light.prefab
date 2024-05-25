@@ -51,10 +51,10 @@ MonoBehaviour:
   occlusionLayer: 2
   translucentLayer: 3
   translucentPresetId: 0
-  color: {r: 1, g: 0.21226418, b: 0.21226418, a: 0.75}
-  size: 3.7502706
+  color: {r: 1, g: 0.21226418, b: 0.21226418, a: 0.5}
+  size: 5.7
   spotAngleInner: 0
-  spotAngleOuter: 41.69762
+  spotAngleOuter: 14
   coreSize: 0.5
   falloff: 0
   lightStrength: 0
@@ -83,13 +83,13 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 6592d6be03fd808449716a11558d506f, type: 3}
   spriteFlipX: 0
   spriteFlipY: 0
-  freeFormFalloff: 1
+  freeFormFalloff: 0.5
   freeFormPoint: 1
-  freeFormFalloffStrength: 0
+  freeFormFalloffStrength: 0.5
   freeFormPoints:
     points:
-    - {x: -0.541517, y: -1.4564676}
-    - {x: -0.50000006, y: 0.8660254}
-    - {x: -0.5106311, y: -1.3869519}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: -5.05, y: -1.14}
   drawingEnabled: 1
   drawingTranslucencyEnabled: 1
