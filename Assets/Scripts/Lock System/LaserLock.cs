@@ -34,5 +34,9 @@ public class LaserLock : ILock
         visual.LockSprite();
         OnInputDetection.Invoke();
     }
+
+    public LaserKeys GetLaserKeys() {
+        return laserKey;
+    }
 }
 
