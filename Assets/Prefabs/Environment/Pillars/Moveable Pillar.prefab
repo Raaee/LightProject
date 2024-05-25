@@ -80,9 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardinalDirection: 2
+  <cardinalDirection>k__BackingField: 0
   laserDetection: {fileID: 2370644753748291169}
-  laserBeamLogic: {fileID: 1068688579983384490}
+  <laserBeamLogic>k__BackingField: {fileID: 1068688579983384490}
   visual: {fileID: 8703146926215344767}
 --- !u!114 &1068688579983384490
 MonoBehaviour:
