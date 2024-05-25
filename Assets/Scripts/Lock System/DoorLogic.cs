@@ -23,12 +23,11 @@ public class DoorLogic : MonoBehaviour
         }
     }
 
-    // In DoorLogic it can cheack the lock status of multiple lock[red, blue, yellow, green] 
+    // DoorLogic can cheack the lock status of multiple locks
     public void CheckLockStatus() {
         foreach (ILock alock in locks)
         {
             if (alock.IsLocked) {
-                Debug.Log("Door Lock");
                 LockDoor();
                 return;
             }
@@ -38,11 +37,15 @@ public class DoorLogic : MonoBehaviour
 
     public void UnlockDoor() {
         isLocked = false;
+        door.IsLocked = isLocked;
         door.Visual.PlayOpen();
+        this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = true;
     }
 
     public void LockDoor() {
         isLocked = true;
+        door.IsLocked = isLocked;
         door.Visual.PlayClose();
+        this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = false;
     }
 }
