@@ -7,8 +7,7 @@ public abstract class LightVisual : MonoBehaviour
 {
     [SerializeField] protected GameObject sourceLight;
     protected bool isActive;
-    private void Start() {
-        sourceLight.GetComponent<Light2D>().applyRotation = Light2D.Rotation.Local;
+    protected void Start() {
         DeactivateLight();
     }
     public void ActivateLight() {

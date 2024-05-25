@@ -157,6 +157,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6839220145973143057}
+  - {fileID: 5375807190582795009}
   m_Father: {fileID: 3358581104588786555}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8301069014004599089
@@ -236,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debe661db789119499682e5ca851f1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockLight: {fileID: 1449317230231833645}
   symbol_SR: {fileID: 3300896372612175374}
   lockedSprite: {fileID: -304680890, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
   unlockedSprite: {fileID: -1407330, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
@@ -325,3 +327,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &6470928355047388829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8431332953780685868}
+    m_Modifications:
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2923200810650644422, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: color.b
+      value: 0.24143599
+      objectReference: {fileID: 0}
+    - target: {fileID: 2923200810650644422, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: color.g
+      value: 0.109803915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2923200810650644422, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607079780823890608, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+      propertyPath: m_Name
+      value: Lock Light
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+--- !u!1 &1449317230231833645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5607079780823890608, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+  m_PrefabInstance: {fileID: 6470928355047388829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5375807190582795009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1393845554675953052, guid: 38e7aa0d35660874baa7e547eb2ef608, type: 3}
+  m_PrefabInstance: {fileID: 6470928355047388829}
+  m_PrefabAsset: {fileID: 0}
