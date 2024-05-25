@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1927773811138600602}
   m_Layer: 6
   m_Name: Moveable Pillar
-  m_TagString: Untagged
+  m_TagString: Pillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,9 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardinalDirection: 0
+  <cardinalDirection>k__BackingField: 0
   laserDetection: {fileID: 5633904253041462524}
-  laserBeamLogic: {fileID: 6925727396905303351}
+  <laserBeamLogic>k__BackingField: {fileID: 6925727396905303351}
   visual: {fileID: 1589300913993879778}
 --- !u!114 &6925727396905303351
 MonoBehaviour:
