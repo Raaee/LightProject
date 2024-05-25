@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mirror
+  - Door
+  - Pillar
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Pillar : MonoBehaviour, IInteractable
 {
-    [SerializeField] private CardinalDirection cardinalDirection;
+    [field: SerializeField] public CardinalDirection cardinalDirection { get; set; }
     [SerializeField] private LaserDetection laserDetection;
-    [SerializeField] private LaserBeamLogic laserBeamLogic;
+    [field: SerializeField] public LaserBeamLogic laserBeamLogic { get; private set; }
     [SerializeField] private PillarVisual visual;
 
     private void Start() {
