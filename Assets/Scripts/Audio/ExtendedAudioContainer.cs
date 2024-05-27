@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,12 @@ public class ExtendedAudioContainer
         audioReference = newAudioReference;
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(audioReference);
     }
+
+    public void ConnectTo3DAudio(Transform instanceTransform, Rigidbody2D instanceRB2d)
+    {
+        RuntimeManager.AttachInstanceToGameObject(audioInstance, instanceTransform, instanceRB2d);
+    }
+
 
     public void StartAudio()
     {
