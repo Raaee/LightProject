@@ -157,10 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 3635196151053594819}
-  locks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  locks: []
   isLocked: 0
 --- !u!114 &3635196151053594819
 MonoBehaviour:

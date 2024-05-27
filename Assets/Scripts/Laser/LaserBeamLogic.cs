@@ -4,6 +4,7 @@ using UnityEngine;
 public class LaserBeamLogic : MonoBehaviour
 {
     [SerializeField] private LayerMask detectingLayerMask;
+    [SerializeField] private LayerMask lightBlockingLayerMask;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Transform rotateObj;
@@ -50,7 +51,12 @@ public class LaserBeamLogic : MonoBehaviour
         Vector2 direction = offsetPosition - (Vector2)transform.position;
         float calcDistance = Vector2.Distance(offsetPosition, transform.position); 
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, detectingLayerMask);
+        RaycastHit2D hitLightBlocker = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, lightBlockingLayerMask);
 
+        if (hitLightBlocker) {
+            lineRenderer.SetPosition(1, hitLightBlocker.point);
+            return;
+        }
         if(hit)
         {    
             LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
