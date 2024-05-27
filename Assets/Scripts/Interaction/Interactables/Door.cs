@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour {
 
     [field: SerializeField] public DoorVisual Visual { get; private set; }
-    [SerializeField] private bool isPortal = false;
+
+    public UnityEvent OnDoorOpened; 
     public bool IsLocked { get; set; }
 
-    private void Start() {
+    private void Start() 
+    {
         IsLocked = true;
     }
-    public void OnTriggerEnter2D(Collider2D collision) {
-        if (isPortal && !IsLocked) {
-            // switch level
-            Debug.Log("Next Level");
-        }
+
+
+    public void AlertDoorEvent()
+    {
+        OnDoorOpened?.Invoke();
     }
+ 
 }
