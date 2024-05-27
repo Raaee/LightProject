@@ -27,8 +27,10 @@ public class ResetSystem : MonoBehaviour
     {
         foreach (KeyValuePair<GameObject, Transform> obj in ObjsInLevel)
         {
-
             Debug.Log("Pillar Reset");
+            if (obj.Key.GetComponentInChildren<Pushable>()) {
+                obj.Key.GetComponentInChildren<Pushable>().gameObject.transform.position = obj.Value.position;
+            }
             obj.Key.transform.position = obj.Value.position;
             if(obj.Key.GetComponentInChildren<Pillar>() == null)
             {
@@ -38,9 +40,6 @@ public class ResetSystem : MonoBehaviour
             pillar.cardinalDirection = CardinalDirection.SOUTH_EAST;
             pillar.Interact();
             pillar.laserBeamLogic.DisableLaser();
-
-
-
         }
     }
 

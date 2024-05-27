@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 862083831799442184}
   m_Layer: 0
   m_Name: Moveable Pillar
-  m_TagString: Untagged
+  m_TagString: Pillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,9 @@ MonoBehaviour:
   detectingLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  lightBlockingLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   lineRenderer: {fileID: 696759451127809767}
   firePoint: {fileID: 7116257266766501367}
   rotateObj: {fileID: 8059680923412479034}
@@ -139,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0010230541, y: -0.4683311}
+  m_Offset: {x: 0.0010230541, y: -0.37569022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -150,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67943335, y: 0.55023694}
+  m_Size: {x: 0.67943335, y: 0.7355187}
   m_EdgeRadius: 0
 --- !u!1 &2615351356839293950
 GameObject:
