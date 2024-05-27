@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 5247071101382560817}
   - component: {fileID: 3635196151053594819}
   - component: {fileID: 1555012944025783164}
+  - component: {fileID: 8809318404022506979}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -157,7 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 3635196151053594819}
-  locks: []
+  locks:
+  - {fileID: 0}
   isLocked: 0
 --- !u!114 &3635196151053594819
 MonoBehaviour:
@@ -172,7 +174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Visual>k__BackingField: {fileID: 6080428233695775242}
-  isPortal: 1
+  OnDoorOpened:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &1555012944025783164
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,7 +206,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -218,6 +222,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8809318404022506979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356737313196847115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3927fe7bbb6b4d04690546ea8111b8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1736228758139045336
 GameObject:
   m_ObjectHideFlags: 0
