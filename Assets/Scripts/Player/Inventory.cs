@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    [SerializeField] private int inventorySpace = 1;
+    //[SerializeField] private int inventorySpace = 1;
     [SerializeField] private float itemHoldOffset = -0.5f;
     [field:SerializeField] public GameObject inventory { get; private set; }
     private InputControls inputControls;
@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         inputControls = GetComponent<InputControls>();
-        inputControls.OnInteract.AddListener(DropInventory);
+        inputControls.OnInteract.AddListener(TryDropInventory);
     }    
 
     public void AddItem(GameObject item)
@@ -50,7 +50,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void DropInventory()
+    private void TryDropInventory()
     {
         if(inventory)
         {
@@ -60,7 +60,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            Debug.Log("Inventory is empty");
+           // Debug.Log("Inventory is empty");
         }
     }
 

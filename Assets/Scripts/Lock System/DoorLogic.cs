@@ -39,13 +39,15 @@ public class DoorLogic : MonoBehaviour
         isLocked = false;
         door.IsLocked = isLocked;
         door.Visual.PlayOpen();
-        this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = true;
+        door.AlertDoorEvent();
+        //this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = true;
     }
 
     public void LockDoor() {
         isLocked = true;
         door.IsLocked = isLocked;
         door.Visual.PlayClose();
-        this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = false;
+        door.AlertDoorEvent();
+        //this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = false;
     }
 }
