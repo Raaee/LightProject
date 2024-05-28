@@ -144,12 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3689e4744c547184b997f58b230551b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserKey: 1
   OnInputDetection:
     m_PersistentCalls:
       m_Calls: []
   visual: {fileID: 3781758821721004543}
   <IsLocked>k__BackingField: 0
-  laserKey: 1
 --- !u!1 &4918493647989122028
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +253,8 @@ MonoBehaviour:
   symbol_SR: {fileID: 5267629037155670651}
   lockedSprite: {fileID: 1044816407, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
   unlockedSprite: {fileID: -2113928166, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  symbolLockedSprite: {fileID: 1479652588, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
-  symbolUnlockedSprite: {fileID: -1474037771, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  symbolLockedSprite: {fileID: 11208386, guid: 99f2425355a0b204da87b7a620c174c4, type: 3}
+  symbolUnlockedSprite: {fileID: -1600973987, guid: 99f2425355a0b204da87b7a620c174c4, type: 3}
 --- !u!1 &5011860605791296249
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 5011860605791296249}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0029997826, y: 0.839, z: 0}
+  m_LocalPosition: {x: -0.0029997826, y: 0.885, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,12 +328,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1474037771, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
+  m_Sprite: {fileID: -1600973987, guid: 99f2425355a0b204da87b7a620c174c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.3125, y: 0.25}
+  m_Size: {x: 0.4375, y: 0.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
