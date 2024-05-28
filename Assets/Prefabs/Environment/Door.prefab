@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8230183447068969189}
   - component: {fileID: 1544725206621845429}
   - component: {fileID: 9031369798770264836}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Symbol Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 5247071101382560817}
   - component: {fileID: 3635196151053594819}
   - component: {fileID: 58883489587427540}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,8 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 3635196151053594819}
-  locks:
-  - {fileID: 0}
+  locks: []
   isLocked: 0
 --- !u!114 &3635196151053594819
 MonoBehaviour:
@@ -173,7 +172,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Visual>k__BackingField: {fileID: 6080428233695775242}
-  isPortal: 0
+  OnDoorOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &58883489587427540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -230,7 +243,7 @@ GameObject:
   - component: {fileID: 1892541069804551412}
   - component: {fileID: 3917486489836514018}
   - component: {fileID: 7502086732978039753}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +319,7 @@ GameObject:
   - component: {fileID: 7257758412448555817}
   - component: {fileID: 2368841059142517811}
   - component: {fileID: 2518539946472446432}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +422,7 @@ GameObject:
   - component: {fileID: 1311001739422638819}
   - component: {fileID: 6080428233695775242}
   - component: {fileID: 7531500689243535989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
