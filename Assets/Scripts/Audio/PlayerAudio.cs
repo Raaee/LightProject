@@ -10,6 +10,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private FMODUnity.EventReference playerPushAudio; //half flame, half pushing block
     [SerializeField] private FMODUnity.EventReference playerFlameIdle;
     [SerializeField] private FMODUnity.EventReference playerSpawnIn;
+    [SerializeField] private FMODUnity.EventReference pickUpKeySfx;
 
     private ExtendedAudioContainer playerFlameAudioContainer = new ExtendedAudioContainer();
     private ExtendedAudioContainer playerPushAudioContainer = new ExtendedAudioContainer();
@@ -44,6 +45,10 @@ public class PlayerAudio : MonoBehaviour
     private void PlaySpawnAudio()
     {
         FMODUnity.RuntimeManager.PlayOneShot(playerSpawnIn, transform.position);
+    }
+    private void PlayKeyPickUpAudio()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(pickUpKeySfx, transform.position);
     }
 
 

@@ -17,7 +17,7 @@ public class Portal : MonoBehaviour
         if (door.IsLocked == true) return;
 
         Debug.Log("Going to Next Level...321");
-       
+        NextLevelUI.Instance.ShowPanel();
         //freeze player 
         //play teleport animation 
         //sfx 
