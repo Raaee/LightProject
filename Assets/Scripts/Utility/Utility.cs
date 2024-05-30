@@ -59,4 +59,8 @@ public class Utility : MonoBehaviour
         rotation.eulerAngles = new Vector3(0, 0, -angle);
         return rotation;
     }
+    public static Vector3 GetVectorFromAngle(float angle) {
+        float angleRad = angle * (Mathf.PI / 180f);
+        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    }
 }
