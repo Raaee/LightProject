@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FunkyCode;
-using System.Security.Cryptography;
 
 public class FieldOfView : MonoBehaviour
 {
