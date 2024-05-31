@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField][Range(1f, 20f)] private float speed = 6f;
+    [SerializeField] private PlayerAnimations animations;
+    [SerializeField][Range(1f, 20f)] private float moveSpeed = 6f;
     private InputControls playerInput;
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = playerInput.movement.ReadValue<Vector2>();
         smoothedMovementInput = Vector2.SmoothDamp(smoothedMovementInput, moveInput, ref movementInputSmoothVelocity, SMOOTH_TIME);
-        rb.velocity = smoothedMovementInput * speed;
+        rb.velocity = smoothedMovementInput * moveSpeed;
     }
 
 

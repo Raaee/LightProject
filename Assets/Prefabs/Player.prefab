@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4921936994184167551}
   - component: {fileID: 5159294663988650365}
   - component: {fileID: 4164142783493655355}
+  - component: {fileID: 9020216217425948265}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -106,6 +107,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9020216217425948265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483018825279354457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66987eaf339bd7849a357b641e91976b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4164142783493655355}
+  idle_UP: {fileID: 7400000, guid: c678480d947ed094686d67f443b91d96, type: 2}
+  idle_DOWN: {fileID: 7400000, guid: 92a4f50d65398c94784f6860d248d871, type: 2}
+  moving: {fileID: 7400000, guid: c06711037f256e34bb1fccc62a3f0045, type: 2}
+  moveToIdleTransition: {fileID: 7400000, guid: 792d5ad54b6bd5d4fa5e79f4c6bf6d39, type: 2}
+  idleToMoveTransition: {fileID: 7400000, guid: 044c7d41cce38e24eb0761ad0e2856e5, type: 2}
 --- !u!1 &6170259444846409478
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200017be8bbc5b64ea20ea20cb897e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  animations: {fileID: 9020216217425948265}
+  moveSpeed: 6
 --- !u!114 &2303505215579598258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4a0483d826a98488ca76d1a6871118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySpace: 1
   itemHoldOffset: -0.5
   <inventory>k__BackingField: {fileID: 0}
 --- !u!1 &7688527035724719359
