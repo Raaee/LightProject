@@ -15,11 +15,9 @@ public class PlayerAnimations : MonoBehaviour
         
     }
     public void PlayIdle() {
-        animator.Play(moveToIdleTransition.name);
-        animator.SetBool("Idling", true);
+       
     }
     public void PlayMove() {
-        animator.Play(idleToMoveTransition.name);
-        animator.SetBool("Moving", true);
+       
     }
 }
