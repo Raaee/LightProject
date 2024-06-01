@@ -1,3 +1,4 @@
+using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,32 @@ using UnityEngine;
 public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private AnimationClip idle_UP;
-    [SerializeField] private AnimationClip idle_DOWN;
-    [SerializeField] private AnimationClip moving;
-    [SerializeField] private AnimationClip moveToIdleTransition;
-    [SerializeField] private AnimationClip idleToMoveTransition;
+    [SerializeField] private PlayerMovement playerMovement;
+    public bool IsWalkingState { get; set; }
+    private const string IS_MOVING_ANIM_TAG = "isMoving";
 
-    private void Start() {
-        
+    private void Start()
+    {
+        IsWalkingState = false;
+        animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
+        playerMovement.OnPlayerMove.AddListener(BeginToMove);
+        playerMovement.OnPlayerStop.AddListener(StopMoving);
     }
-    public void PlayIdle() {
-       
+
+    [ProButton]
+    public void BeginToMove()
+    {
+        IsWalkingState = true;
+        animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);    
     }
-    public void PlayMove() {
-       
+
+
+
+    [ProButton]
+    public void StopMoving()
+    {
+        IsWalkingState = false;
+        animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
     }
+
 }

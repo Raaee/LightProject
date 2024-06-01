@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevelUI : MonoBehaviour
 {
     [SerializeField] private GameObject panelGO;
-
-
     public static NextLevelUI Instance { get; set; }
-
 
     private void Start()
     {
