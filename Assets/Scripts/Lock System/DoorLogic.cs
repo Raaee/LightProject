@@ -40,7 +40,7 @@ public class DoorLogic : MonoBehaviour
         door.IsLocked = isLocked;
         door.Visual.PlayOpen();
         door.AlertDoorEvent();
-        //this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = true;
+        this.gameObject.GetComponent<Collider2D>().isTrigger = true;
     }
 
     public void LockDoor() {
@@ -48,6 +48,6 @@ public class DoorLogic : MonoBehaviour
         door.IsLocked = isLocked;
         door.Visual.PlayClose();
         door.AlertDoorEvent();
-        //this.gameObject.GetComponentInChildren<BoxCollider2D>().isTrigger = false;
+        this.gameObject.GetComponent<Collider2D>().isTrigger = false;
     }
 }

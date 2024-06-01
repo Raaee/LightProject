@@ -2,22 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorVisual : MonoBehaviour
+public class DoorVisual : DoorVFX
 {
-    private Animator animator;
-    [SerializeField] private AnimationClip open;
-    [SerializeField] private AnimationClip close;
-    void Start() {
-        animator = GetComponent<Animator>();
-        //PlayClose();
+    public override void PlayOpen() {
+        particleSystem.Stop();
     }
-    public void PlayOpen() {
-        animator.Play(open.name);
-    }
-    public void PlayClose() {
-        animator.Play(close.name);
-    }
-    public void StopAllAnimations() {
-        animator.StopPlayback();
+    public override void PlayClose() {
+        particleSystem.Play();
     }
 }
