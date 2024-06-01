@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Door : MonoBehaviour {
 
-    [field: SerializeField] public DoorVisual Visual { get; private set; }
+    [field: SerializeField] public DoorVFX Visual { get; private set; }
 
     public UnityEvent OnDoorOpened; 
     public bool IsLocked { get; set; }
@@ -14,8 +14,6 @@ public class Door : MonoBehaviour {
     {
         IsLocked = true;
     }
-
-
     public void AlertDoorEvent()
     {
         OnDoorOpened?.Invoke();

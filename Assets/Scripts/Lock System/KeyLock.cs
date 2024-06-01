@@ -22,6 +22,7 @@ public class KeyLock : ILock, IInteractable
     }
     public override void Unlock()
     {
+        Debug.Log("Unlocking");
         IsLocked = false;
         visual.UnlockSprite();
     }

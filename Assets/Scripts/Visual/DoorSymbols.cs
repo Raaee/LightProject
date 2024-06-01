@@ -34,8 +34,9 @@ public class DoorSymbols : MonoBehaviour
     private void Start()
     {
         doorLogic = GetComponentInParent<DoorLogic>();
-        DisplayPortalSymbolUI();
         Init();
+        DisplayPortalSymbolUI();
+        UpdateSymbols();
     }
 
     private void Init()
@@ -100,6 +101,7 @@ public class DoorSymbols : MonoBehaviour
             else {
                 image.sprite = GetLockedSpriteBaseOnType(ilock.GetLaserKey());
             }
+            Debug.Log(aLock.Key.GetComponent<ILock>().IsLocked, gameObject);
         }
     }
 }
