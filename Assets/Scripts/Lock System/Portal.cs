@@ -4,7 +4,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     private Door door;
-
+   
     private void Awake()
     {
         door = GetComponent<Door>();

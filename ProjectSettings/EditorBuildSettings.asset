@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo Levels/Tutorials Levels/Level 2 Tutorial.unity
     guid: e9c340c91df22694cbf462d43499ce68
+  - enabled: 1
+    path: Assets/Scenes/Non Game Scenes/End Scene - Call To Action.unity
+    guid: 574cf220b4e4f3f4d989ea060d09472e
   m_configObjects: {}
