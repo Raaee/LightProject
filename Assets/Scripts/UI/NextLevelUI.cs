@@ -8,6 +8,7 @@ public class NextLevelUI : MonoBehaviour
     [SerializeField] private GameObject panelGO;
     public static NextLevelUI Instance { get; set; }
 
+    private UIFade uiFade;
     private void Start()
     {
         if (Instance != null)
@@ -18,6 +19,8 @@ public class NextLevelUI : MonoBehaviour
         }
         Instance = this;
         HidePanel();
+        uiFade = GetComponentInChildren<UIFade>();
+        uiFade.OnFadeOutComplete.AddListener(OnFadeUIFinished);
     }
     public void ShowPanel()
     {
@@ -34,11 +37,17 @@ public class NextLevelUI : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-
-    public void GoToNextLevel()
+    public void StartTransitionToNextLevel()
+    {
+        uiFade.FadeOut();
+    }
+    private void GoToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-
+    private void OnFadeUIFinished()
+    {
+        GoToNextLevel();
+    }
 }
