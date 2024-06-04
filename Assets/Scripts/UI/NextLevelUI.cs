@@ -9,6 +9,8 @@ public class NextLevelUI : MonoBehaviour
     public static NextLevelUI Instance { get; set; }
 
     private UIFade uiFade;
+
+    private bool alreadyClicked = false;
     private void Start()
     {
         if (Instance != null)
@@ -39,7 +41,11 @@ public class NextLevelUI : MonoBehaviour
 
     public void StartTransitionToNextLevel()
     {
+        if (alreadyClicked)
+            return;
+
         uiFade.FadeOut();
+        alreadyClicked = true;
     }
     private void GoToNextLevel()
     {

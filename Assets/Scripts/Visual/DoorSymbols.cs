@@ -101,7 +101,7 @@ public class DoorSymbols : MonoBehaviour
             else {
                 image.sprite = GetLockedSpriteBaseOnType(ilock.GetLaserKey());
             }
-            Debug.Log(aLock.Key.GetComponent<ILock>().IsLocked, gameObject);
+           
         }
     }
 }
