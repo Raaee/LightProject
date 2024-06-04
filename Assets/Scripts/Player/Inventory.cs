@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float itemHoldOffset = -0.5f;
     [field:SerializeField] public GameObject inventory { get; private set; }
     private InputControls inputControls;
+    [HideInInspector] public UnityEvent OnItemPickedUp;
 
     void Awake() {
         if (instance != null && instance != this) {
@@ -26,11 +29,14 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(GameObject item)
     {
+      
         if (!inventory)
         {
-            inventory = item;
+          
+            inventory = item;       
             inventory.transform.SetParent(transform);
             inventory.transform.position = new Vector3(transform.position.x + itemHoldOffset, transform.position.y, 0);
+            OnItemPickedUp?.Invoke();
         }
         else
         {
@@ -43,6 +49,8 @@ public class Inventory : MonoBehaviour
         {
             Destroy(inventory);
             inventory = null;
+            Debug.Log("just removed key");
+
         }
         else
         {
@@ -57,14 +65,13 @@ public class Inventory : MonoBehaviour
             inventory.transform.position = new Vector3(transform.position.x + itemHoldOffset, transform.position.y, 0);
             inventory.transform.SetParent(null);
             inventory = null;
+            Debug.Log("set inv to null ");
         }
         else
         {
            // Debug.Log("Inventory is empty");
         }
     }
-
-    
 
 
 }

@@ -10,6 +10,12 @@ public class ExtendedAudioContainer
 
     public void InitAudio(FMODUnity.EventReference newAudioReference)
     {
+        if (newAudioReference.IsNull)
+        {
+            Debug.LogError("An audio reference isnt set. Please screenshot this and yell at Peterson");
+            return;
+        }
+
         audioReference = newAudioReference;
         audioInstance = FMODUnity.RuntimeManager.CreateInstance(audioReference);
     }

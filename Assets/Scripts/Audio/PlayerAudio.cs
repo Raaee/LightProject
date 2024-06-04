@@ -23,6 +23,7 @@ public class PlayerAudio : MonoBehaviour
 
     private void Start()
     {
+        Inventory.instance.OnItemPickedUp.AddListener(PlayKeyPickUpAudio);
         nextPlayTime = Time.time + minInterval; // Initialize last play time with offset to prevent immediate play
         playerPushAudioContainer.InitAudio(playerPushAudio);
         playerFlameAudioContainer.InitAudio(playerFlameIdle);
