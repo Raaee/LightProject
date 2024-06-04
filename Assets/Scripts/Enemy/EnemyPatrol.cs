@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    [SerializeField] private EnemyMovement movement;
+    [SerializeField] private GameObject objectToMove;
     public List<Transform> waypointList;
-    private int currentWapointIndex;
-    [SerializeField] private float enemySpeed = 2f;
+    private int currentWapointIndex = 0;
+    [SerializeField] private bool randomPatrol = false;
     [SerializeField] private float waitTime = 1f;
-    [SerializeField] private float enemySmoothRotation = 5f;
     private float waitcounter = 0f;
-    private bool waiting= false;
-
+    private bool waiting = false;
 
     private void Update()
     {
@@ -22,26 +22,29 @@ public class EnemyPatrol : MonoBehaviour
                 return;
             waiting = false;
         }
-
+        
         Transform wp = waypointList[currentWapointIndex];
+        movement.RotateObject(wp);
         if (Vector2.Distance(transform.position, wp.position) < 0.01f) {
-            transform.position = wp.position;
+            //objectToMove.transform.position = wp.position;
             waitcounter = 0f;
             waiting = true;
-            rotateOnject(transform.position);
-            currentWapointIndex = (currentWapointIndex + 1) % waypointList.Count;
+            if (randomPatrol) 
+                currentWapointIndex = RandomIndex(currentWapointIndex);
+            else
+                currentWapointIndex = (currentWapointIndex + 1) % waypointList.Count;
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, wp.position, enemySpeed * Time.deltaTime);
-            rotateOnject(wp.position);
+            movement.MoveTowardsTarget(objectToMove, wp);
         }
     }
-
-    private void rotateOnject(Vector3 position) {
-        Vector2 lookAtWaypoint = transform.InverseTransformPoint(position);
-        float Angle = Mathf.Atan2(lookAtWaypoint.y, lookAtWaypoint.x) * Mathf.Rad2Deg - 90;
-
-        transform.Rotate(0, 0, Angle);
+    public int RandomIndex(int currentIndex) {
+        int ranIndex;
+        do {
+            ranIndex = Random.Range(0, waypointList.Count);
+        } while (ranIndex == currentIndex);
+        return ranIndex;
     }
+
 }
