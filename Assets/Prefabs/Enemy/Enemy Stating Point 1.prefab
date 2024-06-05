@@ -203,11 +203,6 @@ MonoBehaviour:
   objectToMove: {fileID: 137705961020158959}
   waypointList:
   - {fileID: 5039029618022537010}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   randomPatrol: 1
   waitTime: 1
 --- !u!1 &5217906825333119876
