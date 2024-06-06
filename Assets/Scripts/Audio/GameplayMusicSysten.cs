@@ -27,6 +27,15 @@ public class GameplayMusicSysten : MonoBehaviour
             instance.InitAudio(musicTrack);
             extendedAudioContainers.Add(instance);
         }
+
+        var portal = FindObjectOfType<Portal>();
+        if (portal == null)
+        {
+            Debug.LogError("No portal in scene?");
+            return;
+        }
+        portal.OnPlayerEntersPortal.AddListener(StopCurrentSong);
+
     }
 
 

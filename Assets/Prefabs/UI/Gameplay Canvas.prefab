@@ -118,7 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0ed461d6d3fbe4b82480a4c6e9dc8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelGO: {fileID: 6737058499606261612}
+  panelGo: {fileID: 6737058499606261612}
+  OnStartTransitionFadeOut:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &855196886181171028
 GameObject:
   m_ObjectHideFlags: 0

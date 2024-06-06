@@ -1,6 +1,8 @@
 using FMOD.Studio;
 using FMODUnity;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+
 
 public class AmbienceAudio : MonoBehaviour
 {
@@ -20,6 +22,14 @@ public class AmbienceAudio : MonoBehaviour
         timeToTriggerOneShot = defaultTriggerTime;
 
         StartAmbienceAudioSystem();
+
+        var portal = FindObjectOfType<Portal>();
+        if (portal == null)
+        {
+            Debug.LogError("No portal in scene?");
+            return;
+        }
+        portal.OnPlayerEntersPortal.AddListener(StopAmbienceAudioSystem);
     }
 
 
