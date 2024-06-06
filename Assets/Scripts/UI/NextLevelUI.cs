@@ -1,16 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class NextLevelUI : MonoBehaviour
 {
-    [SerializeField] private GameObject panelGO;
+    [SerializeField] private GameObject panelGo;
     public static NextLevelUI Instance { get; set; }
 
     private UIFade uiFade;
 
     private bool alreadyClicked = false;
+    
+    public UnityEvent OnStartTransitionFadeOut;
+    
+    [SerializeField] private FMODUnity.EventReference genericUISound;
     private void Start()
     {
         if (Instance != null)
@@ -26,12 +30,12 @@ public class NextLevelUI : MonoBehaviour
     }
     public void ShowPanel()
     {
-        panelGO.SetActive(true);
+        panelGo.SetActive(true);
     }
 
     public void HidePanel()
     {
-        panelGO.SetActive(false);
+        panelGo.SetActive(false);
     }
 
     public void GoToMainMenu()
@@ -43,9 +47,11 @@ public class NextLevelUI : MonoBehaviour
     {
         if (alreadyClicked)
             return;
-
+            
         uiFade.FadeOut();
         alreadyClicked = true;
+        OnStartTransitionFadeOut?.Invoke();
+        RuntimeManager.PlayOneShot(genericUISound, transform.position);
     }
     private void GoToNextLevel()
     {

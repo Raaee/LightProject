@@ -1,10 +1,12 @@
 
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class Portal : MonoBehaviour
 {
     private Door door;
-   
+     [HideInInspector] public UnityEvent OnPlayerEntersPortal;
     private void Awake()
     {
         door = GetComponent<Door>();
@@ -17,9 +19,12 @@ public class Portal : MonoBehaviour
         if (door.IsLocked == true) return;
 
         Debug.Log("Going to Next Level...321");
+        
         if (NextLevelUI.Instance == null)
             Debug.Log("There should be a Next Level UI Prefab in this scene");
         NextLevelUI.Instance.ShowPanel();
+        OnPlayerEntersPortal?.Invoke();
+        
         //freeze player 
         //play teleport animation 
         //sfx 
