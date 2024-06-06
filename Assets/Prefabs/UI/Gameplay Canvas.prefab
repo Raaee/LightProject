@@ -122,6 +122,13 @@ MonoBehaviour:
   OnStartTransitionFadeOut:
     m_PersistentCalls:
       m_Calls: []
+  genericUISound:
+    Guid:
+      Data1: -1624422178
+      Data2: 1221710608
+      Data3: -1001094479
+      Data4: -1622869084
+    Path: event:/UI/GenericUITone
 --- !u!1 &855196886181171028
 GameObject:
   m_ObjectHideFlags: 0

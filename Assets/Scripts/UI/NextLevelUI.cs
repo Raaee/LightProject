@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ public class NextLevelUI : MonoBehaviour
     private bool alreadyClicked = false;
     
     public UnityEvent OnStartTransitionFadeOut;
+    
+    [SerializeField] private FMODUnity.EventReference genericUISound;
     private void Start()
     {
         if (Instance != null)
@@ -48,6 +51,7 @@ public class NextLevelUI : MonoBehaviour
         uiFade.FadeOut();
         alreadyClicked = true;
         OnStartTransitionFadeOut?.Invoke();
+        RuntimeManager.PlayOneShot(genericUISound, transform.position);
     }
     private void GoToNextLevel()
     {
