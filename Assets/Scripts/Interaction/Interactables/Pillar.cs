@@ -2,6 +2,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Pillar : MonoBehaviour, IInteractable
 {
@@ -9,6 +10,7 @@ public class Pillar : MonoBehaviour, IInteractable
     [SerializeField] private LaserDetection laserDetection;
     [field: SerializeField] public LaserBeamLogic laserBeamLogic { get; private set; }
     [SerializeField] private PillarVisual visual;
+    public UnityEvent OnPillarRotate;
 
     private void Start() {
         laserDetection.OnLaserActive.AddListener(ReflectLaser);
@@ -28,7 +30,8 @@ public class Pillar : MonoBehaviour, IInteractable
         }
         cardinalDirection = (CardinalDirection)cardinalDirIndex;
         laserBeamLogic.SetCardinalDirection(cardinalDirection);
-        visual.ChangeSpriteRotation(cardinalDirIndex);
+        visual.ChangeSpriteRotation(cardinalDirIndex); //TODO: Remove this to go to the unity event 
+        OnPillarRotate?.Invoke();
     }
     public void ReflectLaser() {
         laserBeamLogic.EnableLaser();
