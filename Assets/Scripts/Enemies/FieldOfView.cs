@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using FunkyCode;
 
 public class FieldOfView : MonoBehaviour
@@ -11,12 +12,16 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private float fovRange = 5f;
     private Vector3 lookDirection = Vector3.forward;
 
+    [HideInInspector] public UnityEvent OnPlayerDetect;
+    [HideInInspector] public UnityEvent OnPlayerUnDetect;
+
     void Start() {
         AdjustLightToAngle();
     }
     private void Update() {
         lookDirection = transform.rotation * Vector3.up;
-        Debug.LogWarning(IsTargetInsideFOV(player));
+        //Debug.LogWarning(IsTargetInsideFOV(player));
+        detectPlayer();
     }
     public bool IsTargetInsideFOV(Transform target) {
 
@@ -31,5 +36,19 @@ public class FieldOfView : MonoBehaviour
     }   
     public void AdjustLightToAngle() {
         fovLight.size = fovRange * 1.5f;
+    }
+
+    public void detectPlayer()
+    {
+        if (IsTargetInsideFOV(player)) {
+            OnPlayerDetect.Invoke();
+        }
+        else
+            unDetectPlayer();
+    }
+
+    public void unDetectPlayer()
+    {
+        OnPlayerUnDetect.Invoke();
     }
 }

@@ -173,6 +173,9 @@ MonoBehaviour:
   player: {fileID: 0}
   fovAngle: 60
   fovRange: 5
+  OnPlayerDetect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &979630838722538880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 979630838722538880}
   objectToMove: {fileID: 137705961020158959}
+  FieldOfView: {fileID: 1283532401648744488}
   waypointList:
   - {fileID: 5039029618022537010}
   randomPatrol: 1
