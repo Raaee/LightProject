@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5177280786777730989}
   - component: {fileID: 87130213973151709}
   m_Layer: 0
-  m_Name: Patrolling Enemy
+  m_Name: Don't Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

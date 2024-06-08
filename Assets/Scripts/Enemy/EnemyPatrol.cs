@@ -6,15 +6,24 @@ public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private GameObject objectToMove;
+    [SerializeField] private FieldOfView FieldOfView;
     public List<Transform> waypointList;
     private int currentWapointIndex = 0;
     [SerializeField] private bool randomPatrol = false;
     [SerializeField] private float waitTime = 1f;
     private float waitcounter = 0f;
     private bool waiting = false;
+    [SerializeField] private bool playerDetc = false;
+
+    private void Start()
+    {
+        FieldOfView.OnPlayerDetect.AddListener(playerDetected);
+        FieldOfView.OnPlayerUnDetect.AddListener(playerUnDetected);
+    }
 
     private void Update()
     {
+
         if (waiting)
         {
             waitcounter += Time.deltaTime;
@@ -22,21 +31,22 @@ public class EnemyPatrol : MonoBehaviour
                 return;
             waiting = false;
         }
-        
         Transform wp = waypointList[currentWapointIndex];
         movement.RotateObject(wp);
         if (Vector2.Distance(transform.position, wp.position) < 0.01f) {
             //objectToMove.transform.position = wp.position;
             waitcounter = 0f;
             waiting = true;
-            if (randomPatrol) 
+            if (randomPatrol)
                 currentWapointIndex = RandomIndex(currentWapointIndex);
             else
                 currentWapointIndex = (currentWapointIndex + 1) % waypointList.Count;
         }
         else
         {
-            movement.MoveTowardsTarget(objectToMove, wp);
+            if (!playerDetc) {
+                movement.MoveTowardsTarget(objectToMove, wp);
+            }
         }
     }
     public int RandomIndex(int currentIndex) {
@@ -47,4 +57,22 @@ public class EnemyPatrol : MonoBehaviour
         return ranIndex;
     }
 
+
+    public void playerDetected() {
+        Debug.Log("Player Detected");
+        playerDetc = true;
+        enemywait();
+        Debug.Log("Player Dead");
+    }
+
+
+    public void playerUnDetected()
+    {
+        Debug.Log("Player UnDetected");
+        playerDetc = false;
+    }
+
+    public IEnumerable enemywait() {
+        yield return new WaitForSeconds(0.5f);
+    }
 }

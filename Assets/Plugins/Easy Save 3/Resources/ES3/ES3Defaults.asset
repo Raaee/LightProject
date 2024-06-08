@@ -33,6 +33,7 @@ MonoBehaviour:
     - AllIn1SpriteShaderAssembly
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - Cinemachine
     - FMODUnity
     - FMODUnityResonance
     - Unity.InputSystem.RebindingUI
