@@ -488,10 +488,6 @@ PrefabInstance:
       value: Laser Beam
       objectReference: {fileID: 0}
     - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0a557c70fd7be0d458a57b4765d6b539, type: 2}
