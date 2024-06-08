@@ -422,7 +422,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0da0f3f00b36f3e448cf2ce57f93f918, type: 2}
+  - {fileID: 2100000, guid: 0a557c70fd7be0d458a57b4765d6b539, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -444,17 +444,17 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: -2.0272026, y: 2.2328694, z: 0}
+  - {x: -2.0272026, y: -4.767131, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.035998963
+        value: 0.40952373
         inSlope: 0
         outSlope: 0
         tangentMode: 0
