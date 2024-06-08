@@ -106,7 +106,7 @@ MonoBehaviour:
   rotateObj: {fileID: 3991899435005643775}
   visual: {fileID: 2684840914805876944}
   laserKey: 4
-  laserBeamCardinalDirection: 0
+  laserBeamCardinalDirection: 6
   <LaserStrength>k__BackingField: 0
   <IsActive>k__BackingField: 0
 --- !u!114 &5228791203847564121
@@ -429,6 +429,42 @@ PrefabInstance:
     - target: {fileID: 5546355672208027091, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a557c70fd7be0d458a57b4765d6b539, type: 2}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -2.0272026
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 2.2328694
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: -2.0272026
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: -4.767131
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.035998963
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103626646016636488, guid: 7e589fdb42422bd4486ac0482bd2d276, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.40952373
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

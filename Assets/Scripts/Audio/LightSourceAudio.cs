@@ -7,7 +7,7 @@ public class LightSourceAudio : MonoBehaviour
     [Header("AUDIO")]
     [SerializeField] private FMODUnity.EventReference turnOnLightSource;
     [SerializeField] private FMODUnity.EventReference turnOffLightSource;
-    [SerializeField] private FMODUnity.EventReference rotateLightSource;
+    
     [SerializeField] private FMODUnity.EventReference idleLightSource;
 
 
@@ -38,10 +38,7 @@ public class LightSourceAudio : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(turnOffLightSource, transform.position);
     }
 
-    private void PlayRotateLSAudio()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot(rotateLightSource, transform.position);
-    }
+  
 
    
 

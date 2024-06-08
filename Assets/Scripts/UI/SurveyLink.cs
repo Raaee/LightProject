@@ -5,8 +5,9 @@ using UnityEngine;
 public class SurveyLink : MonoBehaviour
 {
     [SerializeField] private List<string> surveyUrl;
+    [SerializeField] private string realUrl;
    public void OpenUrl()
     {
-        Application.OpenURL(surveyUrl[Random.Range(0, surveyUrl.Count)]);
+        Application.OpenURL(realUrl);
     }
 }

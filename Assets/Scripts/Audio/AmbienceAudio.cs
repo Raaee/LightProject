@@ -1,23 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
+
 using UnityEngine;
+
 
 public class AmbienceAudio : MonoBehaviour
 {
-    [Header("AUDIO")]
-    [SerializeField] private FMODUnity.EventReference ambienceLoop;
-    [SerializeField] private FMODUnity.EventReference ambienceRandomOneShots;
+    [Header("AUDIO")] [SerializeField] private EventReference ambienceLoop;
 
-    private ExtendedAudioContainer ambiLoopAudioContainer = new ExtendedAudioContainer();
-    private bool IsActive = false;
-    private float timer = 0.0f;
-    private float defaultTriggerTime = 8f;
+    [SerializeField] private EventReference ambienceRandomOneShots;
+
+    private readonly ExtendedAudioContainer ambiLoopAudioContainer = new();
+    private readonly float defaultTriggerTime = 12f;
+    private bool IsActive;
+    private float timer;
     private float timeToTriggerOneShot;
 
     private void Start()
     {
         ambiLoopAudioContainer.InitAudio(ambienceLoop);
         timeToTriggerOneShot = defaultTriggerTime;
+
+        StartAmbienceAudioSystem();
+
+        var portal = FindObjectOfType<Portal>();
+        if (portal == null)
+        {
+            Debug.LogError("No portal in scene?");
+            return;
+        }
+        portal.OnPlayerEntersPortal.AddListener(StopAmbienceAudioSystem);
     }
 
 
@@ -28,7 +40,7 @@ public class AmbienceAudio : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if(timer >= timeToTriggerOneShot)
+        if (timer >= timeToTriggerOneShot)
         {
             PlayRandomAmbienceTrigger();
             timer = 0;
@@ -40,7 +52,7 @@ public class AmbienceAudio : MonoBehaviour
 
     private void PlayRandomAmbienceTrigger()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(ambienceRandomOneShots, transform.position);
+        RuntimeManager.PlayOneShot(ambienceRandomOneShots, transform.position);
     }
 
     private void StartAmbienceAudioSystem()
@@ -59,10 +71,10 @@ public class AmbienceAudio : MonoBehaviour
         IsActive = false;
     }
 
-    private bool IsEventPlaying(FMOD.Studio.EventInstance instance)
+    private bool IsEventPlaying(EventInstance instance)
     {
-        FMOD.Studio.PLAYBACK_STATE state;
+        PLAYBACK_STATE state;
         instance.getPlaybackState(out state);
-        return state != FMOD.Studio.PLAYBACK_STATE.STOPPED;
+        return state != PLAYBACK_STATE.STOPPED;
     }
 }
