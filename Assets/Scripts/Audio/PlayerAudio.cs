@@ -7,7 +7,6 @@ public class PlayerAudio : MonoBehaviour
 {
     [Header("AUDIO")]
     [SerializeField] private FMODUnity.EventReference playerWalkAudio;
-    [SerializeField] private FMODUnity.EventReference playerPushAudio; //half flame, half pushing block
     [SerializeField] private FMODUnity.EventReference playerFlameIdle;
     [SerializeField] private FMODUnity.EventReference playerSpawnIn;
     [SerializeField] private FMODUnity.EventReference pickUpKeySfx;
@@ -17,6 +16,8 @@ public class PlayerAudio : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerMovement playerMovement;
 
+    [SerializeField] private Rigidbody2D playerRb2d;
+    [SerializeField] private Transform playerTransform;
     [Header("Walking Data")]
     private float minInterval = 0.25f;
     private float nextPlayTime;
@@ -25,15 +26,18 @@ public class PlayerAudio : MonoBehaviour
     {
         Inventory.instance.OnItemPickedUp.AddListener(PlayKeyPickUpAudio);
         nextPlayTime = Time.time + minInterval; // Initialize last play time with offset to prevent immediate play
-        playerPushAudioContainer.InitAudio(playerPushAudio);
         playerFlameAudioContainer.InitAudio(playerFlameIdle);
+        PlaySpawnAudio();
+        playerFlameAudioContainer.ConnectTo3DAudio(playerTransform,playerRb2d );
+        playerFlameAudioContainer.StartAudio();
+       
     }
 
     private void Update()
     {
         if (playerMovement.IsPlayerMoving() && (Time.time >= nextPlayTime))
         {
-            PlayWalkAudio();
+            //PlayWalkAudio();
             nextPlayTime = Time.time + minInterval;
         }
     }
