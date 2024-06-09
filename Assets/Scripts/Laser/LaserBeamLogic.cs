@@ -53,6 +53,12 @@ public class LaserBeamLogic : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, detectingLayerMask);
         RaycastHit2D hitLightBlocker = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, lightBlockingLayerMask);
 
+        if (hit.collider.gameObject.GetHashCode() == gameObject.GetHashCode())
+        {
+            Debug.Log("hitting self, im out of here dawg");
+            return;
+        }
+        
         if (hitLightBlocker) {
             Debug.Log(hitLightBlocker, gameObject);
             lineRenderer.SetPosition(1, hitLightBlocker.point);
@@ -65,9 +71,14 @@ public class LaserBeamLogic : MonoBehaviour
             LaserBeamLogic beam = hit.collider.gameObject.GetComponent<LaserBeamLogic>();
             laserDetect?.OnLaserDetected(laserKey);
             laserKey = laserDetect.GetLaserType();
-            if (beam) beam.laserKey = laserKey;
+            if (beam)
+            {
+                beam.laserKey = laserKey;
+                Debug.Log("I am " + gameObject.GetHashCode() + ", I hit something: " + beam.gameObject.GetHashCode());
+                Debug.Log("The thing I hit location " + hit.point);
+            }
             lineRenderer.SetPosition(1, hit.point);
-            Debug.Log(hit, gameObject);
+           
         }
     }
 
