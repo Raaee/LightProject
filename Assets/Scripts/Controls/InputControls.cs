@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class InputControls : MonoBehaviour
 {
     public InputAction movement;
     public InputAction interact;
-
+    [SerializeField] private float interactDelayTime = 0.2f;
+    private bool interactHeld = false;
     [HideInInspector] public UnityEvent OnInteract;
 
     [Header("Player Inputs")] public PlayerControls playerControls;
@@ -18,6 +20,8 @@ public class InputControls : MonoBehaviour
 
     private void Update()
     {
+        interact.canceled += ReleasingInteract;  
+        interact.started += HoldingInteract;
         interact.performed += Interact;
     }
 
@@ -43,6 +47,19 @@ public class InputControls : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
-        OnInteract.Invoke();
+        StartCoroutine(Interaction());        
+    }
+    private IEnumerator Interaction() {
+        while (interactHeld) {
+            Debug.Log("Interacting");
+            yield return new WaitForSeconds(interactDelayTime);
+            OnInteract.Invoke();
+        }
+    }
+    public void HoldingInteract(InputAction.CallbackContext context) {
+        interactHeld = true;
+    }
+    public void ReleasingInteract(InputAction.CallbackContext context) {
+        interactHeld = false;
     }
 }
