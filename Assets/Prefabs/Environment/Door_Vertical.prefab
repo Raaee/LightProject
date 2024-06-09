@@ -160,6 +160,10 @@ MonoBehaviour:
   locks:
   - {fileID: 0}
   isLocked: 0
+  isRoomDoor: 1
+  player: {fileID: 0}
+  doorDirection: 0
+  playerDisplacement: 3
 --- !u!114 &3635196151053594819
 MonoBehaviour:
   m_ObjectHideFlags: 0

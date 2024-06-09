@@ -8,6 +8,12 @@ public class DoorLogic : MonoBehaviour
     [SerializeField] public List<ILock> locks;
 
     [SerializeField] private bool isLocked;
+    [SerializeField] private bool isRoomDoor;
+
+    [SerializeField] private GameObject player;
+    [SerializeField] private DoorDirection doorDirection = DoorDirection.right;
+
+    [SerializeField] private int playerDisplacement = 2;
 
     private void Start()
     {
@@ -50,4 +56,39 @@ public class DoorLogic : MonoBehaviour
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = false;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isRoomDoor) {
+            if (collision.CompareTag("Player") && !collision.isTrigger)
+            {
+                onRoorDoorTransform();
+            }
+        }
+    }
+
+    private void onRoorDoorTransform() {
+        switch (doorDirection) {
+            case (DoorDirection.right):
+                player.transform.position = new Vector2(player.transform.position.x + playerDisplacement, 0);
+                break;
+            case (DoorDirection.left):
+                player.transform.position = new Vector2(player.transform.position.x - playerDisplacement, 0);
+                break;
+            case (DoorDirection.top):
+                player.transform.position = new Vector2(0, player.transform.position.y + playerDisplacement);
+                break;
+            case (DoorDirection.down):
+                player.transform.position = new Vector2(0, player.transform.position.y - playerDisplacement);
+                break;
+
+        }
+    }
+}
+
+enum DoorDirection{
+    left,
+    right,
+    top,
+    down,
 }
