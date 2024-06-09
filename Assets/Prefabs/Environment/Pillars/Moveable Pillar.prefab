@@ -42,10 +42,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3767845410295921334}
+  - component: {fileID: 4310451274702819461}
   - component: {fileID: 345812093236401567}
   - component: {fileID: 1068688579983384490}
-  - component: {fileID: 4310451274702819461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,51 +68,6 @@ Transform:
   - {fileID: 7116257266766501367}
   m_Father: {fileID: 5833471213638163515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &345812093236401567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2383464749908650183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <cardinalDirection>k__BackingField: 0
-  laserDetection: {fileID: 2370644753748291169}
-  <laserBeamLogic>k__BackingField: {fileID: 1068688579983384490}
-  visual: {fileID: 8703146926215344767}
-  OnPillarRotate:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1068688579983384490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2383464749908650183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a5c3fd5f7c6db4a9e17eccde8b2359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectingLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  lightBlockingLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  lineRenderer: {fileID: 1421669391973555434}
-  firePoint: {fileID: 7116257266766501367}
-  rotateObj: {fileID: 8487058622935836215}
-  visual: {fileID: 7488497914783319320}
-  laserKey: 0
-  laserBeamCardinalDirection: 3
-  <LaserStrength>k__BackingField: 0
-  <IsActive>k__BackingField: 0
 --- !u!61 &4310451274702819461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,6 +113,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.67943335, y: 0.7355187}
   m_EdgeRadius: 0
+--- !u!114 &345812093236401567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383464749908650183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b354fd588088749b2bd2356be1fabc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <cardinalDirection>k__BackingField: 0
+  laserDetection: {fileID: 2370644753748291169}
+  <laserBeamLogic>k__BackingField: {fileID: 1068688579983384490}
+  visual: {fileID: 8703146926215344767}
+  OnPillarRotate:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1068688579983384490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383464749908650183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a5c3fd5f7c6db4a9e17eccde8b2359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectingLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  lightBlockingLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  lineRenderer: {fileID: 1421669391973555434}
+  firePoint: {fileID: 7116257266766501367}
+  rotateObj: {fileID: 8487058622935836215}
+  visual: {fileID: 7488497914783319320}
+  laserKey: 0
+  laserBeamCardinalDirection: 3
+  <LaserStrength>k__BackingField: 0
+  <IsActive>k__BackingField: 0
 --- !u!1 &2615351356839293950
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7446446673913539025}
   - component: {fileID: 2370644753748291169}
   - component: {fileID: 8361296471053679623}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Laser Detect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

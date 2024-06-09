@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3358581104588786555}
   - component: {fileID: 5572482954285977197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lock_Key
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 2369131186299919980}
   - component: {fileID: 5913778216305479355}
   - component: {fileID: 2674221805146342683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Key Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6839220145973143057}
   - component: {fileID: 3300896372612175374}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
