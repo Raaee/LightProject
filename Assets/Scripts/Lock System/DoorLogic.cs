@@ -70,16 +70,16 @@ public class DoorLogic : MonoBehaviour
     private void onRoorDoorTransform() {
         switch (doorDirection) {
             case (DoorDirection.right):
-                player.transform.position = new Vector2(player.transform.position.x + playerDisplacement, 0);
+                player.transform.position = new Vector2(player.transform.position.x + playerDisplacement, player.transform.position.y);
                 break;
             case (DoorDirection.left):
-                player.transform.position = new Vector2(player.transform.position.x - playerDisplacement, 0);
+                player.transform.position = new Vector2(player.transform.position.x - playerDisplacement, player.transform.position.y);
                 break;
             case (DoorDirection.top):
-                player.transform.position = new Vector2(0, player.transform.position.y + playerDisplacement);
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + playerDisplacement);
                 break;
             case (DoorDirection.down):
-                player.transform.position = new Vector2(0, player.transform.position.y - playerDisplacement);
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - playerDisplacement);
                 break;
 
         }
