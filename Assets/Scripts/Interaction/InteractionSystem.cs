@@ -39,7 +39,6 @@ public class InteractionSystem : MonoBehaviour
         foreach (Collider2D col in collidersInRange) {
             IInteractable potentialInteractable = col.gameObject.GetComponentInChildren<IInteractable>();
             if (potentialInteractable == null) {
-              
                 continue;
             }
             potentialInteractable.Interact();

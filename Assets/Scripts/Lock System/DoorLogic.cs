@@ -5,8 +5,9 @@ using UnityEngine;
 public class DoorLogic : MonoBehaviour
 {
     [SerializeField] private Door door;
+    [SerializeField] private LayerMask defaultLayerMask;
+    [SerializeField] private LayerMask lightBlockingLayerMask;
     [SerializeField] public List<ILock> locks;
-
     [SerializeField] private bool isLocked;
 
     private void Start()
@@ -41,6 +42,7 @@ public class DoorLogic : MonoBehaviour
         door.Visual.PlayOpen();
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = true;
+        this.gameObject.layer = defaultLayerMask;
     }
 
     public void LockDoor() {
@@ -49,5 +51,6 @@ public class DoorLogic : MonoBehaviour
         door.Visual.PlayClose();
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = false;
+        this.gameObject.layer = lightBlockingLayerMask;
     }
 }

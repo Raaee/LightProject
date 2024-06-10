@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 1197302982053814219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4249048220358246572}
@@ -77,12 +77,12 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 7
-  m_StartCorner: 3
+  m_StartCorner: 2
   m_StartAxis: 0
   m_CellSize: {x: 16, y: 16}
-  m_Spacing: {x: 5, y: 5}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Spacing: {x: 26, y: 32}
+  m_Constraint: 1
+  m_ConstraintCount: 3
 --- !u!114 &9031369798770264836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorLogic: {fileID: 5247071101382560817}
   SymbolPrefab: {fileID: 1736228758139045336}
+  keyImageScale: 2.5
+  symbolImageScale: 2
   lockedCircleSprite: {fileID: 527639469, guid: 99f2425355a0b204da87b7a620c174c4, type: 3}
   unlockedCircleSprite: {fileID: -225444243, guid: 99f2425355a0b204da87b7a620c174c4, type: 3}
   lockedTriangleSprite: {fileID: 11208386, guid: 99f2425355a0b204da87b7a620c174c4, type: 3}
@@ -193,7 +195,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 3635196151053594819}
+  defaultLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  lightBlockingLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   locks:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   isLocked: 0
 --- !u!114 &3635196151053594819
