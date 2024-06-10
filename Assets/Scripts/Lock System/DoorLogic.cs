@@ -42,7 +42,7 @@ public class DoorLogic : MonoBehaviour
         door.Visual.PlayOpen();
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = true;
-        this.gameObject.layer = defaultLayerMask;
+        this.gameObject.layer = defaultLayerMask.value;
     }
 
     public void LockDoor() {
@@ -51,6 +51,6 @@ public class DoorLogic : MonoBehaviour
         door.Visual.PlayClose();
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = false;
-        this.gameObject.layer = lightBlockingLayerMask;
+        this.gameObject.layer = lightBlockingLayerMask.value;
     }
 }
