@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField] private EnemyMovement movement;
     [SerializeField] private GameObject objectToMove;
-    [SerializeField] private FieldOfView FieldOfView;
+    [FormerlySerializedAs("FieldOfView")] [SerializeField] private FieldOfViewDetection fieldOfViewDetection;
     public List<Transform> waypointList;
     private int currentWapointIndex = 0;
     [SerializeField] private bool randomPatrol = false;
@@ -17,8 +18,8 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Start()
     {
-        FieldOfView.OnPlayerDetect.AddListener(playerDetected);
-        FieldOfView.OnPlayerUnDetect.AddListener(playerUnDetected);
+        fieldOfViewDetection.OnPlayerDetect.AddListener(playerDetected);
+        fieldOfViewDetection.OnPlayerUnDetect.AddListener(playerUnDetected);
     }
 
     private void Update()
