@@ -8,6 +8,8 @@ public class DoorSymbols : MonoBehaviour
 {
     [SerializeField] private DoorLogic doorLogic;
     [SerializeField] private GameObject SymbolPrefab;
+    [SerializeField] private float keyImageScale = 3f;
+    [SerializeField] private float symbolImageScale = 2.5f;
     public Dictionary<GameObject, GameObject> locks = new Dictionary<GameObject, GameObject>();
 
     [Header("Circle")]
@@ -57,7 +59,9 @@ public class DoorSymbols : MonoBehaviour
             go.gameObject.transform.SetParent(this.transform);
             Image image = go.GetComponent<Image>();
             if (aLock.gameObject.GetComponentInChildren<KeyLock>()) {
-                image.transform.localScale = new Vector3(1.5f,1.5f,0);
+                image.transform.localScale = new Vector3(keyImageScale,keyImageScale,0);
+            } else {
+                image.transform.localScale = new Vector3(symbolImageScale,symbolImageScale, 0);
             }
             go.name = image.name + ilock.GetLaserKey();
             image.preserveAspect = true;

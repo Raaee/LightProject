@@ -7,20 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Particley Beam Visual
+  m_Name: Portal Particles
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - ALPHACUTOFF_ON
   - BLURISHD_ON
+  - DOODLE_ON
   - FLICKER_ON
   - GLOWTEX_ON
   - GLOW_ON
   - HOLOGRAM_ON
-  - PIXELATE_ON
   - TEXTURESCROLL_ON
-  - WAVEUV_ON
   m_InvalidKeywords:
   - ETC1_EXTERNAL_ALPHA
   - _BLURHD_ON
@@ -64,8 +63,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2f5c9cbfde2d0384bb53189b0d0f06d8, type: 3}
-        m_Scale: {x: 1.5, y: 1.5}
+        m_Texture: {fileID: 2800000, guid: 487cb2374bc49b848a1f4577212201cc, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineDistortTex:
         m_Texture: {fileID: 2800000, guid: 7aad8c583ef292e48b06af0d1f2fab97, type: 3}
@@ -85,7 +84,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.332
+    - _Alpha: 0.75
     - _AlphaCutoffValue: 0.16
     - _AlphaOutlineBlend: 1
     - _AlphaOutlineGlow: 5
@@ -130,9 +129,9 @@ Material:
     - _GhostBlend: 0.08
     - _GhostColorBoost: 5
     - _GhostTransparency: 0
-    - _GlitchAmount: 3.4
-    - _GlitchSize: 1
-    - _Glow: 10
+    - _GlitchAmount: 20
+    - _GlitchSize: 5
+    - _Glow: 7
     - _GlowGlobal: 1
     - _GlowTexUsed: 1
     - _GradBlend: 1
@@ -157,7 +156,7 @@ Material:
     - _HologramMaxAlpha: 53
     - _HologramMinAlpha: 0.01
     - _HologramStripesAlpha: 0.4
-    - _HologramStripesAmount: 0.15
+    - _HologramStripesAmount: 0.3
     - _HologramStripesFill: 0.27
     - _HologramStripesLuminosity: 1
     - _HologramStripesSpeed: 20
@@ -174,7 +173,7 @@ Material:
     - _MinYUV: 0
     - _MotionBlurAngle: 0.1
     - _MotionBlurDist: 1.25
-    - _MyDstMode: 10
+    - _MyDstMode: 3
     - _MySrcMode: 5
     - _NegativeAmount: 1
     - _OffsetUvX: 0
@@ -252,7 +251,7 @@ Material:
     - _ColorSwapGreen: {r: 1, g: 1, b: 1, a: 1}
     - _ColorSwapRed: {r: 1, g: 1, b: 1, a: 1}
     - _FadeBurnColor: {r: 1, g: 0, b: 0, a: 1}
-    - _GlowColor: {r: 0.3962263, g: 0, b: 0.004003165, a: 1}
+    - _GlowColor: {r: 0, g: 0.44339612, b: 0.4092887, a: 1}
     - _GradBotLeftCol: {r: 1, g: 0.22772023, b: 0, a: 1}
     - _GradBotRightCol: {r: 0, g: 0, b: 0, a: 1}
     - _GradTopLeftCol: {r: 1, g: 0.09760027, b: 0, a: 1}

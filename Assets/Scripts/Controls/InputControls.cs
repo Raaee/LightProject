@@ -51,7 +51,6 @@ public class InputControls : MonoBehaviour
     }
     private IEnumerator Interaction() {
         while (interactHeld) {
-            Debug.Log("Interacting");
             yield return new WaitForSeconds(interactDelayTime);
             OnInteract.Invoke();
         }

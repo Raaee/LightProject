@@ -7,10 +7,8 @@ using UnityEngine.Events;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    //[SerializeField] private int inventorySpace = 1;
     [SerializeField] private float itemHoldOffset = -0.5f;
     [field:SerializeField] public GameObject inventory { get; private set; }
-    private InputControls inputControls;
     [HideInInspector] public UnityEvent OnItemPickedUp;
 
     void Awake() {
@@ -23,16 +21,12 @@ public class Inventory : MonoBehaviour
     }
     private void Start()
     {
-        inputControls = GetComponent<InputControls>();
-        inputControls.OnInteract.AddListener(TryDropInventory);
+        inventory = null;
     }    
 
-    public void AddItem(GameObject item)
-    {
+    public void AddItem(GameObject item)    {
       
-        if (!inventory)
-        {
-          
+        if (!inventory) {
             inventory = item;       
             inventory.transform.SetParent(transform);
             inventory.transform.position = new Vector3(transform.position.x + itemHoldOffset, transform.position.y, 0);
@@ -49,29 +43,11 @@ public class Inventory : MonoBehaviour
         {
             Destroy(inventory);
             inventory = null;
-            Debug.Log("just removed key");
-
+            Debug.Log("just removed inventory");
         }
         else
         {
             Debug.Log("Inventory is empty");
         }
     }
-
-    private void TryDropInventory()
-    {
-        if(inventory)
-        {
-            inventory.transform.position = new Vector3(transform.position.x + itemHoldOffset, transform.position.y, 0);
-            inventory.transform.SetParent(null);
-            inventory = null;
-            Debug.Log("set inv to null ");
-        }
-        else
-        {
-           // Debug.Log("Inventory is empty");
-        }
-    }
-
-
 }
