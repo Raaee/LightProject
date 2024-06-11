@@ -10,6 +10,7 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float fovAngle = 60f;
     [SerializeField] private float fovRange = 5f;
+    private const float FOV_RANGE_MULTIPLIER = 1.5f;
     private Vector3 lookDirection = Vector3.forward;
 
     [HideInInspector] public UnityEvent OnPlayerDetect;
@@ -35,7 +36,7 @@ public class FieldOfView : MonoBehaviour
         return false;
     }   
     public void AdjustLightToAngle() {
-        fovLight.size = fovRange * 1.5f;
+        fovLight.size = fovRange * FOV_RANGE_MULTIPLIER;
     }
 
     public void detectPlayer()
