@@ -12,7 +12,7 @@ public class KeyLock : ILock, IInteractable
     }
     public void Interact()
     {
-        if (IsLocked && Inventory.instance.inventory && Inventory.instance.inventory.GetComponent<Key>())
+        if (IsLocked && Inventory.instance.inventory && Inventory.instance.inventory.GetComponentInChildren<Key>())
         {
             Debug.Log("unlocking key lock");
             Inventory.instance.RemoveItem();

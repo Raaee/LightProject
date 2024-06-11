@@ -52,19 +52,22 @@ public class LaserBeamLogic : MonoBehaviour
         float calcDistance = Vector2.Distance(offsetPosition, transform.position); 
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, detectingLayerMask);
         RaycastHit2D hitLightBlocker = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, lightBlockingLayerMask);
-
+        
         if (hitLightBlocker) {
+            Debug.Log(hitLightBlocker, gameObject);
             lineRenderer.SetPosition(1, hitLightBlocker.point);
             return;
         }
         if(hit)
         {    
-            LaserDetection laserDetect = hit.collider.gameObject.GetComponent<LaserDetection>();
-            LaserBeamLogic beam = hit.collider.gameObject.GetComponentInChildren<LaserBeamLogic>();
+            LaserDetection laserDetect = hit.collider.gameObject.GetComponentInParent<LaserDetection>();
+            if (!laserDetect) laserDetect = hit.collider.gameObject.transform.parent.GetComponentInChildren<LaserDetection>();
+            LaserBeamLogic beam = hit.collider.gameObject.GetComponent<LaserBeamLogic>();
             laserDetect?.OnLaserDetected(laserKey);
             laserKey = laserDetect.GetLaserType();
             if (beam) beam.laserKey = laserKey;
             lineRenderer.SetPosition(1, hit.point);
+           
         }
     }
 

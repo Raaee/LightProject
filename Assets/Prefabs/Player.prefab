@@ -364,6 +364,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  interactDelayTime: 0.2
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -379,6 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6f2bbc4f6ffa94ea7c1025ccb70ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactablesLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   interactRadius: 0.75
 --- !u!114 &1873386686422883695
 MonoBehaviour:

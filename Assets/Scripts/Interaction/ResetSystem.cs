@@ -23,6 +23,12 @@ public class ResetSystem : MonoBehaviour
         ResetLightSources();
     }
 
+    [ProButton]
+    public void TurnOnLights()
+    {
+        TurnOnLightSources();
+    }
+
     public void ResetPillars()
     {
         foreach (KeyValuePair<GameObject, Transform> obj in ObjsInLevel)
@@ -54,6 +60,21 @@ public class ResetSystem : MonoBehaviour
             }
             LightSource lightSource = obj.Key.GetComponentInChildren<LightSource>();
             lightSource.TurnOffLightSource();
+
+        }
+    }
+
+    public void TurnOnLightSources()
+    {
+        foreach (KeyValuePair<GameObject, Transform> obj in ObjsInLevel)
+        {
+            obj.Key.transform.position = obj.Value.position;
+            if (obj.Key.GetComponentInChildren<LightSource>() == null)
+            {
+                continue;
+            }
+            LightSource lightSource = obj.Key.GetComponentInChildren<LightSource>();
+            lightSource.TurnOnLightSource();
 
         }
     }

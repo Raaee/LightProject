@@ -20,4 +20,10 @@ public class LightSource : MonoBehaviour, IInteractable
         laserBeamLogic.DisableLaser();
         lightSourceVisual.DeactivateLight();
     }
+
+    public void TurnOnLightSource()
+    {
+        laserBeamLogic.EnableLaser();
+        lightSourceVisual.ActivateLight();
+    }
 }
