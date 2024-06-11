@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorLogic : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class DoorLogic : MonoBehaviour
 
     [SerializeField] private int playerDisplacement = 2;
 
+    [HideInInspector] public UnityEvent OnDoorLocked;
+    [HideInInspector] public UnityEvent OnDoorUnLocked;
     private void Start()
     {
         Init();
@@ -49,6 +52,7 @@ public class DoorLogic : MonoBehaviour
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = true;
         this.gameObject.layer = defaultLayerMask.value;
+        OnDoorUnLocked?.Invoke();
     }
 
     public void LockDoor() {
@@ -58,6 +62,7 @@ public class DoorLogic : MonoBehaviour
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = false;
         this.gameObject.layer = lightBlockingLayerMask.value;
+        OnDoorLocked?.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

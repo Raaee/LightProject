@@ -12,7 +12,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private FMODUnity.EventReference pickUpKeySfx;
 
     private ExtendedAudioContainer playerFlameAudioContainer = new ExtendedAudioContainer();
-    private ExtendedAudioContainer playerPushAudioContainer = new ExtendedAudioContainer();
+  
     [Header("References")]
     [SerializeField] private PlayerMovement playerMovement;
 
@@ -22,6 +22,8 @@ public class PlayerAudio : MonoBehaviour
     private float minInterval = 0.25f;
     private float nextPlayTime;
 
+    private const string PLAYER_WALK_PARAM = "IsWalking";
+
     private void Start()
     {
         Inventory.instance.OnItemPickedUp.AddListener(PlayKeyPickUpAudio);
@@ -30,7 +32,8 @@ public class PlayerAudio : MonoBehaviour
         PlaySpawnAudio();
         playerFlameAudioContainer.ConnectTo3DAudio(playerTransform,playerRb2d );
         playerFlameAudioContainer.StartAudio();
-       
+        playerMovement.OnPlayerMove.AddListener(PlayerWalkingAudio);
+        playerMovement.OnPlayerStop.AddListener(PlayerIdleAudio);
     }
 
     private void Update()
@@ -56,16 +59,14 @@ public class PlayerAudio : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(pickUpKeySfx, transform.position);
     }
 
-
-    //These methods can be removed, call the contianer directly 
-    private void PlayPushAudio()
+    private void PlayerWalkingAudio()
     {
-        playerPushAudioContainer.StartAudio();
+        playerFlameAudioContainer.SetParameter(PLAYER_WALK_PARAM, 1);
     }
-
-    private void StopPushAudio()
+    
+    private void PlayerIdleAudio()
     {
-        playerPushAudioContainer.StopAudio();
+        playerFlameAudioContainer.SetParameter(PLAYER_WALK_PARAM, 0);
     }
 
 }
