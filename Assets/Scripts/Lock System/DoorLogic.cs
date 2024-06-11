@@ -87,6 +87,41 @@ public class DoorLogic : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isRoomDoor) {
+            if (collision.CompareTag("Player") && !collision.isTrigger)
+            {
+                onRoorDoorTransform();
+            }
+        }
+    }
+
+    private void onRoorDoorTransform() {
+        switch (doorDirection) {
+            case (DoorDirection.right):
+                player.transform.position = new Vector2(player.transform.position.x + playerDisplacement, player.transform.position.y);
+                break;
+            case (DoorDirection.left):
+                player.transform.position = new Vector2(player.transform.position.x - playerDisplacement, player.transform.position.y);
+                break;
+            case (DoorDirection.top):
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + playerDisplacement);
+                break;
+            case (DoorDirection.down):
+                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - playerDisplacement);
+                break;
+
+        }
+    }
+}
+
+enum DoorDirection{
+    left,
+    right,
+    top,
+    down,
 }
 
 enum DoorDirection{
