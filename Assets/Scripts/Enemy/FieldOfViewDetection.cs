@@ -13,11 +13,12 @@ public class FieldOfViewDetection : MonoBehaviour
     private const float FOV_RANGE_MULTIPLIER = 1.5f;
     private Vector3 lookDirection = Vector3.forward;
     private bool playerJustGotDetected = false;
-     public UnityEvent OnPlayerDetect { get; set; }
-     public UnityEvent OnPlayerUnDetect { get; set; }
+    public UnityEvent OnPlayerDetect;
+    public UnityEvent OnPlayerUnDetect;
 
     private void Awake()
     {
+       
         fovLight = GetComponent<Light2D>();
         player = FindObjectOfType<PlayerMovement>().gameObject.transform;
         if (!player)
@@ -39,7 +40,7 @@ public class FieldOfViewDetection : MonoBehaviour
         {
            
             if (!playerJustGotDetected)
-            { Debug.Log("I see player");
+            {
                 OnPlayerDetect?.Invoke();
                 playerJustGotDetected = true;
             }
@@ -48,7 +49,7 @@ public class FieldOfViewDetection : MonoBehaviour
         {
             if (playerJustGotDetected)
             {
-                Debug.Log("player not detected");
+                
                 OnPlayerUnDetect?.Invoke();
                 playerJustGotDetected = false;
             }
