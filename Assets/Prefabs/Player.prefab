@@ -51,27 +51,20 @@ MonoBehaviour:
       Data3: -1265958489
       Data4: -1646814997
     Path: event:/Player/Footstep
-  playerPushAudio:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
   playerFlameIdle:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1804823002
+      Data2: 1265294976
+      Data3: -55279708
+      Data4: -955628893
+    Path: event:/Player/FlameIdleLoop
   playerSpawnIn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1397543568
+      Data2: 1277115189
+      Data3: -730260545
+      Data4: 164581379
+    Path: event:/Player/SpawnIn
   pickUpKeySfx:
     Guid:
       Data1: -836773907
@@ -80,6 +73,8 @@ MonoBehaviour:
       Data4: 1425011996
     Path: event:/Player/PickUpKey
   playerMovement: {fileID: 1873386686422883695}
+  playerRb2d: {fileID: 7926577315351321680}
+  playerTransform: {fileID: 1193519302919741016}
 --- !u!1 &483018825279354457
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4164142783493655355}
   playerMovement: {fileID: 1873386686422883695}
+  OnSpawnAnimationEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6170259444846409478
 GameObject:
   m_ObjectHideFlags: 0

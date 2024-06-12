@@ -2,6 +2,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerAnimations : MonoBehaviour
 {
@@ -10,8 +11,10 @@ public class PlayerAnimations : MonoBehaviour
     public bool IsWalkingState { get; set; }
     private const string IS_MOVING_ANIM_TAG = "isMoving";
 
+    [HideInInspector] public UnityEvent OnSpawnAnimationEnd;
     private void Start()
     {
+        StartCoroutine(SpawnAnimation());
         IsWalkingState = false;
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
         playerMovement.OnPlayerMove.AddListener(BeginToMove);
@@ -32,6 +35,30 @@ public class PlayerAnimations : MonoBehaviour
     {
         IsWalkingState = false;
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
+    }
+
+    private IEnumerator SpawnAnimation()
+    {
+        transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        float elapsedTime = 0.0f;
+        float animationTime = 0.75f;
+        float targetScale = 1.0f;
+        while (elapsedTime < animationTime)
+        {
+            // Calculate the lerp value based on elapsed time
+            float lerpValue = elapsedTime / animationTime;
+
+            // Use Vector3.Lerp for smooth scaling
+            transform.localScale = Vector3.Lerp(new Vector3(0.01f, 0.01f, 0.01f), new Vector3(1f, 1f, 1f), lerpValue);
+
+            // Wait for the next frame to update the scale
+            yield return new WaitForEndOfFrame();
+
+            // Update elapsed time
+            elapsedTime += Time.deltaTime;
+        }
+        transform.localScale = new Vector3(targetScale, targetScale, targetScale);
+        OnSpawnAnimationEnd?.Invoke();
     }
 
 }

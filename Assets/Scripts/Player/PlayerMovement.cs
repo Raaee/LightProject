@@ -18,18 +18,23 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnPlayerMove;
     [HideInInspector] public UnityEvent OnPlayerStop;
-   
+    private bool allowPlayerInput = false;
+    private PlayerAnimations playerAnims; 
 
     // Start is called before the first frame update
     void Awake()
     {
         playerInput = GetComponent<InputControls>();
         rb = GetComponent<Rigidbody2D>();
+        playerAnims = GetComponentInChildren<PlayerAnimations>();
+        playerAnims.OnSpawnAnimationEnd.AddListener(AllowPlayerInputOnAnimationEnd);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(allowPlayerInput == false)
+            return;
         moveInput = playerInput.movement.ReadValue<Vector2>();
         smoothedMovementInput = Vector2.SmoothDamp(smoothedMovementInput, moveInput, ref movementInputSmoothVelocity, SMOOTH_TIME);
         rb.velocity = smoothedMovementInput * moveSpeed;
@@ -55,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
+    public void AllowPlayerInputOnAnimationEnd()
+    {
+        allowPlayerInput = true;
+    }
 
     public bool IsPlayerMoving()
     {

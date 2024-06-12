@@ -60,6 +60,7 @@ public class EnemyPatrol : MonoBehaviour
     }
     //TODO: refactor to FOV Detection script
     //TODO: make the lose event only happen once
+    //TODO: improve random index method
     private void CheckDetectionTime() 
     {
         if (!playerDetected)

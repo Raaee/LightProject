@@ -1,5 +1,92 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1019836694711228318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4882164369734573652}
+  - component: {fileID: 1623844283713695661}
+  - component: {fileID: 89205896969632135}
+  m_Layer: 0
+  m_Name: PortalAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4882164369734573652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019836694711228318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2470124917436087880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623844283713695661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019836694711228318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc821d1d29b3d5b4f93a4e3ab4fe05c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPortalSfx:
+    Guid:
+      Data1: 1783132605
+      Data2: 1303303081
+      Data3: 1112167829
+      Data4: 526190509
+    Path: event:/Gameplay/Enviroment/Portal/Start Portal
+  stopPortalSfx:
+    Guid:
+      Data1: -223530655
+      Data2: 1222873638
+      Data3: 1808821892
+      Data4: 1021458502
+    Path: event:/Gameplay/Enviroment/Portal/Stop Portal
+  portal: {fileID: 5247071101382560817}
+--- !u!50 &89205896969632135
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019836694711228318}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1197302982053814219
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +232,7 @@ Transform:
   - {fileID: 1892541069804551412}
   - {fileID: 4249048220358246572}
   - {fileID: 6344323387086539749}
+  - {fileID: 4882164369734573652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &3661781421437024178
@@ -203,13 +291,17 @@ MonoBehaviour:
     m_Bits: 128
   locks:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   isLocked: 0
   isRoomDoor: 0
   player: {fileID: 0}
   doorDirection: 1
   playerDisplacement: 2
+  OnDoorLocked:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDoorUnLocked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3635196151053594819
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public abstract class ILock : MonoBehaviour
     
     [SerializeField] protected LaserKeys laserKey;
     [HideInInspector] public UnityEvent OnInputDetection;
+   
     [SerializeField] protected LockVisual visual;
     [field:SerializeField] public bool IsLocked { get; protected set; }
     public abstract void Unlock();
