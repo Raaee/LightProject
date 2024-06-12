@@ -33,6 +33,58 @@ Transform:
   - {fileID: 6911814403972536561}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1981425412513385094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5495640873453742782}
+  - component: {fileID: 4302008573973409035}
+  m_Layer: 8
+  m_Name: Pillar audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5495640873453742782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981425412513385094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5833471213638163515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4302008573973409035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981425412513385094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931a39901de99334ca499566f92b2461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillar: {fileID: 345812093236401567}
+  rotateLightSource:
+    Guid:
+      Data1: -995744586
+      Data2: 1111023830
+      Data3: -1985802842
+      Data4: 2032825484
+    Path: event:/Gameplay/Enviroment/Light Beam/Rotate
 --- !u!1 &2383464749908650183
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +398,7 @@ Transform:
   - {fileID: 3767845410295921334}
   - {fileID: 8487058622935836215}
   - {fileID: 5318318008763867192}
+  - {fileID: 5495640873453742782}
   m_Father: {fileID: 862083831799442184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7076071305067115523
@@ -432,14 +485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4380b13198479874f80568aafa4afee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   OnLaserActive:
     m_PersistentCalls:
       m_Calls: []
   OnLaserInactive:
     m_PersistentCalls:
       m_Calls: []
-  laserType: 0
 --- !u!114 &8361296471053679623
 MonoBehaviour:
   m_ObjectHideFlags: 0

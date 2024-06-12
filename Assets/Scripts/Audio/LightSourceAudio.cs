@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +11,11 @@ public class LightSourceAudio : MonoBehaviour
 
 
     [Header("References")]
-       private const string LIGHT_BEAMS_PARAM = "LightBeamsTurnedOn";
+    private const string LIGHT_BEAMS_PARAM = "LightBeamsTurnedOn";
     private List<LightSource> allLightSourcesInScene;
 
     private ExtendedAudioContainer idleLightSourceAudioContainer = new ExtendedAudioContainer();
-
+    private float currentPercentageOfLightSources = 0f;
     private void Start()
     {
         allLightSourcesInScene = new List<LightSource>();
@@ -26,17 +25,19 @@ public class LightSourceAudio : MonoBehaviour
         idleLightSourceAudioContainer.InitAudio(idleLightSource);
         //idleLightSourceAudioContainer.ConnectTo3DAudio(lightSourceTransform, lightSourceRb2d);
         idleLightSourceAudioContainer.SetParameter(LIGHT_BEAMS_PARAM, 0);
+        idleLightSourceAudioContainer.StartAudio();
     }
 
     private void FindLightSourcesInScene()
     {
+        
         var lightSources = FindObjectsOfType<LightSource>();
         foreach(var ls in lightSources)
         {
             allLightSourcesInScene.Add(ls);
             ls.OnLightSourceInteracted.AddListener(UpdateLightSourceAudioSystem);
         }
-        Debug.Log("There are " + allLightSourcesInScene.Count + " in this scene");
+        //Debug.Log("There are " + allLightSourcesInScene.Count + " in this scene");
     }
 
     private void UpdateLightSourceAudioSystem()
@@ -48,8 +49,26 @@ public class LightSourceAudio : MonoBehaviour
                 amtOfLightSourcesTurnedOn++;
         }
         float percentageOfLightsOn = (float)amtOfLightSourcesTurnedOn / allLightSourcesInScene.Count;
-        Debug.Log("percentage is now " + percentageOfLightsOn);
+        CheckLastLightSourceOnOrOff(percentageOfLightsOn);
+        currentPercentageOfLightSources = percentageOfLightsOn;
        idleLightSourceAudioContainer.SetParameter(LIGHT_BEAMS_PARAM, percentageOfLightsOn);
+    }
+
+    private void CheckLastLightSourceOnOrOff(float percentage)
+    {
+        if (currentPercentageOfLightSources <  percentage) //if was orignially 0 and it increased
+        {
+            PlayTurnOnLSAudio();
+        }  
+        else if (currentPercentageOfLightSources > 0f && percentage == 0f) //if some lightsources were on and now its 0
+        {
+            PlayTurnOffLSAudio(); 
+        }
+        else
+        {
+            Debug.Log("This should never be called, blame peterson ");
+        }
+        
     }
 
     private void PlayTurnOnLSAudio()
