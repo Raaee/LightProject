@@ -67,7 +67,7 @@ public class DoorLogic : MonoBehaviour
         if (isLocked)
         {
             lockedFromOpen = false;
-            Debug.Log("Doorlogic Already locked, skipping");
+            //Debug.Log("Doorlogic Already locked, skipping");
             return;
         }
         isLocked = true;
