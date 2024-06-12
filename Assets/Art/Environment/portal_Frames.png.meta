@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5b2a58b8c42f69f48bfc78c79cdac060
+guid: 75ab26386d327b94d854768a500ff859
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flipped_portalFrame_0
+      name: portal_Frames_0
       rect:
         serializedVersion: 2
         x: 7
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3e457b1b57ce3468876091dfe19174
-      internalID: -903543784
+      spriteID: 1f5151e5d6419c54285b278b8dea2297
+      internalID: 312790578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flipped_portalFrame_1
+      name: portal_Frames_1
       rect:
         serializedVersion: 2
         x: 113
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19b0cf1567317614a86c82c35cbf8555
-      internalID: -362574556
+      spriteID: 6ef287a5d6a9b2f4b8fb6430d5b61bf8
+      internalID: 75140769
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      flipped_portalFrame_0: -903543784
-      flipped_portalFrame_1: -362574556
+      portal_Frames_0: 312790578
+      portal_Frames_1: 75140769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

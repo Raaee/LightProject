@@ -206,6 +206,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   isLocked: 0
+  isRoomDoor: 0
+  player: {fileID: 0}
+  doorDirection: 1
+  playerDisplacement: 2
 --- !u!114 &3635196151053594819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0031, y: 0.079}
+  m_AnchoredPosition: {x: 0.0031, y: 0.59}
   m_SizeDelta: {x: 76.5249, y: 36.0555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7257758412448555817
@@ -14562,7 +14566,7 @@ Transform:
   m_GameObject: {fileID: 6208269629555086672}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14613,7 +14617,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -903543784, guid: 5b2a58b8c42f69f48bfc78c79cdac060, type: 3}
+  m_Sprite: {fileID: 75140769, guid: 75ab26386d327b94d854768a500ff859, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14639,8 +14643,8 @@ MonoBehaviour:
   particleSystem: {fileID: 7033108928329723018}
   sr: {fileID: 3101768467409313887}
   portalLight: {fileID: 5448339838527841635}
-  openSprite: {fileID: 1360458644, guid: cc49c52a2e4be214cae4e340103ed964, type: 3}
-  closedSprite: {fileID: -903543784, guid: 5b2a58b8c42f69f48bfc78c79cdac060, type: 3}
+  openSprite: {fileID: 75140769, guid: 75ab26386d327b94d854768a500ff859, type: 3}
+  closedSprite: {fileID: 312790578, guid: 75ab26386d327b94d854768a500ff859, type: 3}
   particles: {fileID: 2453737623392297241}
   lightDimnessWhenClosed: 0.4
 --- !u!1 &6630275785316975428

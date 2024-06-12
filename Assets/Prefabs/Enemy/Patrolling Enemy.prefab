@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4816222087430178852}
   - component: {fileID: 5177280786777730989}
-  - component: {fileID: 87130213973151709}
+  - component: {fileID: 9130389689181470141}
+  - component: {fileID: 8595185406299865046}
+  - component: {fileID: 8579661315864120958}
   m_Layer: 0
   m_Name: Patrolling Enemy
   m_TagString: Untagged
@@ -95,7 +97,7 @@ MonoBehaviour:
     - {x: 2.5, y: 5}
   drawingEnabled: 1
   drawingTranslucencyEnabled: 1
---- !u!114 &87130213973151709
+--- !u!114 &9130389689181470141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,13 +106,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 4160413538589338906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cdc79f69cc07c7469194c20576f0aef, type: 3}
+  m_Script: {fileID: 11500000, guid: 6394e087271e0fe4f96b8137c0b89160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fovLight: {fileID: 5177280786777730989}
-  player: {fileID: 0}
   fovAngle: 60
   fovRange: 5
+  OnPlayerDetect:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerUnDetect:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8595185406299865046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160413538589338906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35bd38e56af8f2409cbbbf465001603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointList: []
+  randomPatrol: 0
+  waitTime: 1
+--- !u!114 &8579661315864120958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160413538589338906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743285ace30c3b24f9b8ff43245df8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 2
+  enemySmoothRotation: 5
 --- !u!1 &4714364886946933860
 GameObject:
   m_ObjectHideFlags: 0
