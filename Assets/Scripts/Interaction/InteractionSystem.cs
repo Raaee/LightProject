@@ -8,15 +8,17 @@ using UnityEngine;
 /// </summary>
 public class InteractionSystem : MonoBehaviour
 {
-    [SerializeField] [Range(0.01f, 4f)] private float interactRadius = 1.5f;
+    [SerializeField] private LayerMask interactablesLayerMask;
+    [SerializeField] [Range(0.01f, 4f)] private float interactRadius = 0.75f;
     private InputControls input;
     private Collider2D[] collidersInRange;
     private void Start() {
         input = GetComponent<InputControls>();
+        Physics2D.queriesStartInColliders = false;
         input.OnInteract.AddListener(HandleInteract);
     }
     private void Update() {
-        collidersInRange = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+        collidersInRange = Physics2D.OverlapCircleAll(transform.position, interactRadius, interactablesLayerMask);
         foreach (Collider2D col in collidersInRange) {
             InteractVisual potentialInteractVisual = col.gameObject.GetComponentInChildren<InteractVisual>();
             if (!potentialInteractVisual) {
@@ -35,12 +37,8 @@ public class InteractionSystem : MonoBehaviour
     private void HandleInteract()
     {
         foreach (Collider2D col in collidersInRange) {
-            IInteractable potentialInteractable = col.gameObject.GetComponent<IInteractable>();
-            if (col.gameObject.GetComponentInChildren<KeyLock>()) { // bc keylock is special
-                potentialInteractable = col.gameObject.GetComponentInChildren<IInteractable>();
-            }
+            IInteractable potentialInteractable = col.gameObject.GetComponentInChildren<IInteractable>();
             if (potentialInteractable == null) {
-              
                 continue;
             }
             potentialInteractable.Interact();

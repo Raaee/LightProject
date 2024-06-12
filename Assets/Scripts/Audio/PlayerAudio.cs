@@ -7,33 +7,40 @@ public class PlayerAudio : MonoBehaviour
 {
     [Header("AUDIO")]
     [SerializeField] private FMODUnity.EventReference playerWalkAudio;
-    [SerializeField] private FMODUnity.EventReference playerPushAudio; //half flame, half pushing block
     [SerializeField] private FMODUnity.EventReference playerFlameIdle;
     [SerializeField] private FMODUnity.EventReference playerSpawnIn;
     [SerializeField] private FMODUnity.EventReference pickUpKeySfx;
 
     private ExtendedAudioContainer playerFlameAudioContainer = new ExtendedAudioContainer();
-    private ExtendedAudioContainer playerPushAudioContainer = new ExtendedAudioContainer();
+  
     [Header("References")]
     [SerializeField] private PlayerMovement playerMovement;
 
+    [SerializeField] private Rigidbody2D playerRb2d;
+    [SerializeField] private Transform playerTransform;
     [Header("Walking Data")]
     private float minInterval = 0.25f;
     private float nextPlayTime;
+
+    private const string PLAYER_WALK_PARAM = "IsWalking";
 
     private void Start()
     {
         Inventory.instance.OnItemPickedUp.AddListener(PlayKeyPickUpAudio);
         nextPlayTime = Time.time + minInterval; // Initialize last play time with offset to prevent immediate play
-        playerPushAudioContainer.InitAudio(playerPushAudio);
         playerFlameAudioContainer.InitAudio(playerFlameIdle);
+        PlaySpawnAudio();
+        playerFlameAudioContainer.ConnectTo3DAudio(playerTransform,playerRb2d );
+        playerFlameAudioContainer.StartAudio();
+        playerMovement.OnPlayerMove.AddListener(PlayerWalkingAudio);
+        playerMovement.OnPlayerStop.AddListener(PlayerIdleAudio);
     }
 
     private void Update()
     {
         if (playerMovement.IsPlayerMoving() && (Time.time >= nextPlayTime))
         {
-            PlayWalkAudio();
+            //PlayWalkAudio();
             nextPlayTime = Time.time + minInterval;
         }
     }
@@ -52,16 +59,14 @@ public class PlayerAudio : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(pickUpKeySfx, transform.position);
     }
 
-
-    //These methods can be removed, call the contianer directly 
-    private void PlayPushAudio()
+    private void PlayerWalkingAudio()
     {
-        playerPushAudioContainer.StartAudio();
+        playerFlameAudioContainer.SetParameter(PLAYER_WALK_PARAM, 1);
     }
-
-    private void StopPushAudio()
+    
+    private void PlayerIdleAudio()
     {
-        playerPushAudioContainer.StopAudio();
+        playerFlameAudioContainer.SetParameter(PLAYER_WALK_PARAM, 0);
     }
 
 }

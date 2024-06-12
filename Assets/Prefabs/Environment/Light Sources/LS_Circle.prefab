@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1639147775150578786}
   - component: {fileID: 23340177906957218}
   - component: {fileID: 5228791203847564121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LS_Circle
   m_TagString: Pillar
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

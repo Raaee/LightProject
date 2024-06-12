@@ -252,7 +252,7 @@ Material:
     - _ColorSwapGreen: {r: 1, g: 1, b: 1, a: 1}
     - _ColorSwapRed: {r: 1, g: 1, b: 1, a: 1}
     - _FadeBurnColor: {r: 1, g: 0, b: 0, a: 1}
-    - _GlowColor: {r: 0.39622635, g: 0, b: 0.004003165, a: 1}
+    - _GlowColor: {r: 0.3962263, g: 0, b: 0.004003165, a: 1}
     - _GradBotLeftCol: {r: 1, g: 0.22772023, b: 0, a: 1}
     - _GradBotRightCol: {r: 0, g: 0, b: 0, a: 1}
     - _GradTopLeftCol: {r: 1, g: 0.09760027, b: 0, a: 1}

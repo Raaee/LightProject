@@ -6,14 +6,13 @@ using UnityEngine.Events;
 public class LaserDetection : MonoBehaviour
 {
     private bool isActivated = false;
-    [SerializeField] private float timer = 0f;
+     private float timer = 0f;
     float unDetectedTime = 0.25f;
 
     
     [HideInInspector] public UnityEvent OnLaserActive;
     [HideInInspector] public UnityEvent OnLaserInactive;
-    [Header("Debug")]
-    [SerializeField] private LaserKeys laserType = LaserKeys.NONE;
+    private LaserKeys laserType = LaserKeys.NONE;
 
 
     private void Start()
