@@ -12,20 +12,44 @@ public class LightSourceAudio : MonoBehaviour
 
 
     [Header("References")]
-    [SerializeField] private Rigidbody2D lightSourceRb2d;
-    [SerializeField] private Transform lightSourceTransform;
-
+       private const string LIGHT_BEAMS_PARAM = "LightBeamsTurnedOn";
+    private List<LightSource> allLightSourcesInScene;
 
     private ExtendedAudioContainer idleLightSourceAudioContainer = new ExtendedAudioContainer();
 
     private void Start()
     {
-        if(lightSourceRb2d == null || lightSourceTransform == null)
-        {
-            Debug.LogError("Make sure to set the rigidbody or transform inside the inspector ", this.gameObject);
-        }
+        allLightSourcesInScene = new List<LightSource>();
+        FindLightSourcesInScene();
+
+       
         idleLightSourceAudioContainer.InitAudio(idleLightSource);
-        idleLightSourceAudioContainer.ConnectTo3DAudio(lightSourceTransform, lightSourceRb2d);
+        //idleLightSourceAudioContainer.ConnectTo3DAudio(lightSourceTransform, lightSourceRb2d);
+        idleLightSourceAudioContainer.SetParameter(LIGHT_BEAMS_PARAM, 0);
+    }
+
+    private void FindLightSourcesInScene()
+    {
+        var lightSources = FindObjectsOfType<LightSource>();
+        foreach(var ls in lightSources)
+        {
+            allLightSourcesInScene.Add(ls);
+            ls.OnLightSourceInteracted.AddListener(UpdateLightSourceAudioSystem);
+        }
+        Debug.Log("There are " + allLightSourcesInScene.Count + " in this scene");
+    }
+
+    private void UpdateLightSourceAudioSystem()
+    {
+        int amtOfLightSourcesTurnedOn = 0;
+        foreach(var ls in allLightSourcesInScene)
+        {
+            if (ls.LightSourceIsOn)
+                amtOfLightSourcesTurnedOn++;
+        }
+        float percentageOfLightsOn = (float)amtOfLightSourcesTurnedOn / allLightSourcesInScene.Count;
+        Debug.Log("percentage is now " + percentageOfLightsOn);
+       idleLightSourceAudioContainer.SetParameter(LIGHT_BEAMS_PARAM, percentageOfLightsOn);
     }
 
     private void PlayTurnOnLSAudio()
