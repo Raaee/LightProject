@@ -16,9 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     private const float SMOOTH_TIME = 0.1f;
     private bool isCurrentlyMoving = false;
-    private bool facingRight = true;
-    private bool facingUp = false;
-    private bool facingDown = false;
 
     [HideInInspector] public UnityEvent OnPlayerMove;
     [HideInInspector] public UnityEvent OnPlayerStop;
@@ -43,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
         smoothedMovementInput = Vector2.SmoothDamp(smoothedMovementInput, moveInput, ref movementInputSmoothVelocity, SMOOTH_TIME);
         rb.velocity = smoothedMovementInput * moveSpeed;
   
-
-
         if (isCurrentlyMoving)
         {
             if (!IsPlayerMoving())
@@ -52,94 +47,36 @@ public class PlayerMovement : MonoBehaviour
                 ResetRotation();
                 OnPlayerStop?.Invoke();
                 isCurrentlyMoving = false;
-                
-
             }
-           
         }
         else
         {
             if (IsPlayerMoving())
             {
-              
                 OnPlayerMove?.Invoke();
                 isCurrentlyMoving = true;
             }
         }
-
     }
 
     private void Update()
     {
-        FlipPlayer();
+       FlipPlayer();
     }
-
-
 
     public void FlipPlayer()
     {
-        
-        if (moveInput.y > 0 && facingUp)
+        if (moveInput != Vector2.zero)
         {
-            //ResetRotation();
-            //RotatePlayerUp();
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        else if (moveInput.y < 0 && !facingUp)
-        {
-           // ResetRotation();
-            //FlipPlayerDown();
-        }
-       if (moveInput.x < 0 && facingRight)
-        {
-            ResetRotation();
-            FlipPlayerLeftNRight();
-        }
-       else if (moveInput.x > 0 && !facingRight)
-        {
-            ResetRotation();
-            FlipPlayerLeftNRight();
-        }
-
-        
-
-    }
-
-    public void FlipPlayerLeftNRight()
-    {
-        Vector2 playerScale = transform.localScale;
-        playerScale.x *= -1;
-        gameObject.transform.localScale = playerScale;
-
-        facingRight = !facingRight;
-    }
-
-    public void RotatePlayerUp()
-    {
-        /*Vector2 playerScale = transform.localScale;
-        playerScale.y *= -1;
-        gameObject.transform.localScale = playerScale;*/
-
-        transform.rotation = Quaternion.Euler(0, 0, 90);
-        facingUp = !facingUp;
-
-     
     }
 
     public void ResetRotation()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
-
-    public void FlipPlayerDown()
-    {
-        
-
-        transform.rotation = Quaternion.Euler(0, 0, -90);
-
-        facingUp = !facingUp;
-    }
-
-    
 
     public void AllowPlayerInputOnAnimationEnd()
     {
