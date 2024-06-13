@@ -5,9 +5,9 @@ using UnityEngine;
 public class DoorVisual : DoorVFX
 {
     public override void PlayOpen() {
-        particleSystem.Stop();
+        doorVfxParticleSystem.Stop();
     }
     public override void PlayClose() {
-        particleSystem.Play();
+        doorVfxParticleSystem.Play();
     }
 }

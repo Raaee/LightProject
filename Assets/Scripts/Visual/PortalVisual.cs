@@ -16,13 +16,13 @@ public class PortalVisual : DoorVFX
         PlayClose();
     }
     public override void PlayOpen() {
-        particleSystem.Play();
+        doorVfxParticleSystem.Play();
         particles.Play();
         portalLight.color.a = 1f;
         sr.sprite = openSprite;
     }
     public override void PlayClose() {
-        particleSystem.Stop();
+        doorVfxParticleSystem.Stop();
         particles.Stop();
         sr.sprite = closedSprite;
         portalLight.color.a = lightDimnessWhenClosed;
