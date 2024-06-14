@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
 
     [SerializeField] private GameObject settingsPanel;
-
+    [SerializeField] private GameObject levelSelectPanel;
     public void GoToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         CloseSettingsPanel();
+        CloseLevelPanel();
     }
 
 
@@ -28,7 +29,17 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseSettingsPanel()
     {
+        Debug.Log("clcik recognized");
         settingsPanel.SetActive(false);
+    }
+    
+    public void OpenLevelPanel()
+    {
+        levelSelectPanel.SetActive(true);
+    }
+    public void CloseLevelPanel()
+    {
+        levelSelectPanel.SetActive(false);
     }
     
     public void QuitGame()
