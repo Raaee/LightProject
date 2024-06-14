@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ceb59e3dd547b64e8d6fe4a5fb0ceb3, type: 3}
+  m_Name: test level - pete
+  m_EditorClassIdentifier: 
+  titleOfLevel: Deez Nuts
+  scenePath: idk  bruh
+  levelPicture: {fileID: -1871678544, guid: b88dfeccddfa506418f97c64d5f733c4, type: 3}
+  developerName: 5
+  dialogueText: 'Well hello there! '
