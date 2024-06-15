@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 153945421}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: CloseLevelPanel
+      - m_Target: {fileID: 153945423}
+        m_TargetAssemblyTypeName: LevelSelectController, Assembly-CSharp
+        m_MethodName: OnSelectNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -518,10 +518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSelectUIPrefab: {fileID: 2133049785253799624, guid: df64baf95f5b8ed42a093234259849a8, type: 3}
   levelSelectGrid: {fileID: 1880235071}
-  testLevelSelectSos:
-  - {fileID: 11400000, guid: 7925d8da12ba6a441879af6ad8ccd348, type: 2}
-  - {fileID: 11400000, guid: 1a25fd679a13b4441af8810e52cf5334, type: 2}
-  - {fileID: 11400000, guid: 70abbf7c39c74c742a272d044384f8f5, type: 2}
 --- !u!114 &153945423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +530,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c667969d64e32a4180b7eacac5dbbe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelElements: []
+  levelElements:
+  - {fileID: 11400000, guid: 7925d8da12ba6a441879af6ad8ccd348, type: 2}
+  - {fileID: 11400000, guid: 20dec386b9432ab43a56d702fbd9f260, type: 2}
+  - {fileID: 11400000, guid: 1a25fd679a13b4441af8810e52cf5334, type: 2}
+  - {fileID: 11400000, guid: b9207879d66fff3448b2186ddb26b194, type: 2}
+  - {fileID: 11400000, guid: 70abbf7c39c74c742a272d044384f8f5, type: 2}
+  - {fileID: 11400000, guid: 718fc43551ac3124097146b067a37b06, type: 2}
+  OnCurrentLevelSelectChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &221088768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,9 +4200,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 153945421}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: CloseLevelPanel
+      - m_Target: {fileID: 153945423}
+        m_TargetAssemblyTypeName: LevelSelectController, Assembly-CSharp
+        m_MethodName: OnSelectPreviousLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

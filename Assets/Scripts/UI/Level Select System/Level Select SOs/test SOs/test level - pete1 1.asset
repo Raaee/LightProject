@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ceb59e3dd547b64e8d6fe4a5fb0ceb3, type: 3}
+  m_Name: test level - pete1 1
+  m_EditorClassIdentifier: 
+  titleOfLevel: Spicy Mayo
+  scenePath: idk  bruh
+  levelPicture: {fileID: 21300320, guid: 0bbb4973cb6e355408c55e6857cbc224, type: 3}
+  developerName: 2
+  dialogueText: 'Well hello there! '

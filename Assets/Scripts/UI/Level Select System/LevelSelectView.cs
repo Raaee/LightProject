@@ -9,9 +9,28 @@ public class LevelSelectView : MonoBehaviour
     [SerializeField] private GameObject levelSelectGrid;
     private List<LevelSelectUIData> levelUIDatas;
     private const int AMOUNT_OF_LEVELS = 3;
-
-    public List<LevelSelectElementSO> testLevelSelectSos;
+    private LevelSelectController levelSelectController;
+  
     private void Start()
+    {
+        levelSelectController = GetComponent<LevelSelectController>();
+        levelSelectController.OnCurrentLevelSelectChange.AddListener(DisplayLevelsToScreen);
+        Initialize();
+    }
+
+    private void DisplayLevelsToScreen(int currentLevelIndex)
+    {
+        var listOfLevelElements = levelSelectController.levelElements;
+        int previousLevelIndex = (currentLevelIndex - 1 + listOfLevelElements.Count) % listOfLevelElements.Count;
+        int nextLevelIndex = (currentLevelIndex + 1) % listOfLevelElements.Count;
+
+        DisplayLevel(listOfLevelElements[previousLevelIndex], levelUIDatas[0]);
+        DisplayLevel(listOfLevelElements[currentLevelIndex], levelUIDatas[1]);
+        DisplayLevel(listOfLevelElements[nextLevelIndex], levelUIDatas[2]);
+
+    }
+
+    private void Initialize()
     {
         DestroyChildren(levelSelectGrid.transform); //clean up anything still in scene after play
         levelUIDatas = new List<LevelSelectUIData>();
@@ -20,17 +39,6 @@ public class LevelSelectView : MonoBehaviour
             var levelInstance = Instantiate(levelSelectUIPrefab, levelSelectGrid.transform);
             levelUIDatas.Add(levelInstance.GetComponent<LevelSelectUIData>());
         }
-
-        DEBUG_DisplayAllLevels();
-    }
-
-    private void DEBUG_DisplayAllLevels()
-    {
-        for (int i = 0; i < AMOUNT_OF_LEVELS; i++)
-        {
-            DisplayLevel(testLevelSelectSos[i], levelUIDatas[i]);
-        }
-        
     }
 
 
