@@ -29,7 +29,6 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseSettingsPanel()
     {
-        Debug.Log("clcik recognized");
         settingsPanel.SetActive(false);
     }
     
