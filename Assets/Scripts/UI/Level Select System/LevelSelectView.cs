@@ -8,13 +8,14 @@ public class LevelSelectView : MonoBehaviour
     [SerializeField] private GameObject levelSelectUIPrefab;
     [SerializeField] private GameObject levelSelectGrid;
     private List<LevelSelectUIData> levelUIDatas;
-    private const int AMOUNT_OF_LEVELS = 3;
+    private int AMOUNT_OF_LEVELS = 3;
     private LevelSelectController levelSelectController;
   
     private void Start()
     {
         levelSelectController = GetComponent<LevelSelectController>();
-        levelSelectController.OnCurrentLevelSelectChange.AddListener(DisplayLevelsToScreen);
+       // levelSelectController.OnCurrentLevelSelectChange.AddListener(DisplayLevelsToScreen);
+        AMOUNT_OF_LEVELS = levelSelectController.levelElements.Count;
         Initialize();
     }
 
@@ -38,6 +39,8 @@ public class LevelSelectView : MonoBehaviour
         {
             var levelInstance = Instantiate(levelSelectUIPrefab, levelSelectGrid.transform);
             levelUIDatas.Add(levelInstance.GetComponent<LevelSelectUIData>());
+            var listOfLevelElements = levelSelectController.levelElements;
+            DisplayLevel(listOfLevelElements[i], levelInstance.GetComponent<LevelSelectUIData>());
         }
     }
 

@@ -25,8 +25,14 @@ public class ScrollViewSnapToItem : MonoBehaviour
 
     public void OnNextButtonPress()
     {
-        Debug.Log("Movin up");
         currentItem++;
+        StartCoroutine(SnapToTargetItem());
+        // contentPanel.localPosition = new Vector3( 0 -(currentItem * (sampleListItem.rect.width + horizontalLayoutGroup.spacing)),contentPanel.localPosition.y, contentPanel.localPosition.z);
+    }
+    
+    public void OnBackButtonPress()
+    {
+        currentItem--;
         StartCoroutine(SnapToTargetItem());
         // contentPanel.localPosition = new Vector3( 0 -(currentItem * (sampleListItem.rect.width + horizontalLayoutGroup.spacing)),contentPanel.localPosition.y, contentPanel.localPosition.z);
     }

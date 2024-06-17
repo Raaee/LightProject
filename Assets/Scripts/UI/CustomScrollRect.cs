@@ -8,7 +8,7 @@ public class CustomScrollRect : ScrollRect
 {
     public override void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("begin dragging ");}
-    public override void OnDrag(PointerEventData eventData) {Debug.Log("on dragging "); }
-    public override void OnEndDrag(PointerEventData eventData) {Debug.Log("end dragging "); }
+     }
+    public override void OnDrag(PointerEventData eventData) {}
+    public override void OnEndDrag(PointerEventData eventData) { }
 }
