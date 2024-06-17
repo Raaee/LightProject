@@ -25,7 +25,10 @@ public class ExtendedAudioContainer
         RuntimeManager.AttachInstanceToGameObject(audioInstance, instanceTransform, instanceRB2d);
     }
 
-
+    public void SetParameter(string paramName, float paramValue)
+    {
+        audioInstance.setParameterByName(paramName, paramValue);
+    }
     public void StartAudio()
     {
         audioInstance.start();
