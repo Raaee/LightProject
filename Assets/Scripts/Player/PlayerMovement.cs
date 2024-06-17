@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FunkyCode.Rendering.Day;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -38,15 +39,15 @@ public class PlayerMovement : MonoBehaviour
         moveInput = playerInput.movement.ReadValue<Vector2>();
         smoothedMovementInput = Vector2.SmoothDamp(smoothedMovementInput, moveInput, ref movementInputSmoothVelocity, SMOOTH_TIME);
         rb.velocity = smoothedMovementInput * moveSpeed;
-
-        if(isCurrentlyMoving)
+  
+        if (isCurrentlyMoving)
         {
             if (!IsPlayerMoving())
             {
+                ResetRotation();
                 OnPlayerStop?.Invoke();
                 isCurrentlyMoving = false;
             }
-           
         }
         else
         {
@@ -56,8 +57,25 @@ public class PlayerMovement : MonoBehaviour
                 isCurrentlyMoving = true;
             }
         }
-      
-       
+    }
+
+    private void Update()
+    {
+       FlipPlayer();
+    }
+
+    public void FlipPlayer()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+
+    public void ResetRotation()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public void AllowPlayerInputOnAnimationEnd()
