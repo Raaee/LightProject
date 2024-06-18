@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test level - pete1
   m_EditorClassIdentifier: 
   titleOfLevel: The Raepocolyspe
-  scenePath: idk  bruh
+  scenePath: Assets/Scenes/alice puzzles/puzzle2 w key.unity
   levelPicture: {fileID: 1935690999, guid: bc815ba31a200c3429c2996f2c4f11fc, type: 3}
   developerName: 0
   dialogueText: 'Well hello there! '

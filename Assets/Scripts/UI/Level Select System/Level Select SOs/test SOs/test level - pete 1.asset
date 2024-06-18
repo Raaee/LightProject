@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test level - pete 1
   m_EditorClassIdentifier: 
   titleOfLevel: UKG mid
-  scenePath: idk  bruh
+  scenePath: Assets/Scenes/IsaacLeves/Level 1.unity
   levelPicture: {fileID: 21300000, guid: 519dafacd208bb64c83d5124be03b09d, type: 3}
   developerName: 3
   dialogueText: 'Well hello there! '

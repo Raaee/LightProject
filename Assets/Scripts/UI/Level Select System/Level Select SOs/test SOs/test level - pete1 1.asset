@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test level - pete1 1
   m_EditorClassIdentifier: 
   titleOfLevel: Spicy Mayo
-  scenePath: idk  bruh
+  scenePath: Assets/Scenes/alice puzzles/puzzle2 w key.unity
   levelPicture: {fileID: 21300320, guid: 0bbb4973cb6e355408c55e6857cbc224, type: 3}
   developerName: 2
   dialogueText: 'Well hello there! '

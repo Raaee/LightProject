@@ -7,12 +7,21 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject levelSelectPanel;
+    
+    //TODO: refactor scene loading into seperate class
     public void GoToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void GoToMainMenu() {
         SceneManager.LoadScene(0);
+    }
+
+    public void StartGameplayLevel()
+    {
+        //check easy save for current progress + also check to skip tutorial?
+        //go to that level based on progress 
+        Debug.Log("Starting gameplay scene...sike lol");
     }
 
 

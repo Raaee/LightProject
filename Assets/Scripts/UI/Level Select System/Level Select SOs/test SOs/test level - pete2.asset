@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test level - pete2
   m_EditorClassIdentifier: 
   titleOfLevel: FIU class
-  scenePath: idk  bruh
+  scenePath: Assets/Scenes/alice puzzles/puzzle2 w key.unity
   levelPicture: {fileID: -2112976587, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
   developerName: 4
   dialogueText: 'Well hello there! '

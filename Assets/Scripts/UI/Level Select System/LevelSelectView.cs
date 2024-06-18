@@ -14,9 +14,17 @@ public class LevelSelectView : MonoBehaviour
     private void Start()
     {
         levelSelectController = GetComponent<LevelSelectController>();
-       // levelSelectController.OnCurrentLevelSelectChange.AddListener(DisplayLevelsToScreen);
+      
         AMOUNT_OF_LEVELS = levelSelectController.levelElements.Count;
         Initialize();
+    }
+
+    public void OnPlaySelectedLevel()
+    {
+        //TODO: remove bad code of find obj of type
+        int levelIndex = FindObjectOfType<ScrollViewSnapToItem>().GetCurrentItem();
+        var selectedLevelScenePath = levelSelectController.levelElements[levelIndex].scenePath;
+        SceneController.Instance.GoToScene(selectedLevelScenePath);
     }
 
     private void DisplayLevelsToScreen(int currentLevelIndex)

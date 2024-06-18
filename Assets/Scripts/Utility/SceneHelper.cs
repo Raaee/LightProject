@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneHelper : EditorWindow
 {
@@ -13,6 +14,22 @@ public class SceneHelper : EditorWindow
     {
         //Show existing window instance. If one doesn't exist, make one.
         EditorWindow.GetWindow(typeof(SceneHelper));
+    }
+    
+    [MenuItem("Pete Helper Debug/Copy Scene Path")]
+    public static void GetScenePathToClipboard()
+    {
+        var scenePath = SceneManager.GetActiveScene().path;
+        CopyToClipboard(scenePath);
+        Debug.Log("Copied '" + scenePath + "' to clipboard!  ");
+    }
+    
+   static void CopyToClipboard(string text) 
+    {
+        TextEditor textEditor = new TextEditor();
+        textEditor.text = text;
+        textEditor.SelectAll();
+        textEditor.Copy();
     }
 
     void OnGUI()

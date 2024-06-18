@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test level - pete2 1
   m_EditorClassIdentifier: 
   titleOfLevel: bbl drizzy
-  scenePath: idk  bruh
+  scenePath: Assets/Scenes/alice puzzles/puzzle2 w key.unity
   levelPicture: {fileID: 869511877, guid: 168a0db5b87f75f4087f268e85294b5c, type: 3}
   developerName: 0
   dialogueText: 'Well hello there! '
