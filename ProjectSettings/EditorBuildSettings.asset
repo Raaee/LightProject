@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Non Game Scenes/End Scene - Call To Action.unity
     guid: 574cf220b4e4f3f4d989ea060d09472e
+  - enabled: 1
+    path: Assets/Scenes/IsaacLeves/Level 1.unity
+    guid: 5626545bd89f6954c97659280c6f1bbb
   m_configObjects: {}
