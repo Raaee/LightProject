@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5225446412676726714}
   m_Layer: 0
   m_Name: Enemy Stating Point 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4816222087430178852, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4816222087430178852, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4816222087430178852, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -116,13 +116,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8595185406299865046, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
+      propertyPath: waypointList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595185406299865046, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
+      propertyPath: waypointList.Array.data[0]
+      value: 
+      objectReference: {fileID: 5039029618022537010}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4160413538589338906, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6595399438247757521}
   m_SourcePrefab: {fileID: 100100000, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
+--- !u!114 &155214891139771067 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8595185406299865046, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
+  m_PrefabInstance: {fileID: 8462075174305617261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535933961403152503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35bd38e56af8f2409cbbbf465001603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4015518658612288841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4816222087430178852, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
   m_PrefabInstance: {fileID: 8462075174305617261}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5535933961403152503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4160413538589338906, guid: 1f86e6ab7ee1d7e46825c420b8493bbe, type: 3}
+  m_PrefabInstance: {fileID: 8462075174305617261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6595399438247757521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535933961403152503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be06ab408a3d874a85087b1eec25cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPatrol: {fileID: 155214891139771067}
+  detectionTimeToLoseGame: 2
+  OnDetectedGameOver:
+    m_PersistentCalls:
+      m_Calls: []
