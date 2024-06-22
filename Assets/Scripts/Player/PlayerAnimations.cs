@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem spawnPS;
     [SerializeField] private PlayerMovement playerMovement;
     public bool IsWalkingState { get; set; }
     private const string IS_MOVING_ANIM_TAG = "isMoving";
@@ -14,11 +15,13 @@ public class PlayerAnimations : MonoBehaviour
     [HideInInspector] public UnityEvent OnSpawnAnimationEnd;
     private void Start()
     {
-        StartCoroutine(SpawnAnimation());
+        spawnPS.Play();
+        //StartCoroutine(SpawnAnimation());
         IsWalkingState = false;
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
         playerMovement.OnPlayerMove.AddListener(BeginToMove);
         playerMovement.OnPlayerStop.AddListener(StopMoving);
+        OnSpawnAnimationEnd?.Invoke();
     }
 
     [ProButton]

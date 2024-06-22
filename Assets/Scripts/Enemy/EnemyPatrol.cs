@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    [SerializeField] private EnemyVisuals enemyVisuals;
     private EnemyMovement enemyMovement;
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private bool randomPatrol = false;
@@ -15,6 +16,7 @@ public class EnemyPatrol : MonoBehaviour
     private int currentWaypointIndex = 0;
     private float waitTimer = 0f;
     private bool waiting = false;
+    private bool isMoving = false;
     public bool stopMovement { get; set; }
 
     private void Awake() {
@@ -22,13 +24,20 @@ public class EnemyPatrol : MonoBehaviour
     }
     void Start() {
         stopMovement = false;
+        isMoving = false;
     }
 
     private void Update()
     {
-        if (stopMovement) return;
+        enemyVisuals.Moving(isMoving);
+        if (stopMovement) {
+            isMoving = false;
+            return;
+        }
+
         if (waiting)
         {
+            isMoving = false;
             waitTimer += Time.deltaTime;
             if (waitTimer < waitTime)
                 return;
@@ -48,6 +57,7 @@ public class EnemyPatrol : MonoBehaviour
         else
         {
             enemyMovement.MoveTowardsTarget(currentWaypoint);
+            isMoving = true;
         }
     }
 

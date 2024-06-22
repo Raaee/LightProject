@@ -92,14 +92,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4380b13198479874f80568aafa4afee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   OnLaserActive:
     m_PersistentCalls:
       m_Calls: []
   OnLaserInactive:
     m_PersistentCalls:
       m_Calls: []
-  laserType: 0
 --- !u!1 &2373104992293721450
 GameObject:
   m_ObjectHideFlags: 0

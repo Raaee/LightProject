@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Detection : MonoBehaviour
 {
+    [SerializeField] private EnemyVisuals enemyVisuals;
     [SerializeField] private EnemyPatrol enemyPatrol;
     [SerializeField] private float detectionTimeToLoseGame = 2f;
 
@@ -41,8 +42,15 @@ public class Detection : MonoBehaviour
         if (detectionTimer > detectionTimeToLoseGame) {
             Debug.Log("Player got caught by enemy. gameover bruv");
             fullPlayerDetectionCompletedGameOver = true;
-            OnDetectedGameOver.Invoke();
+            enemyVisuals.PlayDetect();
+            StartCoroutine(StartDeathCountDown());
         }
+    }
+    public IEnumerator StartDeathCountDown() {
+        yield return new WaitForSeconds(detectionTimeToLoseGame / 2);
+        enemyVisuals.DisableLight();
+        yield return new WaitForSeconds(detectionTimeToLoseGame);
+        OnDetectedGameOver.Invoke();
     }
     public void FOV_OnPlayerDetected() {
         Debug.Log("got it");
