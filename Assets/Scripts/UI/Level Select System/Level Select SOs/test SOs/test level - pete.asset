@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: test level - pete
   m_EditorClassIdentifier: 
   titleOfLevel: Deez Nuts
-  scenePath: Assets/Scenes/Rae Levels/Level 2.unity
+  scenePath: Assets/Scenes/Pete June Demo Levels/Level 1.unity
   levelPicture: {fileID: -1871678544, guid: b88dfeccddfa506418f97c64d5f733c4, type: 3}
   developerName: 5
-  dialogueText: 'Well hello there! '
+  dialogueText: Lucky try...
