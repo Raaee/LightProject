@@ -362,7 +362,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  interactDelayTime: 0.2
+  interactDelayTime: 0.4
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
