@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Utility : MonoBehaviour
 {
+    //static keywords for save and load
+    public static string CURRENT_LEVEL_KEY = "currentLevel";
+    public static string SFX_VOLUME_KEY = "sfxVolumeKey";
+    public static string MUSIC_VOLUME_KEY = "musicVolumeKey";
+    public  static string BRIGHTNESS_SELECTION_KEY = "brightnessSelectionKey";
 
     public static Vector2 GetOffsetPosition(Vector2 currentPosition, float distance, CardinalDirection laserBeamOrientation)
     {

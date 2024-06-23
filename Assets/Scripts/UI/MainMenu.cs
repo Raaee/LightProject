@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenSettingsPanel()
     {
+        Debug.Log("opening settings");
         settingsPanel.SetActive(true);
     }
     public void CloseSettingsPanel()

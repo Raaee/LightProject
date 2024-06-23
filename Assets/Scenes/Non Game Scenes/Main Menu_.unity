@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 153945422}
   - component: {fileID: 153945423}
   - component: {fileID: 153945424}
+  - component: {fileID: 153945425}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -798,6 +799,20 @@ MonoBehaviour:
   sampleListItem: {fileID: 6622519418440880468, guid: df64baf95f5b8ed42a093234259849a8, type: 3}
   horizontalLayoutGroup: {fileID: 1880098827}
   levelSelectCont: {fileID: 153945423}
+--- !u!114 &153945425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153945416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd0d75456300c443b1fe4f44d8b855f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 1740234992}
+  sfxSlider: {fileID: 150377093}
 --- !u!1 &221088768
 GameObject:
   m_ObjectHideFlags: 0
@@ -6979,7 +6994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
