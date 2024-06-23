@@ -45,12 +45,7 @@ public class SaveManager : PersistentSingleton<SaveManager>
       ES3.Save(Utility.CURRENT_LEVEL_KEY, currentLevel );
    }
 
-   public void SaveAudio(float newSfxVol, float newMusicVol)
-   {
-      ES3.Save(Utility.SFX_VOLUME_KEY, newSfxVol);
-      ES3.Save(Utility.MUSIC_VOLUME_KEY, newMusicVol);
-   }
-
+   
    public void SaveBrightnessSelection(BrightnessProfileSelection newBps)
    {
       ES3.Save(Utility.BRIGHTNESS_SELECTION_KEY, newBps);
