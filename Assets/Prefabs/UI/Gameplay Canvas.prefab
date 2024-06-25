@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7493046415607394665}
   - component: {fileID: 121583929927342787}
   - component: {fileID: 3168701563760836839}
+  - component: {fileID: 3634658612184273236}
   m_Layer: 5
   m_Name: Gameplay Canvas
   m_TagString: Untagged
@@ -129,6 +130,19 @@ MonoBehaviour:
       Data3: -1001094479
       Data4: -1622869084
     Path: event:/UI/GenericUITone
+--- !u!114 &3634658612184273236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730955425402092708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07d84583db9ed942a79cf5672713fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winGameDialogueText: {fileID: 871686734663795373}
 --- !u!1 &855196886181171028
 GameObject:
   m_ObjectHideFlags: 0

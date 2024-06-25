@@ -4,7 +4,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ResetSystem : MonoBehaviour
+public class ResetSystem : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
     public Dictionary<GameObject, Transform> ObjsInLevel = new Dictionary<GameObject, Transform>();
@@ -16,8 +16,11 @@ public class ResetSystem : MonoBehaviour
         }
 
     }
+    public void Interact() {
+        ResetAll();
+    }
     [ProButton]
-    public void ResetLevel()
+    public void ResetAll()
     {
         ResetPillars();
         ResetLightSources();

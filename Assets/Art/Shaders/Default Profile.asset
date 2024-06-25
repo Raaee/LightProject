@@ -17,9 +17,9 @@ MonoBehaviour:
     - name: Default
       type: 0
       hdr: 1
-      darknessColor: {r: 0, g: 0, b: 0, a: 0}
+      darknessColor: {r: 0, g: 0, b: 0, a: 0.232}
       depth: -100
-      resolution: 1
+      resolution: 0.405
       dayLayers:
         list: []
       lightLayers:

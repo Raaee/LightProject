@@ -7,36 +7,37 @@ using Random = UnityEngine.Random;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    [SerializeField] private EnemyVisuals enemyVisuals;
     private EnemyMovement enemyMovement;
-    private FieldOfViewDetection fieldOfViewDetection;
-    public List<Transform> waypointList;
-    private int currentWaypointIndex = 0;
-    [SerializeField] private bool randomPatrol = false;
     [SerializeField] private float waitTime = 1f;
+    [SerializeField] private bool randomPatrol = false;
+    public List<Transform> waypointList;
+
+    private int currentWaypointIndex = 0;
     private float waitTimer = 0f;
     private bool waiting = false;
-    private bool playerDetected = false;
+    private bool isMoving = false;
+    public bool stopMovement { get; set; }
 
-    private float detectionTimeToLoseGame = 1.5f; 
-    private float detectionTimer = 0f;
-    private void Awake()
-    {
+    private void Awake() {
         enemyMovement = GetComponent<EnemyMovement>();
-        fieldOfViewDetection = GetComponent<FieldOfViewDetection>();
     }
-
-    private void Start()
-    {
-        
-        fieldOfViewDetection.OnPlayerDetect.AddListener(FOV_OnPlayerDetected);
-        fieldOfViewDetection.OnPlayerUnDetect.AddListener(FOV_OnPlayerUnDetected);
+    void Start() {
+        stopMovement = false;
+        isMoving = false;
     }
 
     private void Update()
     {
-        CheckDetectionTime();
+        enemyVisuals.Moving(isMoving);
+        if (stopMovement) {
+            isMoving = false;
+            return;
+        }
+
         if (waiting)
         {
+            isMoving = false;
             waitTimer += Time.deltaTime;
             if (waitTimer < waitTime)
                 return;
@@ -44,8 +45,8 @@ public class EnemyPatrol : MonoBehaviour
         }
         Transform currentWaypoint = waypointList[currentWaypointIndex];
         enemyMovement.RotateTowardsObject(currentWaypoint);
+
         if (Vector2.Distance(transform.position, currentWaypoint.position) < 0.01f) {
-            //objectToMove.transform.position = wp.position;
             waitTimer = 0f;
             waiting = true;
             if (randomPatrol)
@@ -56,24 +57,8 @@ public class EnemyPatrol : MonoBehaviour
         else
         {
             enemyMovement.MoveTowardsTarget(currentWaypoint);
+            isMoving = true;
         }
-    }
-    //TODO: refactor to FOV Detection script
-    //TODO: make the lose event only happen once
-    //TODO: improve random index method
-    private void CheckDetectionTime() 
-    {
-        if (!playerDetected)
-        {
-            detectionTimer = 0;
-            return;
-        }
-        
-       detectionTimer += Time.deltaTime;
-       if (detectionTimer > detectionTimeToLoseGame)
-       {
-           Debug.Log("Player got caught by enemy. gameover bruv");
-       }
     }
 
     private int RandomIndex(int currentIndex) {
@@ -82,21 +67,5 @@ public class EnemyPatrol : MonoBehaviour
             ranIndex = Random.Range(0, waypointList.Count);
         } while (ranIndex == currentIndex);
         return ranIndex;
-    }
-
-
-    public void FOV_OnPlayerDetected()
-    {
-        Debug.Log("got it");
-        playerDetected = true;
-    }
-
-
-    public void FOV_OnPlayerUnDetected()
-    {
-        Debug.Log("dropped it");
-        playerDetected = false;
-    }
-
-   
+    }   
 }

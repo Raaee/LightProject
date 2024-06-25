@@ -170,11 +170,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  isLocked: 0
   isRoomDoor: 1
   player: {fileID: 0}
   doorDirection: 1
   playerDisplacement: 3
+  OnDoorLocked:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDoorUnLocked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3635196151053594819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +458,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 20, z: 0}
+  m_LocalScale: {x: 6.5, y: 20, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8871943996937744284}
@@ -10010,4 +10015,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403123e39d3fefd4389889f94ea17a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 1543870567002790129}
+  doorVfxParticleSystem: {fileID: 1543870567002790129}

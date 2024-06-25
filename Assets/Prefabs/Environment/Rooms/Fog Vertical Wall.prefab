@@ -4745,7 +4745,7 @@ GameObject:
   - component: {fileID: 6406674908290356023}
   - component: {fileID: 3356584930191849868}
   m_Layer: 0
-  m_Name: Vertical Wall Fog
+  m_Name: Fog Vertical Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
