@@ -7,9 +7,13 @@ public class Portal : MonoBehaviour
 {
     private Door door;
      [HideInInspector] public UnityEvent OnPlayerEntersPortal;
+     [SerializeField] private bool isGameplayLevel = false;
     private void Awake()
     {
         door = GetComponent<Door>();
+        if(isGameplayLevel)
+            Debug.LogWarning("This portal configs marks this scene as a gameplay scene." +
+                             " When player goes to portal it will increase currentLevel progress");
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +26,9 @@ public class Portal : MonoBehaviour
         
         if (NextLevelUI.Instance == null)
             Debug.Log("There should be a Next Level UI Prefab in this scene");
+        if(isGameplayLevel)
+            SaveManager.Instance.OnNextLevelProgressed();
+        
         NextLevelUI.Instance.ShowPanel();
         OnPlayerEntersPortal?.Invoke();
         
