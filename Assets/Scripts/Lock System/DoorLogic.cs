@@ -28,11 +28,11 @@ public class DoorLogic : MonoBehaviour
 
     private void Init()
     {
-        isLocked = true;
         foreach (ILock alock in locks)
         {        
             alock.OnInputDetection.AddListener(CheckLockStatus);
         }
+        LockDoor();
     }
 
     // DoorLogic can cheack the lock status of multiple locks

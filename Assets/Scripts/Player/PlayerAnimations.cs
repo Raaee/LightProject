@@ -31,8 +31,6 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);    
     }
 
-
-
     [ProButton]
     public void StopMoving()
     {

@@ -38,7 +38,6 @@ public class DoorSymbols : MonoBehaviour
         doorLogic = GetComponentInParent<DoorLogic>();
         Init();
         DisplayPortalSymbolUI();
-        UpdateSymbols();
     }
 
     private void Init()
@@ -51,12 +50,13 @@ public class DoorSymbols : MonoBehaviour
 
     public void DisplayPortalSymbolUI(){
         foreach (ILock aLock in doorLogic.locks) {
-            ILock ilock = aLock.gameObject.GetComponentInChildren<ILock>();
+            ILock ilock = aLock.gameObject.GetComponent<ILock>();
             if (ilock == null) {
                 continue;
             }
             GameObject go = Instantiate(SymbolPrefab);
             go.gameObject.transform.SetParent(this.transform);
+
             Image image = go.GetComponent<Image>();
             if (aLock.gameObject.GetComponentInChildren<KeyLock>()) {
                 image.transform.localScale = new Vector3(keyImageScale,keyImageScale,0);
@@ -98,12 +98,12 @@ public class DoorSymbols : MonoBehaviour
         {
             Image image = aLock.Value.GetComponent<Image>();
             ILock ilock = aLock.Key.GetComponentInChildren<ILock>();
-            if (!aLock.Key.GetComponent<ILock>().IsLocked)
+            if (ilock.IsLocked)
             {
-                image.sprite = GetUnlockedSpriteBaseOnType(ilock.GetLaserKey());
+                image.sprite = GetLockedSpriteBaseOnType(ilock.GetLaserKey());
             }
             else {
-                image.sprite = GetLockedSpriteBaseOnType(ilock.GetLaserKey());
+                image.sprite = GetUnlockedSpriteBaseOnType(ilock.GetLaserKey());
             }
            
         }

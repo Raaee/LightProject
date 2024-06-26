@@ -20,7 +20,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public UnityEvent OnPlayerMove;
     [HideInInspector] public UnityEvent OnPlayerStop;
     private bool allowPlayerInput = false;
-    private PlayerAnimations playerAnims; 
+    private PlayerAnimations playerAnims;
+
+    [Tooltip("Doesnt play idle or transitioning animations")]
+    public bool smoothMovementAnimations = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -85,7 +88,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsPlayerMoving()
     {
-        return moveInput != Vector2.zero;
+        if (smoothMovementAnimations)
+            return moveInput.x > 0.3f || moveInput.y > 0.3f || moveInput.x < 0.3f || moveInput.y < 0.3f;
+        else
+            return moveInput != Vector2.zero;
     }
 
 }
