@@ -9,6 +9,7 @@ public class InputControls : MonoBehaviour
     public InputAction interact;
     [SerializeField] private float interactDelayTime = 0.2f;
     private bool interactHeld = false;
+    private bool alreadyHeld = false;
     [HideInInspector] public UnityEvent OnInteract;
 
     [Header("Player Inputs")] public PlayerControls playerControls;
@@ -47,13 +48,16 @@ public class InputControls : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
+        if (alreadyHeld) return;
         StartCoroutine(Interaction());        
     }
     private IEnumerator Interaction() {
         while (interactHeld) {
+            alreadyHeld = true;
             yield return new WaitForSeconds(interactDelayTime);
             OnInteract.Invoke();
         }
+        alreadyHeld = false;
     }
     public void HoldingInteract(InputAction.CallbackContext context) {
         interactHeld = true;
