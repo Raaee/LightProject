@@ -26,8 +26,11 @@ public class Portal : MonoBehaviour
         
         if (NextLevelUI.Instance == null)
             Debug.Log("There should be a Next Level UI Prefab in this scene");
-        if(isGameplayLevel)
+        if (isGameplayLevel)
+        {
             SaveManager.Instance.OnNextLevelProgressed();
+
+        }
         
         NextLevelUI.Instance.ShowPanel();
         OnPlayerEntersPortal?.Invoke();

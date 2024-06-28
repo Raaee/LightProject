@@ -21,8 +21,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Pete June Demo Levels/Circuit Puzzle 1.unity
     guid: 6db6e025ed1bc3a4e85a32f128a862f4
   - enabled: 1
+    path: Assets/Scenes/Rae Levels/Level 1.unity
+    guid: 08248505ec2f00049bcd02282dc6d5cc
+  - enabled: 1
+    path: Assets/Scenes/Rae Levels/Level 2.unity
+    guid: f82284aaebffa93479f7e7fb6bc62da7
+  - enabled: 1
+    path: Assets/Scenes/Rae Levels/Level 3.unity
+    guid: 696d3c65e773f9c46bc0710573577749
+  - enabled: 1
     path: Assets/Scenes/Pete June Demo Levels/Level 1 - rae.unity
     guid: 55a582b896c4f0944a357ddcc6cc50a1
+  - enabled: 1
+    path: Assets/Scenes/alice puzzles/puzzleheart.unity
+    guid: 8e46134fdad23714e86534ea9ae4d837
+  - enabled: 1
+    path: Assets/Scenes/Tutorials Levels/Level 1 Tutorial.unity
+    guid: cc77c7cda4ef1be42b88e863bbf6d989
+  - enabled: 1
+    path: Assets/Scenes/Tutorials Levels/Level 2 Tutorial.unity
+    guid: e9c340c91df22694cbf462d43499ce68
+  - enabled: 1
+    path: Assets/Scenes/Tutorials Levels/Level 3 Tutorial.unity
+    guid: 1a86b50a8fc3e2b4a964071d212b91e8
+  - enabled: 1
+    path: Assets/Scenes/Tutorials Levels/Level 4 & 5 Final Tutorial.unity
+    guid: 688e2f83556e619479f016104d9930d8
   - enabled: 1
     path: Assets/Scenes/Pete June Demo Levels/Mirror Light Puzzle.unity
     guid: 26029de9753287144a460f2311d6dffe
@@ -32,4 +56,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IsaacLeves/Level 1.unity
     guid: 5626545bd89f6954c97659280c6f1bbb
+  - enabled: 1
+    path: Assets/Scenes/alice puzzles/puzzle2 w key.unity
+    guid: c97b92cc2591256438ebd453be9ca1da
   m_configObjects: {}

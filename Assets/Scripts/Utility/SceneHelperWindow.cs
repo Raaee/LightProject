@@ -13,7 +13,7 @@ public class SceneHelperWindow : EditorWindow
     [MenuItem("Pete Helper Debug/Reset level Data")]
     public static void ResetLevelData()
     {
-        ES3.Save(Utility.CURRENT_LEVEL_KEY, 1);
+        ES3.Save(Utility.CURRENT_LEVEL_KEY, 0);
         Debug.Log("Reseting level data from pete debug helper.");
     }
     
@@ -21,7 +21,7 @@ public class SceneHelperWindow : EditorWindow
     public static void ResetAllSaveData()
     {
      
-        ES3.Save(Utility.CURRENT_LEVEL_KEY, 1);
+        ES3.Save(Utility.CURRENT_LEVEL_KEY, 0);
         ES3.Save(Utility.SFX_VOLUME_KEY, 0.75f);
         ES3.Save(Utility.MUSIC_VOLUME_KEY, 0.75f);
         ES3.Save(Utility.BRIGHTNESS_SELECTION_KEY, BrightnessProfileSelection.LOW_BRIGHT);
