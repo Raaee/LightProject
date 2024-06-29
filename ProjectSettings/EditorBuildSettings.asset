@@ -54,7 +54,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Non Game Scenes/End Scene - Call To Action.unity
     guid: 574cf220b4e4f3f4d989ea060d09472e
   - enabled: 1
-    path: Assets/Scenes/IsaacLeves/Level 1.unity
+    path: Assets/Scenes/IsaacLeves/It Just Started.unity
     guid: 5626545bd89f6954c97659280c6f1bbb
   - enabled: 1
     path: Assets/Scenes/alice puzzles/puzzle2 w key.unity
