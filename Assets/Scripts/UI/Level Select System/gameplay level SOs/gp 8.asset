@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ceb59e3dd547b64e8d6fe4a5fb0ceb3, type: 3}
   m_Name: gp 8
   m_EditorClassIdentifier: 
-  titleOfLevel: Gameplay Level 2
+  titleOfLevel: Gameplay Level 8
   scenePath: 
   levelPicture: {fileID: 0}
   developerName: 0
