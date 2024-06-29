@@ -1,6 +1,8 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class Portal : MonoBehaviour
@@ -8,6 +10,8 @@ public class Portal : MonoBehaviour
     private Door door;
      [HideInInspector] public UnityEvent OnPlayerEntersPortal;
      [SerializeField] private bool isGameplayLevel = false;
+     private float waitTime = 1.5f;
+     
     private void Awake()
     {
         door = GetComponent<Door>();
@@ -21,25 +25,34 @@ public class Portal : MonoBehaviour
         PlayerMovement potentialPlayer = collision.gameObject.GetComponent<PlayerMovement>();
         if (potentialPlayer == null) return;
         if (door.IsLocked == true) return;
-
-        Debug.Log("Going to Next Level...321");
         
-        if (NextLevelUI.Instance == null)
-            Debug.Log("There should be a Next Level UI Prefab in this scene");
+        potentialPlayer.FreezePlayer();
+        GoToNextLevel();
+        OnPlayerEntersPortal?.Invoke();
+
+    }
+
+    private void GoToNextLevel()
+    {
         if (isGameplayLevel)
         {
             SaveManager.Instance.OnNextLevelProgressed();
-
+            StartCoroutine(WaitThenLoadScene(waitTime));
+        }
+        else
+        {
+            //show pause menu 
+            Debug.Log("This is a sandbox level. Still figuring out what to do. for now go to pause menu and go back to menu");
         }
         
-        NextLevelUI.Instance.ShowPanel();
-        OnPlayerEntersPortal?.Invoke();
-        
-        //freeze player 
         //play teleport animation 
-        //sfx 
-        //singleton instance thingy to show next level/menu panel 
     }
 
+    private IEnumerator WaitThenLoadScene(float time)
+    {
+        Debug.Log("Going to Next Level...321");
+        yield return new WaitForSeconds(time);
+        int index = ES3.Load(Utility.CURRENT_LEVEL_KEY, 0);
+        SceneManager.LoadScene(LevelSelectDataHandler.Instance.gamePlayLevelElements[index].scenePath);
+    }
 }
-//NICE TO HAVE: BE QUIET RAE... take a snapshot of the winning level and saves it, so players can easily see/show their solutions

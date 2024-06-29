@@ -65,8 +65,14 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
        FlipPlayer();
+       allowPlayerInput = true;
     }
 
+    public void FreezePlayer()
+    {
+        rb.velocity = Vector2.zero;
+        
+    }
     public void FlipPlayer()
     {
         if (moveInput != Vector2.zero)
