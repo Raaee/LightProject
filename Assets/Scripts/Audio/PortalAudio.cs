@@ -21,7 +21,6 @@ public class PortalAudio : MonoBehaviour
 
     public void StartPortalAudio()
     {
-        Debug.Log("playing audio");
         portalAC.StartAudio();
     }
     
@@ -29,7 +28,6 @@ public class PortalAudio : MonoBehaviour
     {
         if(portal.GetIsDoorLockedFromOpen() == false)
             return;
-        Debug.Log("stopping audio");
         portalAC.StopAudio();
         FMODUnity.RuntimeManager.PlayOneShot(stopPortalSfx, transform.position);
     }
