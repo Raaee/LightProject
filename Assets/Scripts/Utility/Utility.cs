@@ -68,4 +68,22 @@ public class Utility : MonoBehaviour
         float angleRad = angle * (Mathf.PI / 180f);
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
     }
+
+    public static int GetRandomIndexNonRepeat(int lastRepeatedIndex, int sizeOfList)
+    {
+        List<int> indexList = new List<int>();
+        for (int i = 0; i < sizeOfList; i++)
+        {
+            indexList.Add(i);
+        }
+
+        indexList.Remove(lastRepeatedIndex);
+        int chosenIndex = Random.Range(0, indexList.Count);
+        
+        return indexList[chosenIndex];
+    }
+
+   
+    
+    
 }

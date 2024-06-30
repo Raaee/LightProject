@@ -28,7 +28,7 @@ public class GameplayMusicSysten : MonoBehaviour
             extendedAudioContainers.Add(instance);
         }
 
-        var portal = FindObjectOfType<Portal>();
+        Portal portal = FindObjectOfType<Portal>();
         if (portal == null)
         {
             Debug.LogError("No portal in scene?");
@@ -41,11 +41,24 @@ public class GameplayMusicSysten : MonoBehaviour
 
     private void PlayRandomSong()
     {
-        //pick random index 
-        var rand = Random.Range(0, musicTracks.Count);
-        //play song 
+     //we dont want to repeat the last played song but we also dont want to rely on a while loop
+     //solution "remove" the last played song in the list and then randomly choose
+        string INDEX_KEY = "Hi Rae";
+        int lastRepeatedIndex = ES3.Load(INDEX_KEY,0);
+        int rand = Utility.GetRandomIndexNonRepeat(lastRepeatedIndex, musicTracks.Count);
+  
         extendedAudioContainers[rand].StartAudio();
         currentlyPlayingTrack = rand;
+        DisplayPeteDebugMusicSystem(lastRepeatedIndex, rand);
+
+        ES3.Save(INDEX_KEY, currentlyPlayingTrack);
+    }
+    private void DisplayPeteDebugMusicSystem(int lastRepeatedIndex, int chosenInd)
+    {
+        string text = "Hello! This is your DJ Debuggin-Pete.\n";
+        text += "The last song played was " + musicTracks[lastRepeatedIndex].Path + "\n";
+        text += "Coming right up is " + musicTracks[chosenInd].Path + ". So sit back and enjoy the tunes";
+        Debug.Log(text);
     }
 
     private void StopCurrentSong()

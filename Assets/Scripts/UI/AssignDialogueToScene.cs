@@ -12,7 +12,11 @@ public class AssignDialogueToScene : MonoBehaviour
     private void Start()
     {
         var currentScenePath = SceneManager.GetActiveScene().path;
-        winGameDialogueText.text =
-            LevelSelectDataHandler.Instance.SceneToDialogueMapping.GetValueOrDefault(currentScenePath, "You cannot Escape");
+        
+        if (LevelSelectDataHandler.Instance == null)
+            return;
+        if(LevelSelectDataHandler.Instance.SceneToDialogueMapping != null)
+            winGameDialogueText.text =
+                LevelSelectDataHandler.Instance.SceneToDialogueMapping.GetValueOrDefault(currentScenePath, "You cannot Escape");
     }
 }
