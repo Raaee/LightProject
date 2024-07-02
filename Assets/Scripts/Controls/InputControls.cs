@@ -7,10 +7,12 @@ public class InputControls : MonoBehaviour
 {
     public InputAction movement;
     public InputAction interact;
+    public InputAction pause;
     [SerializeField] private float interactDelayTime = 0.2f;
     private bool interactHeld = false;
     private bool alreadyHeld = false;
     [HideInInspector] public UnityEvent OnInteract;
+    [HideInInspector] public UnityEvent OnPause;
 
     [Header("Player Inputs")] public PlayerControls playerControls;
 
@@ -24,13 +26,15 @@ public class InputControls : MonoBehaviour
         interact.canceled += ReleasingInteract;  
         interact.started += HoldingInteract;
         interact.performed += Interact;
+        pause.performed += Pause;
     }
 
     public void OnEnable()
     {
         movement = playerControls.Player.Move;
         interact = playerControls.Player.Interact;
-
+        pause = playerControls.Player.Pause;
+        pause.Enable();
         EnableControls();
     }
 
@@ -44,13 +48,9 @@ public class InputControls : MonoBehaviour
     {
         movement.Enable();
         interact.Enable();
+        
     }
 
-    public void Interact(InputAction.CallbackContext context)
-    {
-        if (alreadyHeld) return;
-        StartCoroutine(Interaction());        
-    }
     private IEnumerator Interaction() {
         while (interactHeld) {
             alreadyHeld = true;
@@ -64,5 +64,16 @@ public class InputControls : MonoBehaviour
     }
     public void ReleasingInteract(InputAction.CallbackContext context) {
         interactHeld = false;
+    }
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (alreadyHeld) return;
+        StartCoroutine(Interaction());        
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        OnPause.Invoke();
+        Debug.Log("Press ESC");
     }
 }

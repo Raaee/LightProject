@@ -75,7 +75,7 @@ public class DoorLogic : MonoBehaviour
         door.Visual.PlayClose();
         door.AlertDoorEvent();
         this.gameObject.GetComponent<Collider2D>().isTrigger = false;
-        this.gameObject.layer = lightBlockingLayerMask.value;
+        //this.gameObject.layer = lightBlockingLayerMask.value;
         lockedFromOpen = true;
         OnDoorLocked?.Invoke();
         
