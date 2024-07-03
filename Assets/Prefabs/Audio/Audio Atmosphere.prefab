@@ -50,13 +50,25 @@ MonoBehaviour:
       Data2: 1136838114
       Data3: 1152278681
       Data4: 1843163469
-    Path: event:/Music/Track1
+    Path: event:/Music/Track1-ReversedMem
   - Guid:
       Data1: -322013491
       Data2: 1225873994
       Data3: 1855818128
       Data4: 1844499416
-    Path: event:/Music/Track2
+    Path: event:/Music/Track2-EmptyWithin
+  - Guid:
+      Data1: 216951544
+      Data2: 1315312343
+      Data3: 1929992637
+      Data4: -212586658
+    Path: event:/Music/Track3-CryingMist
+  - Guid:
+      Data1: -1219668935
+      Data2: 1263033173
+      Data3: -1601429839
+      Data4: -973742099
+    Path: event:/Music/Track4-TrappedInHead
 --- !u!1 &3931874952897388139
 GameObject:
   m_ObjectHideFlags: 0

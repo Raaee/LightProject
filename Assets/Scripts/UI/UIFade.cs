@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,12 +16,14 @@ public class UIFade : MonoBehaviour
         FadeIn();
     }
 
+    [ProButton]
     public void FadeIn()
     {
         canvasGroup.alpha = 1f;
         StartCoroutine(FadeCanvasGroup( canvasGroup.alpha, 0, fadeDuration, true));
     }
 
+    [ProButton]
     public void FadeOut()
     {
         StartCoroutine(FadeCanvasGroup( canvasGroup.alpha, 1f, fadeDuration, false));

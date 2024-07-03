@@ -13,7 +13,10 @@ public class LevelSelectDataHandler : PersistentSingleton<LevelSelectDataHandler
   protected override void Awake()
   {
     base.Awake();
+    if (sandboxLevelElements.Count == 0 || gamePlayLevelElements.Count == 0)
+      return;
     SceneToDialogueMapping = new Dictionary<string, string>();
+    
     foreach (var levelElement in sandboxLevelElements)
     {
       SceneToDialogueMapping.Add(levelElement.scenePath, levelElement.dialogueText);
