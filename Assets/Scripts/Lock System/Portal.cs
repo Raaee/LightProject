@@ -16,7 +16,7 @@ public class Portal : MonoBehaviour
     {
         door = GetComponent<Door>();
         if(isGameplayLevel)
-            Debug.LogWarning("This portal configs marks this scene as a gameplay scene." +
+            Debug.LogWarning("This is a GAMEPLAY SCENE based on portal config." +
                              " When player goes to portal it will increase currentLevel progress");
     }
 

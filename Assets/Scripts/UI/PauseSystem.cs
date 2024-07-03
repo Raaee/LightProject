@@ -49,6 +49,7 @@ public class PauseSystem : MonoBehaviour
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0;
         //Audio change
+        PauseSnapshot.Instance.StartPauseAudio();
     }
 
     public void ResumeGame()
@@ -59,6 +60,8 @@ public class PauseSystem : MonoBehaviour
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1;
         //Revert audio change
+        PauseSnapshot.Instance.StopPauseAudio();
+
     }
 
     public void BackToMeinMenu()

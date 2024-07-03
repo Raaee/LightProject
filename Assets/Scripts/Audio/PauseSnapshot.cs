@@ -7,7 +7,7 @@ using FMODUnity;
 using UnityEngine;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
-public class PauseSnapshot : MonoBehaviour
+public class PauseSnapshot : Singleton<PauseSnapshot>
 {
     private string pauseSnapshotPath = "snapshot:/Pause Effect";
     [SerializeField] private EventInstance pauesSnapshotEvent;
