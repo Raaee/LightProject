@@ -63,7 +63,7 @@ public class AmbienceAudio : MonoBehaviour
         IsActive = true;
     }
 
-    private void StopAmbienceAudioSystem()
+    public void StopAmbienceAudioSystem()
     {
         //stop container 
         ambiLoopAudioContainer.StopAudio();
