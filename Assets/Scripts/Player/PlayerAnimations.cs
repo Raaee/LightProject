@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class PlayerAnimations : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem spawnPS;
     [SerializeField] private PlayerMovement playerMovement;
@@ -16,12 +17,23 @@ public class PlayerAnimations : MonoBehaviour
     private void Start()
     {
         spawnPS.Play();
+        StopGlitch();
         //StartCoroutine(SpawnAnimation());
         IsWalkingState = false;
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
         playerMovement.OnPlayerMove.AddListener(BeginToMove);
         playerMovement.OnPlayerStop.AddListener(StopMoving);
         OnSpawnAnimationEnd?.Invoke();
+    }
+    public void StopGlitch() {
+        sr.material.SetFloat("_GlitchAmount", 0);
+        sr.material.SetFloat("_WaveAmount", 0);
+        sr.material.SetFloat("_WaveSpeed", 0);
+    }
+    public void PlayGlitch() {
+        sr.material.SetFloat("_GlitchAmount", 10);
+        sr.material.SetFloat("_WaveAmount", 7);
+        sr.material.SetFloat("_WaveSpeed", 10);
     }
 
     [ProButton]

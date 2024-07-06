@@ -15,6 +15,7 @@ public class Detection : MonoBehaviour
     private bool fullPlayerDetectionCompletedGameOver = false;
 
     public UnityEvent OnDetectedGameOver;
+    public bool dontDestroySelf = false;
 
     void Awake() { 
         fieldOfViewDetection = GetComponent<FieldOfViewDetection>();
@@ -33,11 +34,13 @@ public class Detection : MonoBehaviour
     //TODO: refactor to FOV Detection script
     //TODO: make the lose event only happen once
     private void CheckDetectionTime() {
+        if (dontDestroySelf) return;
         if (!playerDetected) {
             detectionTimer = 0;
+            enemyVisuals.StopGlitch();
             return;
         }
-
+        enemyVisuals.PlayGlitch();
         detectionTimer += Time.deltaTime;
         if (detectionTimer > detectionTimeToLoseGame) {
             Debug.Log("Player got caught by enemy. gameover bruv");
@@ -49,7 +52,6 @@ public class Detection : MonoBehaviour
     public IEnumerator StartDeathCountDown() {
         yield return new WaitForSeconds(detectionTimeToLoseGame / 2);
         enemyVisuals.DisableLight();
-        yield return new WaitForSeconds(detectionTimeToLoseGame);
         OnDetectedGameOver.Invoke();
     }
     public void FOV_OnPlayerDetected() {

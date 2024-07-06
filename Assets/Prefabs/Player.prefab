@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4921936994184167551}
+  - component: {fileID: 110835367469874870}
   - component: {fileID: 5159294663988650365}
   - component: {fileID: 4164142783493655355}
   - component: {fileID: 9020216217425948265}
@@ -109,6 +110,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1193519302919741016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110835367469874870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483018825279354457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!212 &5159294663988650365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -129,7 +146,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -194,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66987eaf339bd7849a357b641e91976b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 5159294663988650365}
   animator: {fileID: 4164142783493655355}
   spawnPS: {fileID: 643849839494305349}
   playerMovement: {fileID: 1873386686422883695}
@@ -5062,8 +5080,20 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  interactDelayTime: 0.4
+  pause:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 71840497-3603-46c1-a1ac-42c618dcbbb1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  interactDelayTime: 0.25
   OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPause:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4395279540835200359
@@ -5094,14 +5124,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200017be8bbc5b64ea20ea20cb897e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9.27
+  moveSpeed: 3
   OnPlayerMove:
     m_PersistentCalls:
       m_Calls: []
   OnPlayerStop:
     m_PersistentCalls:
       m_Calls: []
-  smoothMovementAnimations: 0
+  smoothMovementAnimations: 1
 --- !u!114 &2303505215579598258
 MonoBehaviour:
   m_ObjectHideFlags: 0
