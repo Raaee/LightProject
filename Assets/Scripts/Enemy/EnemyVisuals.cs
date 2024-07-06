@@ -5,6 +5,7 @@ using FunkyCode;
 
 public class EnemyVisuals : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Animator animator;
     [SerializeField] private Light2D FoVLight;
     [SerializeField] private Light2D auraLight;
@@ -14,6 +15,14 @@ public class EnemyVisuals : MonoBehaviour
 
     private void Start() {
         Spawn();
+    }
+    public void StopGlitch() {
+        sr.material.SetFloat("_HandDrawnAmount", 0);
+        sr.material.SetFloat("_HandDrawnSpeed", 0);
+    }
+    public void PlayGlitch() {
+        sr.material.SetFloat("_HandDrawnAmount", 10);
+        sr.material.SetFloat("_HandDrawnSpeed", 5);
     }
     public void PlayDetect() {
         animator.Play(detect.name);
@@ -26,9 +35,10 @@ public class EnemyVisuals : MonoBehaviour
         FoVLight.enabled = true;
         auraLight.enabled = true;
     }
-    public void Spawn() {
+    private void Spawn() {
         animator.Play(spawn.name);
         EnableLight();
+        StopGlitch();
     }
     public void Moving(bool isMove) {
         animator.SetBool("isMoving", isMove);

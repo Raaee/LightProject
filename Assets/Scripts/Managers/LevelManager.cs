@@ -6,17 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject[] enemiesInLevel;
+    private GameObject player;
+    public UIFade uiFade;
     private const string ENEMY_TAG = "Enemy";
 
+    public GameObject[] enemiesInLevel;
+
     void Start() {
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        uiFade = FindObjectOfType<UIFade>();
         enemiesInLevel = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
         foreach (GameObject enemy in enemiesInLevel) {
             enemy.GetComponentInChildren<Detection>().OnDetectedGameOver.AddListener(GameOver);
         }
+        uiFade.OnFadeOutComplete.AddListener(RestartScene);
     }
     [ProButton]
     public void GameOver() {
+        player.GetComponent<InputControls>().DisableControls();
+        uiFade.FadeOut();
+    }
+    private void RestartScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Debug.Log("Damn sucks. Get gud");
     }
