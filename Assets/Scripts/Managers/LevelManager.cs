@@ -12,9 +12,11 @@ public class LevelManager : MonoBehaviour
 
     public GameObject[] enemiesInLevel;
 
+    private void Awake() {
+        uiFade = FindObjectOfType<UIFade>();        
+    }
     void Start() {
         player = FindObjectOfType<PlayerMovement>().gameObject;
-        uiFade = FindObjectOfType<UIFade>();
         enemiesInLevel = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
         foreach (GameObject enemy in enemiesInLevel) {
             enemy.GetComponentInChildren<Detection>().OnDetectedGameOver.AddListener(GameOver);
