@@ -15,12 +15,13 @@ public class FieldOfViewDetection : MonoBehaviour
     private bool playerJustGotDetected = false;
     public UnityEvent OnPlayerDetect;
     public UnityEvent OnPlayerUnDetect;
+    private PlayerAnimations playerAnimations;
 
     private void Awake()
     {
-       
         fovLight = GetComponent<Light2D>();
         player = FindObjectOfType<PlayerMovement>().gameObject.transform;
+        playerAnimations = player.gameObject.GetComponentInChildren<PlayerAnimations>();
         if (!player)
            Debug.LogError("No player in scene!");
     }
@@ -38,9 +39,9 @@ public class FieldOfViewDetection : MonoBehaviour
     {
         if (IsTargetInsideFOV(player))
         {
-           
             if (!playerJustGotDetected)
             {
+                playerAnimations.PlayGlitch();
                 OnPlayerDetect?.Invoke();
                 playerJustGotDetected = true;
             }
@@ -49,7 +50,7 @@ public class FieldOfViewDetection : MonoBehaviour
         {
             if (playerJustGotDetected)
             {
-                
+                playerAnimations.StopGlitch();
                 OnPlayerUnDetect?.Invoke();
                 playerJustGotDetected = false;
             }
