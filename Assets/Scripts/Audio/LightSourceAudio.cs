@@ -81,7 +81,11 @@ public class LightSourceAudio : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(turnOffLightSource, transform.position);
     }
 
-  
+
+    public void StopIdleLigthSrc()
+    {
+        idleLightSourceAudioContainer.StopAudio();
+    }
 
    
 

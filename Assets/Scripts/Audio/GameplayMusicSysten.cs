@@ -61,7 +61,7 @@ public class GameplayMusicSysten : MonoBehaviour
         Debug.Log(text);
     }
 
-    private void StopCurrentSong()
+    public void StopCurrentSong()
     {
         //stop song on index
         extendedAudioContainers[currentlyPlayingTrack].StopAudio();
