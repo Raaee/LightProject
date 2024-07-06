@@ -7,27 +7,42 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     private GameObject player;
-    public UIFade uiFade;
+    private UIFade uiFade;
     private const string ENEMY_TAG = "Enemy";
 
     public GameObject[] enemiesInLevel;
 
+    private void Awake() {
+        uiFade = FindObjectOfType<UIFade>();    
+        Debug.Log(SceneManager.GetActiveScene().path);
+    }
     void Start() {
         player = FindObjectOfType<PlayerMovement>().gameObject;
-        uiFade = FindObjectOfType<UIFade>();
         enemiesInLevel = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
         foreach (GameObject enemy in enemiesInLevel) {
             enemy.GetComponentInChildren<Detection>().OnDetectedGameOver.AddListener(GameOver);
         }
-        uiFade.OnFadeOutComplete.AddListener(RestartScene);
+        uiFade.OnFadeOutCompleteGameOvxer.AddListener(RestartScene);
     }
     [ProButton]
     public void GameOver() {
         player.GetComponent<InputControls>().DisableControls();
-        uiFade.FadeOut();
+        uiFade.FadeOut(true);
+        StopAudioAtmosphere();
     }
+
+  
+
     private void RestartScene() {
+        Debug.Log(SceneManager.GetActiveScene().path);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("Damn sucks. Get gud");
+    }
+    
+    private void StopAudioAtmosphere()
+    {
+        var audioAtmosGameobject = FindObjectOfType<PauseSnapshot>().gameObject;
+        audioAtmosGameobject.GetComponentInChildren<GameplayMusicSysten>()?.StopCurrentSong();
+        audioAtmosGameobject.GetComponentInChildren<AmbienceAudio>()?.StopAmbienceAudioSystem();
+        audioAtmosGameobject.GetComponentInChildren<LightSourceAudio>()?.StopIdleLigthSrc();
     }
 }

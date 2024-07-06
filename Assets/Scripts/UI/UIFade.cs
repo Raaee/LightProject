@@ -7,10 +7,11 @@ using UnityEngine.Events;
 public class UIFade : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
-    [SerializeField] private float fadeDuration = 2.5f;
+     private float fadeDuration = 2.0f;
 
     public UnityEvent OnFadeOutComplete;
     public UnityEvent OnFadeInComplete;
+    public UnityEvent OnFadeOutCompleteGameOvxer;
     private void Start()
     {
         FadeIn();
@@ -24,18 +25,18 @@ public class UIFade : MonoBehaviour
     }
 
     [ProButton]
-    public void FadeOut()
+    public void FadeOut(bool isFromGameover = false)
     {
-        StartCoroutine(FadeCanvasGroup( canvasGroup.alpha, 1f, fadeDuration, false));
+        StartCoroutine(FadeCanvasGroup( canvasGroup.alpha, 1f, fadeDuration, false, isFromGameover));
     }
 
-    private IEnumerator FadeCanvasGroup( float start, float end, float duration, bool isFadein)
+    private IEnumerator FadeCanvasGroup( float start, float end, float duration, bool isFadein, bool isFromGameover = false)
     {
 
 
 
         float elaspedTime = 0.0f;
-        while(elaspedTime < fadeDuration)
+        while(elaspedTime < duration)
         {
             elaspedTime += Time.deltaTime;
             canvasGroup.alpha = Mathf.Lerp(start, end, elaspedTime / duration);
@@ -46,9 +47,23 @@ public class UIFade : MonoBehaviour
         if (isFadein)
             OnFadeInComplete?.Invoke();
         else
-            OnFadeOutComplete?.Invoke();
+        {
+            if (!isFromGameover)
+            {
+                Debug.Log("not from game over");
+                OnFadeOutComplete?.Invoke();
+
+            }
+            else
+            {
+                OnFadeOutCompleteGameOvxer?.Invoke();
+            }
+            
+        }
     }
 
 
 
 }
+
+
