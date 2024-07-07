@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isCurrentlyMoving = false;
 
     [HideInInspector] public UnityEvent OnPlayerMove;
+    [HideInInspector] public UnityEvent<TUTORIAL_KEY> OnPlayerFirstMove;
+    private bool playerFirstMoved = false;
     [HideInInspector] public UnityEvent OnPlayerStop;
     private bool allowPlayerInput = false;
     private PlayerAnimations playerAnims;
@@ -33,9 +35,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerAnims = GetComponentInChildren<PlayerAnimations>();
         playerAnims.OnSpawnAnimationEnd.AddListener(AllowPlayerInputOnAnimationEnd);
+        TutorialSetup();
         isCurrentlyMoving = false;
     }
 
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -66,9 +70,12 @@ public class PlayerMovement : MonoBehaviour
                 OnPlayerMove?.Invoke();
                 smoothMovementAnimations = true;
                 isCurrentlyMoving = true;
+                HandleTutorialEvent();
             }
         }
     }
+
+  
 
     private void Update()
     {
@@ -107,6 +114,25 @@ public class PlayerMovement : MonoBehaviour
         else
             return moveInput != Vector2.zero;
     }
+
+    private void TutorialSetup()
+    {
+        TutorialSystem tutorialSystem = FindObjectOfType<TutorialSystem>();
+        if (tutorialSystem == null) return;
+
+        if (tutorialSystem.Requires(TUTORIAL_KEY.MOVE))
+            tutorialSystem.InsertEvent(OnPlayerFirstMove);
+    }
+
+    private void HandleTutorialEvent()
+    {
+        if (!playerFirstMoved)
+        {
+            playerFirstMoved = true;
+            OnPlayerFirstMove?.Invoke(TUTORIAL_KEY.MOVE);
+        }
+    }
+
     private IEnumerator StartIdleTimer() {
         yield return new WaitForSeconds(timeToIdle);
         smoothMovementAnimations = false;

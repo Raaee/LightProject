@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using com.cyborgAssets.inspectorButtonPro;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ public class UIFade : MonoBehaviour
     public UnityEvent OnFadeOutComplete;
     public UnityEvent OnFadeInComplete;
     public UnityEvent OnFadeOutCompleteGameOvxer;
+    [SerializeField] private EventReference transitionSfx;
     private void Start()
     {
         FadeIn();
@@ -27,6 +29,9 @@ public class UIFade : MonoBehaviour
     [ProButton]
     public void FadeOut(bool isFromGameover = false)
     {
+        FindObjectOfType<PauseSnapshot>()?.StopPauseAudio();
+        FindObjectOfType<GameplayMusicSysten>()?.StopCurrentSong();
+        FMODUnity.RuntimeManager.PlayOneShot(transitionSfx);
         StartCoroutine(FadeCanvasGroup( canvasGroup.alpha, 1f, fadeDuration, false, isFromGameover));
     }
 
@@ -50,7 +55,6 @@ public class UIFade : MonoBehaviour
         {
             if (!isFromGameover)
             {
-                Debug.Log("not from game over");
                 OnFadeOutComplete?.Invoke();
 
             }

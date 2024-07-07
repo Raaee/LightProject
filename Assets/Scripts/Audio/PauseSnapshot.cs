@@ -10,8 +10,9 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 public class PauseSnapshot : Singleton<PauseSnapshot>
 {
     private string pauseSnapshotPath = "snapshot:/Pause Effect";
-    [SerializeField] private EventInstance pauesSnapshotEvent;
-
+    private EventInstance pauesSnapshotEvent;
+    [SerializeField] private EventReference startPauseSfx;
+    [SerializeField] private EventReference stopPauseSfx;
     private void Start()
     {
         pauesSnapshotEvent = FMODUnity.RuntimeManager.CreateInstance(pauseSnapshotPath);
@@ -20,11 +21,16 @@ public class PauseSnapshot : Singleton<PauseSnapshot>
     [ProButton]
     public void StartPauseAudio()
     {
+        
+        FMODUnity.RuntimeManager.PlayOneShot(startPauseSfx);
+
         pauesSnapshotEvent.start();
     }
     [ProButton]
     public void StopPauseAudio()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(stopPauseSfx);
+
         pauesSnapshotEvent.stop(STOP_MODE.ALLOWFADEOUT);
 
     }

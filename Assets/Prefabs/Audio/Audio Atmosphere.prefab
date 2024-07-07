@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2691753063075937985}
+  - component: {fileID: 6377635869350965183}
   m_Layer: 0
   m_Name: Audio Atmosphere
   m_TagString: Untagged
@@ -161,6 +162,32 @@ Transform:
   - {fileID: 5487759956747387886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6377635869350965183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785588867911988203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09c0d823c6e311439f00ddb278e4b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPauseSfx:
+    Guid:
+      Data1: -181612910
+      Data2: 1341580913
+      Data3: -1889656946
+      Data4: 1279459413
+    Path: event:/UI/accept
+  stopPauseSfx:
+    Guid:
+      Data1: -734523054
+      Data2: 1127982205
+      Data3: -1623960908
+      Data4: -103945161
+    Path: event:/UI/back
 --- !u!1 &9000763194916834230
 GameObject:
   m_ObjectHideFlags: 0
