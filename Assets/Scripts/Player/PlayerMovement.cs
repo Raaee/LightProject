@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isCurrentlyMoving = false;
 
     [HideInInspector] public UnityEvent OnPlayerMove;
-    [HideInInspector] public UnityEvent<TUTORIAL_KEY> OnPlayerFirstMove;
     private bool playerFirstMoved = false;
     [HideInInspector] public UnityEvent OnPlayerStop;
     private bool allowPlayerInput = false;
@@ -35,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerAnims = GetComponentInChildren<PlayerAnimations>();
         playerAnims.OnSpawnAnimationEnd.AddListener(AllowPlayerInputOnAnimationEnd);
-        TutorialSetup();
         isCurrentlyMoving = false;
     }
 
@@ -115,21 +113,15 @@ public class PlayerMovement : MonoBehaviour
             return moveInput != Vector2.zero;
     }
 
-    private void TutorialSetup()
-    {
-        TutorialSystem tutorialSystem = FindObjectOfType<TutorialSystem>();
-        if (tutorialSystem == null) return;
-
-        if (tutorialSystem.Requires(TUTORIAL_KEY.MOVE))
-            tutorialSystem.InsertEvent(OnPlayerFirstMove);
-    }
+ 
 
     private void HandleTutorialEvent()
     {
         if (!playerFirstMoved)
         {
             playerFirstMoved = true;
-            OnPlayerFirstMove?.Invoke(TUTORIAL_KEY.MOVE);
+            TutorialSystem tutorialSystem = FindObjectOfType<TutorialSystem>();
+            tutorialSystem.OnNextTutorialStep(1);
         }
     }
 
