@@ -935,6 +935,16 @@ MonoBehaviour:
   OnFadeInComplete:
     m_PersistentCalls:
       m_Calls: []
+  OnFadeOutCompleteGameOvxer:
+    m_PersistentCalls:
+      m_Calls: []
+  transitionSfx:
+    Guid:
+      Data1: 1944327929
+      Data2: 1172665926
+      Data3: -1101563515
+      Data4: -1322901681
+    Path: event:/UI/transition woosh
 --- !u!1 &4902452826167222891
 GameObject:
   m_ObjectHideFlags: 0

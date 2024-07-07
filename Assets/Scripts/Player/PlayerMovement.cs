@@ -123,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
         if (tutorialSystem.Requires(TUTORIAL_KEY.MOVE))
             tutorialSystem.InsertEvent(OnPlayerFirstMove);
     }
+
     private void HandleTutorialEvent()
     {
         if (!playerFirstMoved)
@@ -130,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
             playerFirstMoved = true;
             OnPlayerFirstMove?.Invoke(TUTORIAL_KEY.MOVE);
         }
+    }
+
     private IEnumerator StartIdleTimer() {
         yield return new WaitForSeconds(timeToIdle);
         smoothMovementAnimations = false;

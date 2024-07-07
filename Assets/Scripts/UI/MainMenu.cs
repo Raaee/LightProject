@@ -7,7 +7,8 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject levelSelectPanel;
-    
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject creditsPanel;
     //TODO: refactor scene loading into seperate class
     public void GoToNextLevel()
     {
@@ -36,28 +37,39 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        CloseSettingsPanel();
-        CloseLevelPanel();
+        CloseAllPanels();
+        OpenMainMenuPanel();
     }
 
+    private void CloseAllPanels()
+    {
+        mainMenuPanel.SetActive(false);
+        levelSelectPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
+
+    public void OpenCreditsPanel()
+    {
+        CloseAllPanels();
+        creditsPanel.SetActive(true);
+    }
+    public void OpenMainMenuPanel()
+    {
+        CloseAllPanels();
+        mainMenuPanel.SetActive(true);
+    }
 
     public void OpenSettingsPanel()
     {
-        Debug.Log("opening settings");
+        CloseAllPanels();
         settingsPanel.SetActive(true);
     }
-    public void CloseSettingsPanel()
-    {
-        settingsPanel.SetActive(false);
-    }
-    
+   
     public void OpenLevelPanel()
     {
+        CloseAllPanels();
         levelSelectPanel.SetActive(true);
-    }
-    public void CloseLevelPanel()
-    {
-        levelSelectPanel.SetActive(false);
     }
     
     public void QuitGame()
