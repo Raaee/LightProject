@@ -11,29 +11,29 @@ public class UIAudio : MonoBehaviour
     [SerializeField] private FMODUnity.EventReference hoverSfx;
     [SerializeField] private FMODUnity.EventReference testSfx;
 
-    public void PlayUIAudio(UIAudioEnum audioEnum)
+    public void PlayUIAudio(int audioEnum)
     {
         switch (audioEnum)
         {
-            case UIAudioEnum.NONE:
+            case (int)UIAudioEnum.NONE:
                 FMODUnity.RuntimeManager.PlayOneShot(testSfx);
                 break;
-            case UIAudioEnum.Accept:
+            case  (int)UIAudioEnum.Accept:
                 FMODUnity.RuntimeManager.PlayOneShot(acceptSfx);
                 break;
-            case UIAudioEnum.Back:
+            case  (int)UIAudioEnum.Back:
                 FMODUnity.RuntimeManager.PlayOneShot(backSfx);
                 break;
-            case UIAudioEnum.Select_Next:
+            case  (int)UIAudioEnum.Select_Next:
                 FMODUnity.RuntimeManager.PlayOneShot(selectNextSfx);
                 break;
-            case UIAudioEnum.Start_Pause:
+            case  (int)UIAudioEnum.Start_Pause:
                 FMODUnity.RuntimeManager.PlayOneShot(startPauseSfx);
                 break;
-            case UIAudioEnum.Exit_Pause:
+            case  (int)UIAudioEnum.Exit_Pause:
                 FMODUnity.RuntimeManager.PlayOneShot(exitPauseSfx);
                 break;
-            case UIAudioEnum.Hover:
+            case  (int)UIAudioEnum.Hover:
                 FMODUnity.RuntimeManager.PlayOneShot(hoverSfx);
                 break;
             default:
