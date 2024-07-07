@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Pillar
   - Enemy
+  - CardBG
   layers:
   - Default
   - TransparentFX
