@@ -5124,7 +5124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200017be8bbc5b64ea20ea20cb897e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9.76
+  moveSpeed: 7
+  isCurrentlyMoving: 0
   OnPlayerMove:
     m_PersistentCalls:
       m_Calls: []
@@ -5132,6 +5133,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   smoothMovementAnimations: 1
+  timeToIdle: 1.5
 --- !u!114 &2303505215579598258
 MonoBehaviour:
   m_ObjectHideFlags: 0

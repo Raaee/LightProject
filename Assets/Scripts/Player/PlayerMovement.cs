@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimations playerAnims;
 
     [Tooltip("Doesnt play idle or transitioning animations")]
-    public bool smoothMovementAnimations = false;
+    private bool smoothMovementAnimations = false;
+    private float timeToIdle = 1.5f;
 
     // Start is called before the first frame update
     void Awake()
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerAnims = GetComponentInChildren<PlayerAnimations>();
         playerAnims.OnSpawnAnimationEnd.AddListener(AllowPlayerInputOnAnimationEnd);
+        isCurrentlyMoving = false;
     }
 
     // Update is called once per frame
@@ -54,9 +56,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            // IDK BUT IT WORKS DONT TOUCH IT
+            if (moveInput.x < 0.2f && moveInput.y < 0.2f && moveInput.x < 0.2f && moveInput.y < 0.2f) {
+                isCurrentlyMoving = false;
+                StartCoroutine(StartIdleTimer());
+            }
             if (IsPlayerMoving())
             {
                 OnPlayerMove?.Invoke();
+                smoothMovementAnimations = true;
                 isCurrentlyMoving = true;
             }
         }
@@ -99,5 +107,8 @@ public class PlayerMovement : MonoBehaviour
         else
             return moveInput != Vector2.zero;
     }
-
+    private IEnumerator StartIdleTimer() {
+        yield return new WaitForSeconds(timeToIdle);
+        smoothMovementAnimations = false;
+    }
 }
