@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelectView : MonoBehaviour
 {
     [SerializeField] private GameObject levelSelectUIPrefab;
     [SerializeField] private GameObject levelSelectGrid;
+    [SerializeField] private Sprite regularCard;
+    [SerializeField] private Sprite spotlightCard;
     private List<LevelSelectUIData> levelUIDatas;
     private int AMOUNT_OF_LEVELS = 3;
     private LevelSelectController levelSelectController;
@@ -51,7 +54,12 @@ public class LevelSelectView : MonoBehaviour
             DisplayLevel(listOfLevelElements[i], levelInstance.GetComponent<LevelSelectUIData>());
         }
     }
-
+    public void HighlightSelectedCard(int prevousIndex, int currentItemIndex) {
+        var previousSR = levelSelectGrid.transform.GetChild(prevousIndex).transform.GetChild(0).GetComponent<Image>();
+        previousSR.sprite = regularCard;
+        var currentSR = levelSelectGrid.transform.GetChild(currentItemIndex).transform.GetChild(0).GetComponent<Image>();
+        currentSR.sprite = spotlightCard;
+    }
 
     private void DisplayLevel(LevelSelectElementSO levelSo, LevelSelectUIData levelUIData )
     {

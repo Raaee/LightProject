@@ -6,15 +6,14 @@ using UnityEngine.UI;
 public class ScrollViewSnapToItem : MonoBehaviour
 {
     [SerializeField] private ScrollRect scrollRect;
-
+    [SerializeField] private LevelSelectView levelSelectView;
     [SerializeField] private RectTransform contentPanel;
     [SerializeField] private RectTransform sampleListItem;
-
     [SerializeField] private HorizontalLayoutGroup horizontalLayoutGroup;
-   
-     private const float VELOCITY_TOLERANCE = 0.1f; 
+    private const float VELOCITY_TOLERANCE = 0.1f; 
    
     private int currentItem = 0;
+    private int previousItem = 0;
     [SerializeField] private LevelSelectController levelSelectCont;
     private int totalItems = 0; 
     
@@ -26,6 +25,7 @@ public class ScrollViewSnapToItem : MonoBehaviour
 
     public void OnNextButtonPress()
     {
+        previousItem = currentItem;
         currentItem++;
         currentItem = currentItem > (totalItems - 1) ? (totalItems - 1) : currentItem;
         StartCoroutine(SnapToTargetItem());
@@ -34,6 +34,7 @@ public class ScrollViewSnapToItem : MonoBehaviour
     
     public void OnBackButtonPress()
     {
+        previousItem = currentItem;
         currentItem--;
         currentItem = currentItem < 0 ? 0 : currentItem;
         StartCoroutine(SnapToTargetItem());
@@ -42,6 +43,7 @@ public class ScrollViewSnapToItem : MonoBehaviour
 
     private IEnumerator SnapToTargetItem()
     {
+        levelSelectView.HighlightSelectedCard(previousItem, currentItem);
         while (Mathf.Abs(scrollRect.content.localPosition.x - GetTargetPosition()) > VELOCITY_TOLERANCE)
         {
             float targetX = Mathf.Lerp(scrollRect.content.localPosition.x, GetTargetPosition(), Time.deltaTime * 10f); 
