@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerFirstMoved = true;
             TutorialSystem tutorialSystem = FindObjectOfType<TutorialSystem>();
-            tutorialSystem.OnNextTutorialStep(1);
+            tutorialSystem?.OnNextTutorialStep(1);
         }
     }
 
