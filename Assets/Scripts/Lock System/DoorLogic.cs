@@ -51,7 +51,6 @@ public class DoorLogic : MonoBehaviour
 
     public void UnlockDoor()
     {
-        Debug.Log("door has been opened! ");
         isLocked = false;
         door.IsLocked = isLocked;
         door.Visual.PlayOpen();

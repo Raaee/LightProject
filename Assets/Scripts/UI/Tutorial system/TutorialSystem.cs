@@ -46,7 +46,6 @@ public class TutorialSystem : MonoBehaviour
 
       StartCoroutine(FadeInText(tutorialTexts[TutorialIndex]));
       TutorialIndex++;
-      Debug.Log("It is now index: " + TutorialIndex); 
 
    }
 

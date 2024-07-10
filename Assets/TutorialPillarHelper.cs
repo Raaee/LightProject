@@ -24,7 +24,6 @@ public class TutorialPillarHelper : MonoBehaviour
    {
       if(tutorialSystem.TutorialIndex != 2)
          return;
-      Debug.Log(" light src: The index was " + tutorialSystem.TutorialIndex);
 
       tutorialSystem.OnNextTutorialStep(2);
    }
@@ -35,7 +34,6 @@ public class TutorialPillarHelper : MonoBehaviour
       if(tutorialSystem.TutorialIndex != 3)
          return;
       
-      Debug.Log(" Rotaet: The index was " + tutorialSystem.TutorialIndex);
       //we go to the next tutorial text
       tutorialSystem.OnNextTutorialStep(3);
       
