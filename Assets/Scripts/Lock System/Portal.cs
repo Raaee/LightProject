@@ -10,7 +10,7 @@ public class Portal : MonoBehaviour
     private Door door;
      [HideInInspector] public UnityEvent OnPlayerEntersPortal;
      [SerializeField] private bool isGameplayLevel = false;
-     private float waitTime = 1.5f;
+     private float waitTime = 2.0f;
      
     private void Awake()
     {
@@ -37,6 +37,7 @@ public class Portal : MonoBehaviour
         if (isGameplayLevel)
         {
             SaveManager.Instance.OnNextLevelProgressed();
+            Debug.Log("Starting Couroutine to wait then load scene");
             StartCoroutine(WaitThenLoadScene(waitTime));
         }
         else
@@ -44,12 +45,15 @@ public class Portal : MonoBehaviour
             //show pause menu 
             Debug.Log("This is a sandbox level. Still figuring out what to do. for now go to pause menu and go back to menu");
         }
-        
+        Debug.Log("Attempting to stop audio atmospher");
+
+        LevelManager.Instance.StopAudioAtmosphere();
         //play teleport animation 
     }
 
     private IEnumerator WaitThenLoadScene(float time)
     {
+        
         Debug.Log("Going to Next Level...321");
         yield return new WaitForSeconds(time);
         int index = ES3.Load(Utility.CURRENT_LEVEL_KEY, 0);

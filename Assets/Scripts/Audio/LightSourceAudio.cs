@@ -84,7 +84,7 @@ public class LightSourceAudio : MonoBehaviour
 
     public void StopIdleLigthSrc()
     {
-        idleLightSourceAudioContainer.StopAudio();
+        idleLightSourceAudioContainer.StopAudio(true);
     }
 
    

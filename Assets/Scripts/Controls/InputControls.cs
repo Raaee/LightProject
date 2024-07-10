@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -19,6 +20,7 @@ public class InputControls : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
+       
     }
 
     private void Update()
@@ -36,6 +38,14 @@ public class InputControls : MonoBehaviour
         pause = playerControls.Player.Pause;
         pause.Enable();
         EnableControls();
+    }
+
+    private void OnDisable()
+    {
+        interact.canceled -= ReleasingInteract;  
+        interact.started -= HoldingInteract;
+        interact.performed -= Interact;
+        pause.performed -= Pause;
     }
 
     public void DisableControls()
