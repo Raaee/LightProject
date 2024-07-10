@@ -819,6 +819,20 @@ MonoBehaviour:
   sampleListItem: {fileID: 6622519418440880468, guid: df64baf95f5b8ed42a093234259849a8, type: 3}
   horizontalLayoutGroup: {fileID: 1880098827}
   levelSelectCont: {fileID: 153945423}
+  forwardSfx:
+    Guid:
+      Data1: -900463529
+      Data2: 1337979104
+      Data3: -1391172459
+      Data4: -977740909
+    Path: event:/UI/swipe_forward
+  backSfx:
+    Guid:
+      Data1: -516587601
+      Data2: 1198109033
+      Data3: -1269548880
+      Data4: 428133348
+    Path: event:/UI/swipe_back
 --- !u!114 &153945425
 MonoBehaviour:
   m_ObjectHideFlags: 0
