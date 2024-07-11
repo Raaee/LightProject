@@ -27,6 +27,21 @@ EditorBuildSettings:
     path: Assets/Scenes/IsaacLeves/GetConfuse.unity
     guid: 1ea6baea7702b8540b7a06bb3687a552
   - enabled: 1
+    path: Assets/Scenes/IsaacLeves/ChooseWisely.unity
+    guid: 80aea4716eaa73e419468513e9f3cdff
+  - enabled: 1
+    path: Assets/Scenes/IsaacLeves/Melon.unity
+    guid: f717a930862c4c74b9da44be215c53ff
+  - enabled: 1
+    path: Assets/Scenes/IsaacLeves/One.unity
+    guid: 61a3f793430fffb4ca7b6667f4ceb490
+  - enabled: 1
+    path: Assets/Scenes/IsaacLeves/Roulette.unity
+    guid: 1c74ffdda5e86b842a0b9826764ff0dd
+  - enabled: 1
+    path: Assets/Scenes/IsaacLeves/Rule of Four.unity
+    guid: 7fec1711aebf2c7468b2aa1c0bfd6acb
+  - enabled: 1
     path: Assets/Scenes/IsaacLeves/OneLock.unity
     guid: 2c5838738cc68f14fb886f9f853a735c
   - enabled: 1

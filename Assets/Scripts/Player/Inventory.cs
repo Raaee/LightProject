@@ -34,7 +34,6 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            Debug.Log("Inventory is full");
         }
     }
     public void RemoveItem()
@@ -43,11 +42,9 @@ public class Inventory : MonoBehaviour
         {
             Destroy(inventory);
             inventory = null;
-            Debug.Log("just removed inventory");
         }
         else
         {
-            Debug.Log("Inventory is empty");
         }
     }
 }

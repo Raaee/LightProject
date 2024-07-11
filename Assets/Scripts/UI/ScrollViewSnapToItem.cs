@@ -1,4 +1,5 @@
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,10 @@ public class ScrollViewSnapToItem : MonoBehaviour
     private int currentItem = 0;
     private int previousItem = 0;
     [SerializeField] private LevelSelectController levelSelectCont;
-    private int totalItems = 0; 
+    private int totalItems = 0;
+    [Header("Audio")] 
+    [SerializeField] private EventReference forwardSfx;
+    [SerializeField] private EventReference backSfx;
     
     private void Start()
     {
@@ -29,6 +33,7 @@ public class ScrollViewSnapToItem : MonoBehaviour
         currentItem++;
         currentItem = currentItem > (totalItems - 1) ? (totalItems - 1) : currentItem;
         StartCoroutine(SnapToTargetItem());
+        FMODUnity.RuntimeManager.PlayOneShot(forwardSfx);
         // contentPanel.localPosition = new Vector3( 0 -(currentItem * (sampleListItem.rect.width + horizontalLayoutGroup.spacing)),contentPanel.localPosition.y, contentPanel.localPosition.z);
     }
     
@@ -38,6 +43,8 @@ public class ScrollViewSnapToItem : MonoBehaviour
         currentItem--;
         currentItem = currentItem < 0 ? 0 : currentItem;
         StartCoroutine(SnapToTargetItem());
+        FMODUnity.RuntimeManager.PlayOneShot(backSfx);
+
         // contentPanel.localPosition = new Vector3( 0 -(currentItem * (sampleListItem.rect.width + horizontalLayoutGroup.spacing)),contentPanel.localPosition.y, contentPanel.localPosition.z);
     }
 

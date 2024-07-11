@@ -19,16 +19,24 @@ public class PortalAudio : MonoBehaviour
         portal.OnDoorUnLocked.AddListener(StartPortalAudio);
     }
 
-    public void StartPortalAudio()
+    private void StartPortalAudio()
     {
         portalAC.StartAudio();
     }
     
-    public void StopPortalAudio()
+    public void ForceStopPortalAudio()
     {
-        if(portal.GetIsDoorLockedFromOpen() == false)
-            return;
         portalAC.StopAudio();
         FMODUnity.RuntimeManager.PlayOneShot(stopPortalSfx, transform.position);
     }
+    public void StopPortalAudio()
+    {
+        if (!portal.GetIsDoorLockedFromOpen())
+        {
+            return;
+        }
+        portalAC.StopAudio();
+        FMODUnity.RuntimeManager.PlayOneShot(stopPortalSfx, transform.position);
+    }
+   
 }

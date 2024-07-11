@@ -39,7 +39,6 @@ public class PlayerAnimations : MonoBehaviour
     [ProButton]
     public void BeginToMove()
     {
-        Debug.Log("Move");
         IsWalkingState = true;
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);    
     }
@@ -47,7 +46,6 @@ public class PlayerAnimations : MonoBehaviour
     [ProButton]
     public void StopMoving()
     {
-        Debug.Log("Stop");
         IsWalkingState = false;
         animator.SetBool(IS_MOVING_ANIM_TAG, IsWalkingState);
     }

@@ -1,10 +1,11 @@
 using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     private GameObject player;
     private UIFade uiFade;
@@ -12,9 +13,9 @@ public class LevelManager : MonoBehaviour
 
     public GameObject[] enemiesInLevel;
 
-    private void Awake() {
-        uiFade = FindObjectOfType<UIFade>();    
-        Debug.Log(SceneManager.GetActiveScene().path);
+    protected override void Awake() {
+        base.Awake();
+        uiFade = FindObjectOfType<UIFade>();
     }
     void Start() {
         player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -38,11 +39,23 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
-    private void StopAudioAtmosphere()
+    public void StopAudioAtmosphere()
     {
+        Debug.Log(" stoppin everythomg");
         var audioAtmosGameobject = FindObjectOfType<PauseSnapshot>().gameObject;
         audioAtmosGameobject.GetComponentInChildren<GameplayMusicSysten>()?.StopCurrentSong();
         audioAtmosGameobject.GetComponentInChildren<AmbienceAudio>()?.StopAmbienceAudioSystem();
         audioAtmosGameobject.GetComponentInChildren<LightSourceAudio>()?.StopIdleLigthSrc();
+       var pa = FindObjectOfType<PortalAudio>();
+       if (pa)
+       {
+           pa.ForceStopPortalAudio();
+       }
+       else
+       {
+           Debug.Log("PA is null we cant stop the audio");
+       }
     }
+
+    
 }

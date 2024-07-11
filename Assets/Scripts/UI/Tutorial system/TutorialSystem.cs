@@ -11,18 +11,20 @@ using UnityEngine.UI;
 public class TutorialSystem : MonoBehaviour
 {
    public List<TextMeshProUGUI> tutorialTexts; //each tmp should have a canvas group on it 
-   public List<TUTORIAL_KEY> tutKeys;
-   private int tutorialIndex = 0;
+  
+   public int TutorialIndex { get; private set; }
+
    //1. move
    //2. when player moves, show second 
    //3. when player interacts with light, show rotate light
    //4. when player does that, show match light sourve
-   private float FADE_TIME = 3.0f;
+   private float FADE_TIME = 5.0f;
 
    void Start()
    {
+      TutorialIndex = 0;
       HideAllText();
-      OnNextTutorialStep(TUTORIAL_KEY.NONE);
+      OnNextTutorialStep(0);
    }
    private void HideAllText()
    {
@@ -32,21 +34,19 @@ public class TutorialSystem : MonoBehaviour
       }
    }
 
-   public void TutorialSubscribeEvent(UnityEvent _event, int tutorialOrder )
-   {
-      
-   }
+ 
    
    [ProButton]
-   public void OnNextTutorialStep(TUTORIAL_KEY currentTutorialKey)
+   public void OnNextTutorialStep( int currentOrder)
    {
-      if (tutorialIndex >= tutorialTexts.Count)
+      if (TutorialIndex >= tutorialTexts.Count)
          return;
-      if (tutKeys[tutorialIndex] != currentTutorialKey)
+      if (currentOrder != TutorialIndex)
          return;
-      
-      StartCoroutine(FadeInText(tutorialTexts[tutorialIndex]));
-      tutorialIndex++;
+
+      StartCoroutine(FadeInText(tutorialTexts[TutorialIndex]));
+      TutorialIndex++;
+
    }
 
    private IEnumerator FadeInText(TextMeshProUGUI text)
@@ -67,10 +67,7 @@ public class TutorialSystem : MonoBehaviour
 
    }
 
-   public bool Requires(TUTORIAL_KEY tutKey)
-   {
-      return tutKeys.Contains(tutKey);
-   }
+ 
 
    [ProButton]
    private void Debug_FadeInAllText()
@@ -81,10 +78,7 @@ public class TutorialSystem : MonoBehaviour
       }
    }
 
-   public void InsertEvent(UnityEvent<TUTORIAL_KEY> _evt)
-   {
-     _evt.AddListener(OnNextTutorialStep);
-   }
+ 
 }
 
 public enum TUTORIAL_KEY
