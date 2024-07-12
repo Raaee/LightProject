@@ -53,12 +53,14 @@ public class GameplayMusicSysten : MonoBehaviour
 
         ES3.Save(INDEX_KEY, currentlyPlayingTrack);
     }
+    
+    //This must be commented for builds to work
     private void DisplayPeteDebugMusicSystem(int lastRepeatedIndex, int chosenInd)
     {
-        string text = "Hello! This is your DJ Debuggin-Pete.\n";
-        text += "The last song played was " + musicTracks[lastRepeatedIndex].Path + "\n";
-        text += "Coming right up is " + musicTracks[chosenInd].Path + ". So sit back and enjoy the tunes";
-        Debug.Log(text);
+        // string text = "Hello! This is your DJ Debuggin-Pete.\n";
+        // text += "The last song played was " + musicTracks[lastRepeatedIndex].Path + "\n";
+        // text += "Coming right up is " + musicTracks[chosenInd].Path + ". So sit back and enjoy the tunes";
+        // Debug.Log(text);
     }
 
     public void StopCurrentSong()
