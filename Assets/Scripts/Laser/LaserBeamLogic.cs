@@ -43,16 +43,24 @@ public class LaserBeamLogic : MonoBehaviour
         RotateObject();
         // laserStrength would be an invisible point far away is what we are setting the second point to        
         Vector2 offsetPosition = Utility.GetOffsetPosition(transform.position, LaserStrength, laserBeamCardinalDirection);
-
+        
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, offsetPosition);
         Vector2 direction = offsetPosition - (Vector2)transform.position;
         float calcDistance = Vector2.Distance(offsetPosition, transform.position); 
+
+
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, detectingLayerMask);
         RaycastHit2D hitLightBlocker = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, lightBlockingLayerMask);
 
 
-       
+       /*
+            What we want: we do a raycast. the first thing we hit, we do logic. if its currently waiting
+
+       */
+
+
+
         if (hit)
         {
            

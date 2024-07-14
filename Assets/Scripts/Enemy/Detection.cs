@@ -55,13 +55,13 @@ public class Detection : MonoBehaviour
         OnDetectedGameOver.Invoke();
     }
     public void FOV_OnPlayerDetected() {
-        Debug.Log("got it");
+       
         playerDetected = true;
         enemyPatrol.stopMovement = true;
     }
 
     public void FOV_OnPlayerUnDetected() {
-        Debug.Log("dropped it");
+     
         playerDetected = false;
         enemyPatrol.stopMovement = false;
     }
