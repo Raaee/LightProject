@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KeyLock : ILock, IInteractable
 {
+    public UnityEvent OnKeyLockPlaced;
     void Start()
     {
         laserKey = LaserKeys.KEY;
@@ -15,6 +17,7 @@ public class KeyLock : ILock, IInteractable
         if (IsLocked && Inventory.instance.inventory && Inventory.instance.inventory.GetComponentInChildren<Key>())
         {
             Debug.Log("unlocking key lock");
+            OnKeyLockPlaced?.Invoke();
             Inventory.instance.RemoveItem();
             Unlock();
         }

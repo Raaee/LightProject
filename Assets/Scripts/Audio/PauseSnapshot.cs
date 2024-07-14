@@ -16,6 +16,8 @@ public class PauseSnapshot : Singleton<PauseSnapshot>
     private void Start()
     {
         pauesSnapshotEvent = FMODUnity.RuntimeManager.CreateInstance(pauseSnapshotPath);
+        pauesSnapshotEvent.stop(STOP_MODE.ALLOWFADEOUT);
+
     }
 
     [ProButton]

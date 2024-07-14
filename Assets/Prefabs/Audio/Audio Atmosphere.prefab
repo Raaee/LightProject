@@ -120,6 +120,13 @@ MonoBehaviour:
       Data3: -1966451828
       Data4: 1064381807
     Path: event:/Ambience/MainAmbienceLoop
+  enemyCinematicYell:
+    Guid:
+      Data1: 1514219786
+      Data2: 1278599733
+      Data3: -290896199
+      Data4: 94770852
+    Path: event:/Enemy/CinematicYell
   ambienceRandomOneShots:
     Guid:
       Data1: -1385916969
