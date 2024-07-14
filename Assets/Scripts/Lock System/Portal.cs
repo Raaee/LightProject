@@ -71,6 +71,8 @@ public class Portal : MonoBehaviour
     private void DetermineIfGameplayLevel()
     {
         var pathOfThisScene = SceneManager.GetActiveScene().path;
+        if(LevelSelectDataHandler.Instance.gamePlayLevelElements == null)
+            return;
         if (LevelSelectDataHandler.Instance.gamePlayLevelElements.Count == 0)
         {
             Debug.Log("Did not start this scene from the main menu");

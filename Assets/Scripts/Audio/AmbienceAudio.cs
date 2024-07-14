@@ -7,7 +7,7 @@ using UnityEngine;
 public class AmbienceAudio : MonoBehaviour
 {
     [Header("AUDIO")] [SerializeField] private EventReference ambienceLoop;
-
+    [SerializeField] private EventReference enemyCinematicYell;
     [SerializeField] private EventReference ambienceRandomOneShots;
 
     private readonly ExtendedAudioContainer ambiLoopAudioContainer = new();
@@ -30,6 +30,16 @@ public class AmbienceAudio : MonoBehaviour
             return;
         }
         portal.OnPlayerEntersPortal.AddListener(StopAmbienceAudioSystem);
+        CheckForEnemyAudio();
+    }
+
+    private void CheckForEnemyAudio()
+    {
+        var enemies = FindObjectOfType<EnemyMovement>();
+        
+        if(!enemies) return;
+        
+        RuntimeManager.PlayOneShot(enemyCinematicYell);
     }
 
 
