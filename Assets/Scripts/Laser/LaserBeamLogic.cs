@@ -52,18 +52,7 @@ public class LaserBeamLogic : MonoBehaviour
         RaycastHit2D hitLightBlocker = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, lightBlockingLayerMask);
 
 
-        if (hit && hitLightBlocker)
-        {
-            //choose the closer one? no way this works 
-            var distanceToHit = Vector3.Distance(hit.point, transform.position);
-            var distanceToHitBlocker = Vector3.Distance(hitLightBlocker.point, transform.position);
-
-            if (distanceToHitBlocker < distanceToHit)
-            {
-                lineRenderer.SetPosition(1, hitLightBlocker.point);
-            }
-        }
-        
+       
         if (hit)
         {
            
