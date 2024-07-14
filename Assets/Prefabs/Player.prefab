@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3756070565582599836
 Transform:
   m_ObjectHideFlags: 0
@@ -5125,15 +5125,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  isCurrentlyMoving: 0
   OnPlayerMove:
     m_PersistentCalls:
       m_Calls: []
   OnPlayerStop:
     m_PersistentCalls:
       m_Calls: []
-  smoothMovementAnimations: 1
-  timeToIdle: 1.5
 --- !u!114 &2303505215579598258
 MonoBehaviour:
   m_ObjectHideFlags: 0
