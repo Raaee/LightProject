@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/IsaacLeves/Melon.unity
     guid: f717a930862c4c74b9da44be215c53ff
   - enabled: 1
-    path: Assets/Scenes/IsaacLeves/One.unity
+    path: Assets/Scenes/IsaacLeves/OneSource.unity
     guid: 61a3f793430fffb4ca7b6667f4ceb490
   - enabled: 1
     path: Assets/Scenes/IsaacLeves/Roulette.unity

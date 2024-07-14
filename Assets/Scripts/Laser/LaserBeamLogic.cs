@@ -18,8 +18,6 @@ public class LaserBeamLogic : MonoBehaviour
     [field: SerializeField] public float LaserStrength { get; set; }
     [field: SerializeField] public bool IsActive { get; set; }
     private Quaternion rotation;
-    private bool alreadyHitting = false;
-
     private void Start()
     {
         LaserStrength = 7f;
@@ -48,25 +46,47 @@ public class LaserBeamLogic : MonoBehaviour
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, offsetPosition);
-       LayerMask combinedMask = detectingLayerMask | lightBlockingLayerMask;
         Vector2 direction = offsetPosition - (Vector2)transform.position;
         float calcDistance = Vector2.Distance(offsetPosition, transform.position); 
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, detectingLayerMask);
         RaycastHit2D hitLightBlocker = Physics2D.Raycast((Vector2)transform.position, direction.normalized, calcDistance, lightBlockingLayerMask);
 
+
+        if (hit && hitLightBlocker)
+        {
+            //choose the closer one? no way this works 
+            var distanceToHit = Vector3.Distance(hit.point, transform.position);
+            var distanceToHitBlocker = Vector3.Distance(hitLightBlocker.point, transform.position);
+
+            if (distanceToHitBlocker < distanceToHit)
+            {
+                lineRenderer.SetPosition(1, hitLightBlocker.point);
+            }
+        }
+        
         if (hit)
         {
+           
             LaserDetection laserDetect = hit.collider.gameObject.GetComponentInParent<LaserDetection>();
-            if (!laserDetect) laserDetect = hit.collider.gameObject.transform.parent.GetComponentInChildren<LaserDetection>();
+            if (!laserDetect) 
+                laserDetect = hit.collider.gameObject.transform.parent.GetComponentInChildren<LaserDetection>();
+            
+            
             LaserBeamLogic beam = hit.collider.gameObject.GetComponent<LaserBeamLogic>();
+            
+            
             laserDetect?.OnLaserDetected(laserKey);
             laserKey = laserDetect.GetLaserType();
-            if (beam) beam.laserKey = laserKey;
+            if (beam) 
+                beam.laserKey = laserKey;
+            
             lineRenderer.SetPosition(1, hit.point);
             return;
         }
         if (hitLightBlocker) {
             lineRenderer.SetPosition(1, hitLightBlocker.point);
+            
+
             return;
         }
     }
