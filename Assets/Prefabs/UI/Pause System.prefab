@@ -929,6 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 7237703377619506672}
+  fadeDuration: 1
   OnFadeOutComplete:
     m_PersistentCalls:
       m_Calls: []
