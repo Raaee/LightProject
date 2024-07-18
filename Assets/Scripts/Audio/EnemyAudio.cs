@@ -27,7 +27,6 @@ public class EnemyAudio : MonoBehaviour
 
         if (canYell)
         {
-            Debug.Log("playing enemy yell");
             RuntimeManager.PlayOneShot(enemyYell);
             canYell = false;
             StartCoroutine(speechDelay());
