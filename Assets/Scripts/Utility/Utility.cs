@@ -84,5 +84,12 @@ public class Utility : MonoBehaviour
     }
 
 
+    //raeus mind your business.
+    public static string LoreUtility(string originalText)
+    {
+        var randNum = Random.Range(0, 99)  + 1 ;
+
+        return randNum > 6 ? originalText : "You pompous blue flame";
+    }
     
 }
