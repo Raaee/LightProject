@@ -18,6 +18,7 @@ public class ResetSystem : MonoBehaviour, IInteractable
     }
     public void Interact() {
         ResetAll();
+        ReturnPlayerToSpawnPoint();
     }
     [ProButton]
     public void ResetAll()
@@ -80,6 +81,12 @@ public class ResetSystem : MonoBehaviour, IInteractable
             lightSource.TurnOnLightSource();
 
         }
+    }
+
+    public void ReturnPlayerToSpawnPoint() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        player.transform.position = spawnPoint.transform.position;
     }
 }
 

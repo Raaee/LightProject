@@ -9,6 +9,7 @@ TagManager:
   - Pillar
   - Enemy
   - CardBG
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
