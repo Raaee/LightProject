@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyVisuals: {fileID: 8748201891613877139}
   enemyPatrol: {fileID: 155214891139771067}
-  detectionTimeToLoseGame: 2
+  detectionTimeToLoseGame: 0.8
   OnDetectedGameOver:
     m_PersistentCalls:
       m_Calls: []

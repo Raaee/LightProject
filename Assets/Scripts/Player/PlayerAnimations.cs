@@ -16,7 +16,7 @@ public class PlayerAnimations : MonoBehaviour
     [HideInInspector] public UnityEvent OnSpawnAnimationEnd;
     private void Start()
     {
-        spawnPS.Play();
+        PlayParticleAnimation();
         StopGlitch();
         //StartCoroutine(SpawnAnimation());
         IsWalkingState = false;
@@ -73,6 +73,10 @@ public class PlayerAnimations : MonoBehaviour
         }
         transform.localScale = new Vector3(targetScale, targetScale, targetScale);
         OnSpawnAnimationEnd?.Invoke();
+    }
+
+    public void PlayParticleAnimation() {
+        spawnPS.Play();
     }
 
 }

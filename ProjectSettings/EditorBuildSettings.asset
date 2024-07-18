@@ -47,7 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rae Levels/SpicyMayo.unity
     guid: 696d3c65e773f9c46bc0710573577749
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Pete June Demo Levels/Level 1 - rae.unity
     guid: 55a582b896c4f0944a357ddcc6cc50a1
   - enabled: 1
@@ -86,12 +86,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Non Game Scenes/End Scene - Call To Action.unity
     guid: 574cf220b4e4f3f4d989ea060d09472e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/IsaacLeves/It Just Started.unity
     guid: 5626545bd89f6954c97659280c6f1bbb
   - enabled: 1
     path: Assets/Scenes/alice puzzles/puzzle2 w key.unity
     guid: c97b92cc2591256438ebd453be9ca1da
+  - enabled: 1
+    path: Assets/Scenes/IsaacLeves/One.unity
+    guid: 360d281fcd395ca41ab803299f7924c4
   - enabled: 1
     path: Assets/Scenes/IsaacLeves/GuessWho.unity
     guid: b45f637a905ce5f45a01460a4f474d5c

@@ -43,15 +43,16 @@ public class Portal : MonoBehaviour
         }
         else
         {
-            var pauseMenu = FindObjectOfType<PauseSystem>();
+            /*var pauseMenu = FindObjectOfType<PauseSystem>();
             if (pauseMenu == null)
             {
                 Debug.LogError("Theres no pause prefab in this scene!");
 
                 return;
             } 
-            pauseMenu.PauseGame();
-            
+            pauseMenu.PauseGame();*/
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Level Selector");
         }
         Debug.Log("Attempting to stop audio atmospher");
 
