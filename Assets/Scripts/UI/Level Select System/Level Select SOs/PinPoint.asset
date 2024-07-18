@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PinPoint
   m_EditorClassIdentifier: 
   titleOfLevel: Pinpoint
-  scenePath: Assets/Scenes/Ally Puzzles/Circut Puzzles/Pinpoint.unity
+  scenePath: Assets/Scenes/Ally Puzzles/Circut Puzzles/Pinpoint.unityAssets/Scenes/Ally
+    Puzzles/Circut Puzzles/Pinpoint.unityAssets/Scenes/Ally Puzzles/Circut Puzzles/Pinpoint.unity
   levelPicture: {fileID: 1630878049, guid: 03d12038382021d4da57a0a9fd78d1e0, type: 3}
   developerName: 2
   dialogueText: 
