@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private InputControls playerInput;
     private Rigidbody2D rb;
+    [SerializeField] private GameObject visualToRotate;
     private Vector2 moveInput;
     private Vector2 smoothedMovementInput;
     private Vector2 movementInputSmoothVelocity;
@@ -91,13 +92,13 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            visualToRotate.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 
     public void ResetRotation()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        visualToRotate.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public void AllowPlayerInputOnAnimationEnd()

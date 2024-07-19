@@ -319,8 +319,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2967131}
-  m_Size: {x: 0.5, y: 0.5}
+  m_Offset: {x: 0, y: -0.11189425}
+  m_Size: {x: 0.64480436, y: 0.6448045}
   m_Direction: 0
 --- !u!114 &6860573671885341184
 MonoBehaviour:
@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  visualToRotate: {fileID: 483018825279354457}
   OnPlayerMove:
     m_PersistentCalls:
       m_Calls: []
