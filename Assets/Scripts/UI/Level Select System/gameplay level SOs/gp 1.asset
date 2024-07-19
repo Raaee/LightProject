@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gp 1
   m_EditorClassIdentifier: 
   titleOfLevel: Gameplay Level 1
-  scenePath: 
+  scenePath: Assets/Scenes/Rae Levels/OfCorpse.unity
   levelPicture: {fileID: 0}
   developerName: 1
   dialogueText: 
