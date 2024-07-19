@@ -28,7 +28,7 @@ public class LevelSelectElementSO : ScriptableObject
 public enum DEV_NAME
 {
    Anonymous,
-   Issac,
+   Isaac,
    Ally,
    Alice,
    Raeus,
