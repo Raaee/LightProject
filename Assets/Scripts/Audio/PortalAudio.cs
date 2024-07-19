@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 
 public class PortalAudio : MonoBehaviour
@@ -19,6 +20,7 @@ public class PortalAudio : MonoBehaviour
         portal.OnDoorUnLocked.AddListener(StartPortalAudio);
     }
 
+    [ProButton]
     private void StartPortalAudio()
     {
         portalAC.StartAudio();

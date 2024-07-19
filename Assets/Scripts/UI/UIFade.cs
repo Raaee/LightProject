@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class UIFade : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
-     private float fadeDuration = 2.0f;
+     [SerializeField] private float fadeDuration = 1f;
 
     public UnityEvent OnFadeOutComplete;
     public UnityEvent OnFadeInComplete;
