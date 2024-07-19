@@ -8,8 +8,10 @@ public class ResetSystem : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
     public Dictionary<GameObject, Transform> ObjsInLevel = new Dictionary<GameObject, Transform>();
+    [SerializeField] PlayerAnimations playerAnimations;
     private void Start()
     {
+        PlayerAnimations playerAnimations = GetComponent<PlayerAnimations>();
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Pillar"))
         {
             ObjsInLevel.Add(obj, obj.transform);
@@ -18,6 +20,7 @@ public class ResetSystem : MonoBehaviour, IInteractable
     }
     public void Interact() {
         ResetAll();
+        ReturnPlayerToSpawnPoint();
     }
     [ProButton]
     public void ResetAll()
@@ -80,6 +83,14 @@ public class ResetSystem : MonoBehaviour, IInteractable
             lightSource.TurnOnLightSource();
 
         }
+    }
+
+    public void ReturnPlayerToSpawnPoint() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        playerAnimations = player.GetComponentInChildren<PlayerAnimations>();
+        player.transform.position = spawnPoint.transform.position;
+        playerAnimations.PlayParticleAnimation();
     }
 }
 
