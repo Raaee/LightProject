@@ -8,7 +8,7 @@ public class ResetSystem : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
     public Dictionary<GameObject, Transform> ObjsInLevel = new Dictionary<GameObject, Transform>();
-    PlayerAnimations playerAnimations;
+    [SerializeField] PlayerAnimations playerAnimations;
     private void Start()
     {
         PlayerAnimations playerAnimations = GetComponent<PlayerAnimations>();
@@ -88,7 +88,7 @@ public class ResetSystem : MonoBehaviour, IInteractable
     public void ReturnPlayerToSpawnPoint() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        playerAnimations = player.GetComponent<PlayerAnimations>();
+        playerAnimations = player.GetComponentInChildren<PlayerAnimations>();
         player.transform.position = spawnPoint.transform.position;
         playerAnimations.PlayParticleAnimation();
     }
