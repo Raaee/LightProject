@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IsaacLeves/GetConfuse.unity
     guid: 1ea6baea7702b8540b7a06bb3687a552
   - enabled: 1
+    path: Assets/Scenes/Non Game Scenes/Level Selector.unity
+    guid: c7202b3d8adaad541835929443f8cdf9
+  - enabled: 1
     path: Assets/Scenes/IsaacLeves/ChooseWisely.unity
     guid: 80aea4716eaa73e419468513e9f3cdff
   - enabled: 1
