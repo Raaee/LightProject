@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndMenu : MonoBehaviour
 {
@@ -34,5 +35,8 @@ public class EndMenu : MonoBehaviour
             elapsedTime += Time.deltaTime;
         }
         centerImage.transform.localScale = new Vector3(targetScale, targetScale, targetScale);
+    }
+    public void BackToMainMenu() {
+        SceneManager.LoadScene(0);
     }
 }
