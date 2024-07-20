@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/IsaacLeves/Melon.unity
     guid: f717a930862c4c74b9da44be215c53ff
   - enabled: 1
+    path: Assets/Scenes/Rae Levels/Run.unity
+    guid: 7f0db5c89f3a72540808ac2565655784
+  - enabled: 1
+    path: Assets/Scenes/Ally Puzzles/Circut Puzzles/Pinpoint.unity
+    guid: 83b4bb05eb45cd449ab00ccda993d021
+  - enabled: 1
     path: Assets/Scenes/IsaacLeves/OneSource.unity
     guid: 61a3f793430fffb4ca7b6667f4ceb490
   - enabled: 1
