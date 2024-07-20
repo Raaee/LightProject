@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8833426335267788774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6137194953501769108}
+  - component: {fileID: 1080946120478909541}
+  m_Layer: 0
+  m_Name: Level Select Data Singleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6137194953501769108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833426335267788774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1920, y: 1080, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080946120478909541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833426335267788774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315c61b7e7d102d4a9c2b786ab2d0768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoUnparentOnAwake: 1
+  sandboxLevelElements:
+  - {fileID: 11400000, guid: 92207ff86e7c62d4e881f60e93923a02, type: 2}
+  - {fileID: 11400000, guid: 76de281c97c714a44a4fdcd4edfe1b0f, type: 2}
+  - {fileID: 11400000, guid: 4b336fac3b7eb204bb1a545dd45ee82e, type: 2}
+  - {fileID: 11400000, guid: b91b6f4012e3aba4cb8e5cb37604f047, type: 2}
+  - {fileID: 11400000, guid: 81450a3a8c2cc494c8376ba4a5565c40, type: 2}
+  - {fileID: 11400000, guid: 634928c20d214c84d931ca1990993912, type: 2}
+  - {fileID: 11400000, guid: 39cad0e025ce52d43b6462c3c80b2358, type: 2}
+  - {fileID: 11400000, guid: 6d2bcde207e47f94f80e346569347a17, type: 2}
+  - {fileID: 11400000, guid: faa3aa146b3936340addb81c21aaad59, type: 2}
+  - {fileID: 11400000, guid: 1e5c1ebdea312574fbb28163f21d6a6a, type: 2}
+  - {fileID: 11400000, guid: 2f812048748979640aedf64f0ce78190, type: 2}
+  - {fileID: 11400000, guid: 12453e0b823f05540a500ea40e96f7cf, type: 2}
+  - {fileID: 11400000, guid: ba30cd9518950544c92b1c6af6e7f3a9, type: 2}
+  - {fileID: 11400000, guid: 4edf4f283353f87448cc6fc870456f18, type: 2}
+  gamePlayLevelElements:
+  - {fileID: 11400000, guid: 0cc50d516ad1598428d575312699df16, type: 2}
+  - {fileID: 11400000, guid: 077c191d8ab108e43bc37be87a75a81a, type: 2}
+  - {fileID: 11400000, guid: d39e669c9d80c4e49bea017c172231ad, type: 2}
+  - {fileID: 11400000, guid: 714ca93b585eaa844b901f311846e1b2, type: 2}
+  - {fileID: 11400000, guid: caa7ecac7a0024e45bf5e7f89e97b600, type: 2}
+  - {fileID: 11400000, guid: 0b27aad624c026f43a45e3f1a2d1d7f4, type: 2}
+  - {fileID: 11400000, guid: 3f481a75c35b2e644980deac8e0f43bf, type: 2}
+  - {fileID: 11400000, guid: 013e61108f71ebf4cbcdc3d7710df69b, type: 2}
+  - {fileID: 11400000, guid: 94677a1c3981ff44e9e4a17e8037c2d1, type: 2}
+  - {fileID: 11400000, guid: 6aefc5dbb0bdce646b70e6c512e052f9, type: 2}
+  - {fileID: 11400000, guid: bc2d0eb083c7c8140a72dfec8075e8ca, type: 2}
+  - {fileID: 11400000, guid: 98137739a6a00314f919f7602b66b233, type: 2}
+  - {fileID: 11400000, guid: e2048b06e51f7e847b1b54bf410ee9ed, type: 2}
+  - {fileID: 11400000, guid: f8b1a6edecdcefe43bc0930f58038c9e, type: 2}
+  - {fileID: 11400000, guid: 51c2c92dd1be2014e8773c4034127c2a, type: 2}

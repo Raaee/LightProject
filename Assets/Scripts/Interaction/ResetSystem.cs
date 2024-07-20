@@ -90,7 +90,8 @@ public class ResetSystem : MonoBehaviour, IInteractable
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         playerAnimations = player.GetComponentInChildren<PlayerAnimations>();
         player.transform.position = spawnPoint.transform.position;
-        playerAnimations.PlayParticleAnimation();
+     //   playerAnimations.PlayParticleAnimation();
+     Debug.LogWarning("Where is Play Particale Animatinos");
     }
 }
 

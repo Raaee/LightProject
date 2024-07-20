@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gp 11
   m_EditorClassIdentifier: 
   titleOfLevel: Gameplay Level 11
-  scenePath: 
+  scenePath: Assets/Scenes/Ally Puzzles/Circut Puzzles/Brain Puzzle.unity
   levelPicture: {fileID: 0}
-  developerName: 0
+  developerName: 2
   dialogueText: 

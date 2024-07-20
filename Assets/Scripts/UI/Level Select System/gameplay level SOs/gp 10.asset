@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gp 10
   m_EditorClassIdentifier: 
   titleOfLevel: Gameplay Level 10
-  scenePath: 
+  scenePath: Assets/Scenes/Ally Puzzles/Light Puzzles/Square Light Puzzle/Cubic Root.unity
   levelPicture: {fileID: 0}
-  developerName: 0
+  developerName: 2
   dialogueText: 

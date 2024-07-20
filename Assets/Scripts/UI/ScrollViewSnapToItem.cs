@@ -15,7 +15,7 @@ public class ScrollViewSnapToItem : MonoBehaviour
    
     private int currentItem = 0;
     private int previousItem = 0;
-    [SerializeField] private LevelSelectController levelSelectCont;
+   // [SerializeField] private LevelSelectController levelSelectCont;
     private int totalItems = 0;
     [Header("Audio")] 
     [SerializeField] private EventReference forwardSfx;
@@ -23,7 +23,7 @@ public class ScrollViewSnapToItem : MonoBehaviour
     
     private void Start()
     {
-        totalItems = levelSelectCont.levelElements.Count;
+        totalItems = LevelSelectDataHandler.Instance.sandboxLevelElements.Count;
         StartCoroutine(SnapToTargetItem());
     }
 

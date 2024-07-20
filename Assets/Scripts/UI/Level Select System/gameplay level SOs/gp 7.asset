@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gp 7
   m_EditorClassIdentifier: 
   titleOfLevel: Gameplay Level 7
-  scenePath: 
+  scenePath: Assets/Scenes/Ally Puzzles/Circut Puzzles/Rocket.unity
   levelPicture: {fileID: 0}
-  developerName: 0
+  developerName: 2
   dialogueText: 

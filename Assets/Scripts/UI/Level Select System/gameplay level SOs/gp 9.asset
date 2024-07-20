@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gp 9
   m_EditorClassIdentifier: 
   titleOfLevel: Gameplay Level 9
-  scenePath: 
+  scenePath: Assets/Scenes/Ally Puzzles/Circut Puzzles/Face up.unity
   levelPicture: {fileID: 0}
-  developerName: 0
+  developerName: 2
   dialogueText: 
