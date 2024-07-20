@@ -16,7 +16,7 @@ public class PlayerAnimations : MonoBehaviour
     [HideInInspector] public UnityEvent OnSpawnAnimationEnd;
     private void Start()
     {
-        spawnPS.Play();
+        PlayParticleAnimation();
         StopGlitch();
         //StartCoroutine(SpawnAnimation());
         IsWalkingState = false;
@@ -35,7 +35,9 @@ public class PlayerAnimations : MonoBehaviour
         sr.material.SetFloat("_WaveAmount", 7);
         sr.material.SetFloat("_WaveSpeed", 10);
     }
-
+    public void PlayParticleAnimation() {
+        spawnPS.Play();
+    }
     [ProButton]
     public void BeginToMove()
     {

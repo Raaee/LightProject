@@ -6,12 +6,17 @@ using UnityEngine;
 
 public class ResetSystem : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
     public Dictionary<GameObject, Transform> ObjsInLevel = new Dictionary<GameObject, Transform>();
-    [SerializeField] PlayerAnimations playerAnimations;
+    private GameObject player;
+    private GameObject playerSpawnPoint;
+    private PlayerAnimations playerAnimations;
+    private InteractVisual interactVisual;
     private void Start()
     {
-        PlayerAnimations playerAnimations = GetComponent<PlayerAnimations>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerSpawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        playerAnimations = player.GetComponentInChildren<PlayerAnimations>();
+        interactVisual = transform.parent.GetComponentInChildren<InteractVisual>();
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Pillar"))
         {
             ObjsInLevel.Add(obj, obj.transform);
@@ -21,6 +26,7 @@ public class ResetSystem : MonoBehaviour, IInteractable
     public void Interact() {
         ResetAll();
         ReturnPlayerToSpawnPoint();
+        interactVisual.NormalSprite();
     }
     [ProButton]
     public void ResetAll()
@@ -86,12 +92,9 @@ public class ResetSystem : MonoBehaviour, IInteractable
     }
 
     public void ReturnPlayerToSpawnPoint() {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        playerAnimations = player.GetComponentInChildren<PlayerAnimations>();
-        player.transform.position = spawnPoint.transform.position;
-     //   playerAnimations.PlayParticleAnimation();
-     Debug.LogWarning("Where is Play Particale Animatinos");
+        player.transform.position = playerSpawnPoint.transform.position;
+        playerAnimations.PlayParticleAnimation();
+        Debug.LogWarning("Where is Play Particale Animatinos");
     }
 }
 
