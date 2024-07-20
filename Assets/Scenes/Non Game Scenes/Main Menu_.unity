@@ -814,7 +814,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153945416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fee182c4af5c7b4f9c7e3689b975ba6, type: 3}
   m_Name: 
@@ -824,6 +824,7 @@ MonoBehaviour:
   contentPanel: {fileID: 1880098826}
   sampleListItem: {fileID: 6622519418440880468, guid: df64baf95f5b8ed42a093234259849a8, type: 3}
   horizontalLayoutGroup: {fileID: 1880098827}
+  levelSelectCont: {fileID: 153945423}
   forwardSfx:
     Guid:
       Data1: -900463529
@@ -7118,7 +7119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1793588384}
-  fadeDuration: 2
   OnFadeOutComplete:
     m_PersistentCalls:
       m_Calls: []
