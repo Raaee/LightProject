@@ -58,6 +58,8 @@ public class PauseSystem : MonoBehaviour
         PauseSnapshot.Instance.StopPauseAudio();
     }
     public void RestartLevel() {
+        Time.timeScale = 1;
+        fadeSystem.FadeOut();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
     public void BackToMainMenu()
