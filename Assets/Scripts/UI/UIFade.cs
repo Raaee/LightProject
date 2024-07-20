@@ -29,6 +29,8 @@ public class UIFade : MonoBehaviour
     [ProButton]
     public void FadeOut(bool isFromGameover = false)
     {
+        FindObjectOfType<LightSourceAudio>().StopIdleLigthSrc();
+        FindObjectOfType<PortalAudio>()?.ForceStopPortalAudio();
         FindObjectOfType<PauseSnapshot>()?.StopPauseAudio();
         FindObjectOfType<GameplayMusicSysten>()?.StopCurrentSong();
         FMODUnity.RuntimeManager.PlayOneShot(transitionSfx);
