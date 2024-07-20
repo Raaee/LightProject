@@ -15,6 +15,8 @@ public class LevelSelectController : MonoBehaviour
     {
         if (levelElements.Count < 3)
             Debug.LogError("Make sure theres at least 3 elements in the list");
+
+        levelElements = LevelSelectDataHandler.Instance.sandboxLevelElements;
     }
     
     

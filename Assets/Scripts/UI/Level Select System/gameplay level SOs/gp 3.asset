@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gp 3
   m_EditorClassIdentifier: 
   titleOfLevel: Gameplay Level 3
-  scenePath: Assets/Scenes/IsaacLeves/BeAware.unity
+  scenePath: Assets/Scenes/IsaacLeves/GuessWho.unity
   levelPicture: {fileID: 0}
   developerName: 1
   dialogueText: 
