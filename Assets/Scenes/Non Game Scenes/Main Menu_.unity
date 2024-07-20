@@ -824,7 +824,6 @@ MonoBehaviour:
   contentPanel: {fileID: 1880098826}
   sampleListItem: {fileID: 6622519418440880468, guid: df64baf95f5b8ed42a093234259849a8, type: 3}
   horizontalLayoutGroup: {fileID: 1880098827}
-  levelSelectCont: {fileID: 153945423}
   forwardSfx:
     Guid:
       Data1: -900463529
@@ -1857,8 +1856,8 @@ Camera:
   m_GameObject: {fileID: 383059988}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7119,6 +7118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1793588384}
+  fadeDuration: 1
   OnFadeOutComplete:
     m_PersistentCalls:
       m_Calls: []
