@@ -53,3 +53,6 @@ TagManager:
   - name: stars BG
     uniqueID: 3269372091
     locked: 0
+  - name: controls
+    uniqueID: 721679371
+    locked: 0
