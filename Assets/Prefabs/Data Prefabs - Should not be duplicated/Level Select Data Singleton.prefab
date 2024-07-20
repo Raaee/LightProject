@@ -46,19 +46,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoUnparentOnAwake: 1
   sandboxLevelElements:
-  - {fileID: 11400000, guid: 92207ff86e7c62d4e881f60e93923a02, type: 2}
-  - {fileID: 11400000, guid: 76de281c97c714a44a4fdcd4edfe1b0f, type: 2}
-  - {fileID: 11400000, guid: 4b336fac3b7eb204bb1a545dd45ee82e, type: 2}
-  - {fileID: 11400000, guid: b91b6f4012e3aba4cb8e5cb37604f047, type: 2}
-  - {fileID: 11400000, guid: 81450a3a8c2cc494c8376ba4a5565c40, type: 2}
-  - {fileID: 11400000, guid: 634928c20d214c84d931ca1990993912, type: 2}
-  - {fileID: 11400000, guid: 39cad0e025ce52d43b6462c3c80b2358, type: 2}
-  - {fileID: 11400000, guid: 6d2bcde207e47f94f80e346569347a17, type: 2}
   - {fileID: 11400000, guid: faa3aa146b3936340addb81c21aaad59, type: 2}
-  - {fileID: 11400000, guid: 2f812048748979640aedf64f0ce78190, type: 2}
+  - {fileID: 11400000, guid: 4b336fac3b7eb204bb1a545dd45ee82e, type: 2}
   - {fileID: 11400000, guid: 12453e0b823f05540a500ea40e96f7cf, type: 2}
+  - {fileID: 11400000, guid: 39cad0e025ce52d43b6462c3c80b2358, type: 2}
+  - {fileID: 11400000, guid: b91b6f4012e3aba4cb8e5cb37604f047, type: 2}
+  - {fileID: 11400000, guid: 6d2bcde207e47f94f80e346569347a17, type: 2}
+  - {fileID: 11400000, guid: a1ed921023f6a2547b5c6ac1c31bd9a3, type: 2}
   - {fileID: 11400000, guid: ba30cd9518950544c92b1c6af6e7f3a9, type: 2}
+  - {fileID: 11400000, guid: 81450a3a8c2cc494c8376ba4a5565c40, type: 2}
+  - {fileID: 11400000, guid: 76de281c97c714a44a4fdcd4edfe1b0f, type: 2}
+  - {fileID: 11400000, guid: 92207ff86e7c62d4e881f60e93923a02, type: 2}
   - {fileID: 11400000, guid: 4edf4f283353f87448cc6fc870456f18, type: 2}
+  - {fileID: 11400000, guid: 634928c20d214c84d931ca1990993912, type: 2}
+  - {fileID: 11400000, guid: 2f812048748979640aedf64f0ce78190, type: 2}
   gamePlayLevelElements:
   - {fileID: 11400000, guid: 0cc50d516ad1598428d575312699df16, type: 2}
   - {fileID: 11400000, guid: 077c191d8ab108e43bc37be87a75a81a, type: 2}

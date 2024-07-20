@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Rae Levels/Prophecy.unity
     guid: 08248505ec2f00049bcd02282dc6d5cc
   - enabled: 1
+    path: Assets/Scenes/Ally Puzzles/Circut Puzzles/Zig Zagging Along.unity
+    guid: 5a6b07e6395e1d04c8ae4f3ea0e52094
+  - enabled: 1
     path: Assets/Scenes/Rae Levels/OfCorpse.unity
     guid: f82284aaebffa93479f7e7fb6bc62da7
   - enabled: 1
