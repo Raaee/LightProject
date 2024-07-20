@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ceb59e3dd547b64e8d6fe4a5fb0ceb3, type: 3}
-  m_Name: PuzzleHeart
+  m_Name: Cardiac
   m_EditorClassIdentifier: 
-  titleOfLevel: Puzzle Heart
+  titleOfLevel: Cardiac
   scenePath: Assets/Scenes/alice puzzles/puzzleheart.unity
-  levelPicture: {fileID: 21300002, guid: 07103c52b3aaeca4da8a83361edd059f, type: 3}
+  levelPicture: {fileID: -660654240, guid: e4f5b51f4538c6d48a47ca8b7db88b64, type: 3}
   developerName: 3
   dialogueText: 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleOfLevel: Run
   scenePath: Assets/Scenes/Rae Levels/Run.unity
-  levelPicture: {fileID: 21300002, guid: 07103c52b3aaeca4da8a83361edd059f, type: 3}
+  levelPicture: {fileID: 622484668, guid: e4f5b51f4538c6d48a47ca8b7db88b64, type: 3}
   developerName: 4
   dialogueText: 
