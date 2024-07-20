@@ -6,14 +6,11 @@ using UnityEngine.Serialization;
 
 public class PauseSystem : MonoBehaviour
 {
-    //Add the Scape button interaction
-
-
     private bool isPause = false;
     private InputControls inputControls;
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject pauseButtonPanel;
-     [SerializeField] private UIFade fadeSystem;
+    [SerializeField] private UIFade fadeSystem;
     private PlayerMovement playerMovement;
 
     private void Start()
@@ -45,7 +42,6 @@ public class PauseSystem : MonoBehaviour
     {
         isPause = true;
         pauseButtonPanel.SetActive(false);
-        //inputControls.DisableControls();
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0;
         //Audio change
@@ -56,15 +52,15 @@ public class PauseSystem : MonoBehaviour
     {
         isPause = false;
         pauseButtonPanel.SetActive(true);
-        //inputControls.EnableControls();
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1;
         //Revert audio change
         PauseSnapshot.Instance.StopPauseAudio();
-
     }
-
-    public void BackToMeinMenu()
+    public void RestartLevel() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    }
+    public void BackToMainMenu()
     {
         Time.timeScale = 1;
         fadeSystem.FadeOut();
@@ -75,4 +71,5 @@ public class PauseSystem : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu_");
     }
+    
 }
