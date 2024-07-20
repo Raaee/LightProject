@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 805722567851103180}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7833623481598504948}
   - component: {fileID: 8530997385037230670}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuPanel: {fileID: 5324608932904686512}
-  pauseButtonPanel: {fileID: 6850822108966387632}
+  pauseButtonPanel: {fileID: 2263191894535908779}
   fadeSystem: {fileID: 610975661231736047}
 --- !u!1 &1104306158771159083
 GameObject:
@@ -803,7 +803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668878271058384595}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 7139397958921489924}
   - component: {fileID: 1929039486134044946}
   - component: {fileID: 2631037170162654731}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WASD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 1702578146642642304}
   - component: {fileID: 1280728957343364564}
   - component: {fileID: 6855271604185821914}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 7584692523200767945}
   - component: {fileID: 8060326407152480839}
   - component: {fileID: 159950362874523504}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: E tab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 6266890255581057735}
   - component: {fileID: 5378819105453709308}
   - component: {fileID: 3895732334532181065}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: arrow keys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2505,7 +2505,7 @@ GameObject:
   - component: {fileID: 7539293350756239820}
   - component: {fileID: 3519895328222337437}
   - component: {fileID: 3668977165207206130}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2956,7 +2956,7 @@ GameObject:
   - component: {fileID: 7426508959916340735}
   - component: {fileID: 4313895780613978383}
   - component: {fileID: 5358839518811094339}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pause Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3088,7 +3088,7 @@ GameObject:
   - component: {fileID: 298476788616461166}
   - component: {fileID: 7933328541239637980}
   - component: {fileID: 8603610014314350732}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
