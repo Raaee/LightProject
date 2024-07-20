@@ -10,7 +10,7 @@ public class InteractionSystem : MonoBehaviour
 {
     [SerializeField] private LayerMask interactablesLayerMask;
     [SerializeField] [Range(0.01f, 4f)] private float interactRadius = 0.75f;
-    private float interactionDistanceMultiplier = 1.5f;
+   // private float interactionDistanceMultiplier = 1.5f;
     private InputControls input;
     private Collider2D[] collidersInRange;
     private void Start() {
