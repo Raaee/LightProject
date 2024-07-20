@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Data Prefabs - Should not be duplicated.meta
 guid: 06c3d5bbd5447cb4fadee0295e059748
 folderAsset: yes
 DefaultImporter:
+========
+guid: 1e5c1ebdea312574fbb28163f21d6a6a
+NativeFormatImporter:
+>>>>>>>> ally-level-polishing-and-fixinging-walls:Assets/Scripts/UI/Level Select System/Level Select SOs/Bull.asset.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

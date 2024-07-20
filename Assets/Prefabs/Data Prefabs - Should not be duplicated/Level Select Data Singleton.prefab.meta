@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Data Prefabs - Should not be duplicated/Level Select Data Singleton.prefab.meta
 guid: a322ee85832c5e649a5aba8b6dc03815
+========
+guid: a57cc3650731e90449cb4f880f9ef5c1
+>>>>>>>> ally-level-polishing-and-fixinging-walls:Assets/Prefabs/UI/Lore System Level.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

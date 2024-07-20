@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/UI/Lore System Level.prefab.meta
 guid: a57cc3650731e90449cb4f880f9ef5c1
 PrefabImporter:
+========
+guid: faa3aa146b3936340addb81c21aaad59
+NativeFormatImporter:
+>>>>>>>> ally-level-polishing-and-fixinging-walls:Assets/Scripts/UI/Level Select System/Level Select SOs/MazeRunner.asset.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
