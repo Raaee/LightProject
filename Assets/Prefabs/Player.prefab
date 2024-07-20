@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  visualToRotate: {fileID: 483018825279354457}
   OnPlayerMove:
     m_PersistentCalls:
       m_Calls: []
