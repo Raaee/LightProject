@@ -23,6 +23,7 @@ public class PauseSystem : MonoBehaviour
 
         pauseButtonPanel.SetActive(true);
         pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void OnPauseGame()
